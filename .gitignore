@@ -1,0 +1,35 @@
+# Took samples from https://github.com/javaee-samples/javaee7-samples/blob/master/.gitignore #
+######################
+# Directories #
+######################
+build/
+bin/
+target/
+libs/
+tmp/
+node_modules/
+jaxws/jaxws-client/src/main/java
+jaxws/jaxws-endpoint/src/main/webapp/WEB-INF/wsdl/
+
+######################
+# Bytecode
+######################
+*.class
+
+######################
+# Package Files
+######################
+*.jar
+*.war
+*.ear
+*.db
+rebel.xml
+
+######################
+# IDEA
+######################
+*.iml
+*.ipr
+*.iws
+.idea/
+atlassian-ide-plugin.xml
