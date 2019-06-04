@@ -3,4 +3,41 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+<!--Authentication managed by Tomcat FORM method -->
+
+    <security-constraint>
+        <display-name>
+            BASIC_USERS
+        </display-name>
+        <web-resource-collection>
+            <web-resource-name>
+                AUCTIONS_SELF_EDIT
+            </web-resource-name>
+            <description>
+                Access to gui for create/update/delete owned auctions
+            </description>
+            <url-pattern>
+                /login/*
+            </url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>
+                Users with basic permissions
+            </description>
+            <role-name>
+                basic_user
+            </role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>Identifiants</realm-name>
+        <form-login-config>
+            <form-login-page>/login</form-login-page>
+            <form-error-page>/login_error</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <role-name>basic_user</role-name>
+    </security-role>
 </web-app>

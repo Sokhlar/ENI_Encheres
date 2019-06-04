@@ -69,13 +69,22 @@ CREATE TABLE UTILISATEURS (
     rue              VARCHAR(30) NOT NULL,
     code_postal      VARCHAR(10) NOT NULL,
     ville            VARCHAR(30) NOT NULL,
-    mot_de_passe     VARCHAR(30) NOT NULL,
+    -- passwords stored in md5 encryption so we need at least 32 chars
+    mot_de_passe     VARCHAR(40) NOT NULL,
     credit           INTEGER NOT NULL,
     administrateur   bit NOT NULL
 )
 
 ALTER TABLE UTILISATEURS ADD constraint utilisateur_pk PRIMARY KEY (no_utilisateur)
 
+--New table for Tomcat authentication JdbcRealm
+-- More informations : https://tomcat.apache.org/tomcat-8.0-doc/realm-howto.html#JDBCRealm
+
+CREATE TABLE UTILISATEURS_ROLES (
+    pseudo              VARCHAR(30) NOT NULL,
+    nom_role            VARCHAR(30) NOT NULL
+)
+ALTER TABLE UTILISATEURS_ROLES ADD CONSTRAINT utilisateurs_roles_pk PRIMARY KEY (pseudo, nom_role)
 
 CREATE TABLE ARTICLES_VENDUS (
     no_article                    INTEGER IDENTITY(1,1) NOT NULL,

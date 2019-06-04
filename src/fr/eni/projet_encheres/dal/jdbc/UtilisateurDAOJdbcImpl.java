@@ -30,6 +30,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {
             if (rs.next()) {
                 utilisateur.setNoUtilisateur(rs.getInt(1));
             }
+            setSecurityRoles(utilisateur);
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -114,6 +115,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {
             fillPreparedStatement(utilisateur, stmt);
             stmt.setInt(12, utilisateur.getNoUtilisateur());
             stmt.executeUpdate();
+            setSecurityRoles(utilisateur);
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -129,9 +131,11 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {
     public void delete(Utilisateur utilisateur) throws DALException {
         Connection cnx = JdbcTools.connect();
         try {
-            String DELETE = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ?";
+            String DELETE = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ?;" +
+                            "DELETE FROM UTILISATEURS_ROLES WHERE pseudo = ?";
             PreparedStatement stmt = cnx.prepareStatement(DELETE);
             stmt.setInt(1, utilisateur.getNoUtilisateur());
+            stmt.setString(2, utilisateur.getPseudo());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -139,7 +143,6 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {
             dalException.addError(ErrorCodesDAL.ERROR_SQL_DELETE);
             throw dalException;
         }
-
     }
 
     /**
@@ -183,5 +186,23 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur> {
                 rs.getInt("credit"),
                 rs.getBoolean("administrateur")
         );
+    }
+
+    /**
+     * Fill a SQL Table formatted for Tomcat FORM method authentication
+     * @param utilisateur The user to set roles for
+     * @throws SQLException If there is any format issue with the values
+     */
+    private void setSecurityRoles(Utilisateur utilisateur) throws SQLException {
+        String ADD_ROLE = "INSERT INTO UTILISATEURS_ROLES (pseudo, nom_role) VALUES (?, ?);";
+        Connection cnx = JdbcTools.connect();
+        PreparedStatement stmt = cnx.prepareStatement(ADD_ROLE);
+        if (utilisateur.isAdmimistrateur()) {
+            //TODO : Implements here the admin role
+        } else {
+            stmt.setString(1, utilisateur.getPseudo());
+            stmt.setString(2, "basic_user");
+        }
+        stmt.executeUpdate();
     }
 }
