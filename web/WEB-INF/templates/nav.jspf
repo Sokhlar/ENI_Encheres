@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<nav class="d-flex flex-column justify-content-between p-3">
+<nav class="d-flex flex-column justify-content-between flex-md-row justify-content-md-between p-3">
     <span class="pl-2">ENI-Enchères</span>
     <c:choose>
         <%--@elvariable id="isConnected" type="boolean"--%>
