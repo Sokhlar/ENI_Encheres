@@ -10,5 +10,11 @@
   <c:if test="${page == 'login'}">
     <%@include file="pages/login.jspf"%>
   </c:if>
+  <c:if test="${page == 'createLogin'}">
+    <%@include file="pages/createLogin.jspf"%>
+  </c:if>
+  <c:if test="${page == 'home'}">
+    <%@include file="pages/home.jspf"%>
+  </c:if>
 </body>
 </html>

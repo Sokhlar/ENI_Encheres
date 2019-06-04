@@ -2,14 +2,14 @@ package fr.eni.projet_encheres.bll;
 
 import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
-import fr.eni.projet_encheres.dal.DAO;
 import fr.eni.projet_encheres.dal.DAOFactory;
+import fr.eni.projet_encheres.dal.DAOUtilisateur;
 
 import java.util.List;
 import java.util.regex.Pattern;
 
 public class UtilisateurManager {
-    private static DAO<Utilisateur> dao;
+    private static DAOUtilisateur dao;
 
     static {
         dao = DAOFactory.getDAOUtilisateur();
@@ -23,6 +23,9 @@ public class UtilisateurManager {
      */
     public void createUtilisateur(Utilisateur utilisateur) throws BLLException, DALException {
         BLLException bllException = validateUtilisateur(utilisateur);
+        if (!dao.checkForUniquePseudoAndMail(utilisateur.getPseudo(), utilisateur.getEmail())) {
+            bllException.addError(ErrorCodesBLL.ERROR_PSEUDO_OR_MAIL_ALREADY_TAKEN);
+        }
         if (bllException.hasErrors()) {
             throw bllException;
         } else {
@@ -81,6 +84,7 @@ public class UtilisateurManager {
      * @return An instance of BLLException filled with the error codes that been raised
      */
     private BLLException validateUtilisateur(Utilisateur utilisateur) {
+        String pseudoValidationRegEx = "[A-Za-z0-9]+";
         // This regexp is made from the RFC 5322 : http://www.ietf.org/rfc/rfc5322.txt
         // and has been taken from here : https://emailregex.com/
         String emailValidationRegEx = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])";
@@ -91,6 +95,9 @@ public class UtilisateurManager {
 
         if (utilisateur.getPseudo().length() > 30) {
             bllException.addError(ErrorCodesBLL.ERROR_LENGTH_PSEUDO_UTILISATEUR);
+        }
+        if (!Pattern.matches(pseudoValidationRegEx, utilisateur.getPseudo())) {
+            bllException.addError(ErrorCodesBLL.ERROR_PSEUDO_NOT_ALPHANUMERIC);
         }
         if (utilisateur.getNom().length() > 30) {
             bllException.addError(ErrorCodesBLL.ERROR_LENGTH_NOM_UTILISATEUR);

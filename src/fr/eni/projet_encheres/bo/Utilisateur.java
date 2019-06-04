@@ -12,7 +12,7 @@ public class Utilisateur {
     private String  ville;
     private String  motDePasse;
     private int     credit;
-    private boolean admimistrateur;
+    private boolean administrateur;
 
     /**
      * Empty constructor
@@ -32,7 +32,7 @@ public class Utilisateur {
      * @param ville String must not exceed 30 chars
      * @param motDePasse String must not exceed 30 chars
      * @param credit integer
-     * @param admimistrateur boolean
+     * @param administrateur boolean
      */
     public Utilisateur(String pseudo,
                        String nom,
@@ -44,7 +44,7 @@ public class Utilisateur {
                        String ville,
                        String motDePasse,
                        int credit,
-                       boolean admimistrateur) {
+                       boolean administrateur) {
         this.pseudo = pseudo;
         this.nom = nom;
         this.prenom = prenom;
@@ -55,7 +55,7 @@ public class Utilisateur {
         this.ville = ville;
         this.motDePasse = motDePasse;
         this.credit = credit;
-        this.admimistrateur = admimistrateur;
+        this.administrateur = administrateur;
     }
 
     /**
@@ -71,7 +71,7 @@ public class Utilisateur {
      * @param ville String must not exceed 30 chars
      * @param motDePasse String must not exceed 30 chars
      * @param credit int
-     * @param admimistrateur boolean
+     * @param administrateur boolean
      */
     public Utilisateur(int noUtilisateur,
                        String pseudo,
@@ -84,7 +84,7 @@ public class Utilisateur {
                        String ville,
                        String motDePasse,
                        int credit,
-                       boolean admimistrateur) {
+                       boolean administrateur) {
         this.noUtilisateur = noUtilisateur;
         this.pseudo = pseudo;
         this.nom = nom;
@@ -96,7 +96,7 @@ public class Utilisateur {
         this.ville = ville;
         this.motDePasse = motDePasse;
         this.credit = credit;
-        this.admimistrateur = admimistrateur;
+        this.administrateur = administrateur;
     }
 
     // Getters and setters
@@ -188,12 +188,12 @@ public class Utilisateur {
         this.credit = credit;
     }
 
-    public boolean isAdmimistrateur() {
-        return admimistrateur;
+    public boolean isAdministrateur() {
+        return administrateur;
     }
 
-    public void setAdmimistrateur(boolean admimistrateur) {
-        this.admimistrateur = admimistrateur;
+    public void setAdministrateur(boolean administrateur) {
+        this.administrateur = administrateur;
     }
 
     @Override
@@ -210,7 +210,7 @@ public class Utilisateur {
                 ", ville='" + ville + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
                 ", credit=" + credit +
-                ", admimistrateur=" + admimistrateur +
+                ", administrateur=" + administrateur +
                 '}';
     }
 }

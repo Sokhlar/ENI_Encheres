@@ -1,0 +1,79 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<form id="form_creation_login" method="post" action="${pageContext.request.contextPath}/createLogin" class="ml-5">
+    <h2 class="mb-md-5 text-center">Mon profil</h2>
+    <div class="form-group row">
+        <label class="col-form-label col-md-1" for="pseudo">Pseudo</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Pseudo (Caractères alphanumériques)">
+        </div>
+        <label class="col-form-label offset-md-1 col-md-1" for="name">Nom</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Nom">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-md-1" for="first_name">Prénom</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Prénom">
+        </div>
+        <label class="col-form-label offset-md-1 col-md-1" for="mail">Email</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="mail" id="mail" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-md-1" for="phone">Téléphone</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="Téléphone (format : 0699999999)">
+        </div>
+        <label class="col-form-label offset-md-1 col-md-1" for="street">Rue</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="street" id="street" placeholder="Rue">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-md-1" for="post_code">Code Postal</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="post_code" id="post_code" placeholder="Code Postal">
+        </div>
+        <label class="col-form-label offset-md-1 col-md-1" for="city">Ville</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="city" id="city" placeholder="Ville">
+        </div>
+    </div>
+    <div class="form-group row" id="password_block">
+        <label class="col-form-label col-md-1" for="password">Mot de passe</label>
+        <div class="col-md-4">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Mot de passe">
+        </div>
+        <label class="col-form-label offset-md-1 col-md-1" for="confirm_password">Confirmation</label>
+        <div class="col-md-4">
+            <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Répétez le mot de passe">
+        </div>
+    </div>
+    <%--@elvariable id="errors" type="java.util.ArrayList"--%>
+    <c:if test="${!empty errors }">
+        <ul class="text-center list-group list-group-flush">
+            <c:forEach var="error" items="${errors }">
+                <li class="text-danger list-group-item">
+                        ${error }
+                </li>
+            </c:forEach>
+        </ul>
+    </c:if>
+    <div class="row mt-md-5">
+        <input type="submit" value="Créer" class="offset-md-2 col-md-3 btn btn-primary btn-block btn-lg">
+        <a href="${pageContext.request.contextPath}" class="offset-md-1 col-md-3 ">
+            <button class="btn btn-primary btn-block btn-lg">Annuler</button>
+        </a>
+    </div>
+</form>
+<script type="text/javascript">
+    $("#form_creation_login").on("submit", function(e) {
+        if ($("#password").val() !== $("#confirm_password").val()) {
+            e.preventDefault();
+            var passwordNotMatchWarning = $('<p class="mx-auto text-danger">Les mots de passe ne correspondent pas</p>');
+            $("#password_block").append(passwordNotMatchWarning);
+        }
+    });
+</script>

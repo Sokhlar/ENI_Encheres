@@ -1,6 +1,8 @@
-AUTHENTIFICATION PAR TOMCAT :
+Pour l'authentification des utilisateurs, et la gestion des rôles (administrateur...) je me suis servi du système FORM proposé par Tomcat.
+Cela implique deux choses pour faire tourner l'application en local :
 - Il est nécessaire d'ajouter le .jar du driver JDBC dans le répertoire /lib du dossier tomcat
-- Il est nécessaire d'ajouter cette balise au fichier conf/server.xml :
+- Il est nécessaire d'ajouter cette balise au fichier conf/server.xml du dossier tomcat :
+(j'ai conservé l'utilisateur, le mot de passe, et le nom de la bdd dcomme définis dans le fichier "create_bd_trocencheres.sql")
 
 <Realm className="org.apache.catalina.realm.JDBCRealm"
        driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
