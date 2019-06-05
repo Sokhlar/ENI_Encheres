@@ -21,16 +21,7 @@
         <div class="col-md-1">Crédits</div>
         <div class="col-md-1"><jsp:getProperty name="utilisateurSession" property="credit"/></div>
     </div>
-    <%--@elvariable id="errors" type="java.util.ArrayList"--%>
-    <c:if test="${!empty errors }">
-        <ul class="text-center list-group list-group-flush">
-            <c:forEach var="error" items="${errors }">
-                <li class="text-danger list-group-item">
-                        ${error }
-                </li>
-            </c:forEach>
-        </ul>
-    </c:if>
+    <%@include file="../templates/displayErrorsFormUser.jspf"%>
     <div class="row mt-md-5">
         <input type="submit" value="Modifier" class="offset-md-2 col-md-3 btn btn-success btn-block btn-lg">
         <a href="" class="offset-md-1 col-md-3 ">
