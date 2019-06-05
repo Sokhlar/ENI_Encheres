@@ -1,6 +1,6 @@
 package fr.eni.projet_encheres.ihm.users;
 
-import fr.eni.projet_encheres.ihm.SessionManagement;
+import fr.eni.projet_encheres.ihm.ManagementTools.SessionManagement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

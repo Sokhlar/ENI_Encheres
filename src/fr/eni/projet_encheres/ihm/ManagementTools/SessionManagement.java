@@ -1,4 +1,4 @@
-package fr.eni.projet_encheres.ihm;
+package fr.eni.projet_encheres.ihm.ManagementTools;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

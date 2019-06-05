@@ -4,6 +4,7 @@ import fr.eni.projet_encheres.bll.BLLException;
 import fr.eni.projet_encheres.bll.UtilisateurManager;
 import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
+import fr.eni.projet_encheres.ihm.ManagementTools.ErrorsManagement;
 import fr.eni.projet_encheres.messages.MessageReader;
 
 import javax.servlet.RequestDispatcher;
@@ -38,16 +39,10 @@ public class ServletCreateUser extends HttpServlet {
         try {
             um.createUtilisateur(utilisateur);
         } catch (BLLException e) {
-            for (Integer code_error : e.getListErrorCodes()) {
-                errors.add(MessageReader.getMessageReader(code_error));
-            }
+            ErrorsManagement.BLLExceptionsCatcher(e, errors);
         } catch (DALException e) {
-            request.setAttribute("error_name", "Erreur avec la base de données : ");
-            for (Integer code_error : e.getListErrorCodes()) {
-                errors.add(MessageReader.getMessageReader(code_error));
-            }
+            ErrorsManagement.DALExceptionsCatcher(e, errors, request);
         }
-
         if (errors.isEmpty()) {
             request.setAttribute("loginCreated", "true");
             request.setAttribute("page", "home");
