@@ -1,4 +1,4 @@
-package fr.eni.projet_encheres.ihm;
+package fr.eni.projet_encheres.ihm.users;
 
 import fr.eni.projet_encheres.bll.BLLException;
 import fr.eni.projet_encheres.bll.UtilisateurManager;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/createLogin")
-public class ServletCreateLogin extends HttpServlet {
+public class ServletCreateUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Utilisateur utilisateur = new Utilisateur(
                 request.getParameter("pseudo"),

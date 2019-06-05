@@ -1,4 +1,6 @@
-package fr.eni.projet_encheres.ihm;
+package fr.eni.projet_encheres.ihm.users;
+
+import fr.eni.projet_encheres.ihm.SessionManagement;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
