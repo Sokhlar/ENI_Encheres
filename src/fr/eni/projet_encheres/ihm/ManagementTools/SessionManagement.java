@@ -29,13 +29,12 @@ public class SessionManagement {
     /**
      *Set a session JavaBean from the pseudo the connected user
      * @param request The request instance
+     * @param pseudo_utilisateur String
      * @throws DALException If there were any SQL issue into the DAL
      */
-    public static void setUtilisateurSessionBean(HttpServletRequest request) throws DALException {
+    public static void setUtilisateurSessionBean(HttpServletRequest request, String pseudo_utilisateur) throws DALException {
         UtilisateurManager um = new UtilisateurManager();
         HttpSession session = request.getSession();
-        String pseudo_utilisateur = request.getUserPrincipal().getName();
-
         Utilisateur utilisateurToBean = um.getUtilisateurByPseudo(pseudo_utilisateur);
         session.setAttribute("utilisateurSession", utilisateurToBean);
     }

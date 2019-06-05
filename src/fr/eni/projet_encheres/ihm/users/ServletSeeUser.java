@@ -29,8 +29,8 @@ public class ServletSeeUser extends HttpServlet {
         try {
             Utilisateur utilisateur = um.getUtilisateurById(Integer.valueOf(request.getParameter("id")));
             request.setAttribute("utilisateurRequest", utilisateur);
-            // If the pseudo of the authenticated user matches the profile shown, user can update it
-            if (utilisateur.getPseudo().equals(request.getUserPrincipal().getName())) {
+            // If the ids match, user can update it
+            if (utilisateur.getNoUtilisateur() == Integer.valueOf(request.getParameter("id"))) {
                 request.setAttribute("canUpdate", "true");
             }
         } catch (DALException e) {

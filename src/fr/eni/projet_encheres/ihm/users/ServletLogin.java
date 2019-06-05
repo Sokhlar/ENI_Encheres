@@ -23,7 +23,7 @@ public class ServletLogin extends HttpServlet {
         } else if (request.isUserInRole("basic_user")) {
             SessionManagement.setSessionConnected(request);
             try {
-                SessionManagement.setUtilisateurSessionBean(request);
+                SessionManagement.setUtilisateurSessionBean(request, request.getUserPrincipal().getName());
             } catch (DALException e) {
                 // This is serious Fatal Error
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -36,7 +36,7 @@ public class ServletLogin extends HttpServlet {
         if (request.isUserInRole("basic_user")) {
             SessionManagement.setSessionConnected(request);
             try {
-                SessionManagement.setUtilisateurSessionBean(request);
+                SessionManagement.setUtilisateurSessionBean(request, request.getUserPrincipal().getName());
             } catch (DALException e) {
                 // This is serious Fatal Error
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

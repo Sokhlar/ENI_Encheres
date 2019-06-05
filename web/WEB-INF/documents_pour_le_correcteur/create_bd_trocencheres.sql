@@ -81,10 +81,11 @@ ALTER TABLE UTILISATEURS ADD constraint utilisateur_pk PRIMARY KEY (no_utilisate
 -- More informations : https://tomcat.apache.org/tomcat-8.0-doc/realm-howto.html#JDBCRealm
 
 CREATE TABLE UTILISATEURS_ROLES (
+    no_utilisateur      INTEGER NOT NULL,
     pseudo              VARCHAR(30) NOT NULL,
     nom_role            VARCHAR(30) NOT NULL
 )
-ALTER TABLE UTILISATEURS_ROLES ADD CONSTRAINT utilisateurs_roles_pk PRIMARY KEY (pseudo, nom_role)
+ALTER TABLE UTILISATEURS_ROLES ADD CONSTRAINT utilisateurs_roles_pk PRIMARY KEY (no_utilisateur, pseudo, nom_role)
 
 CREATE TABLE ARTICLES_VENDUS (
     no_article                    INTEGER IDENTITY(1,1) NOT NULL,

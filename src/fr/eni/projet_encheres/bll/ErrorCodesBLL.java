@@ -11,6 +11,6 @@ public abstract class ErrorCodesBLL {
     public static final int ERROR_LENGTH_VILLE_UTILISATEUR = 30007;
     public static final int ERROR_FORMAT_EMAIL_UTILISATEUR = 30008;
     public static final int ERROR_FORMAT_TELEPHONE_UTILISATEUR = 30009;
-    public static final int ERROR_PSEUDO_OR_MAIL_ALREADY_TAKEN = 300010;
-    public static final int ERROR_PSEUDO_NOT_ALPHANUMERIC = 300011;
+    public static final int ERROR_PSEUDO_OR_MAIL_ALREADY_TAKEN = 30010;
+    public static final int ERROR_PSEUDO_NOT_ALPHANUMERIC = 30011;
 }

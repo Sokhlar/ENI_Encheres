@@ -1,0 +1,116 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%--@elvariable id="page" type="java.lang.String"--%>
+    <%-- Use JSTL to fill the form from a session JavaBean if we want to update--%>
+    <h2 class="mb-md-5 text-center">Mon profil</h2>
+    <div class="form-group row">
+        <label class="col-form-label col-md-1" for="pseudo">Pseudo</label>
+        <div class="col-md-4">
+            <input required type="text" class="form-control" name="pseudo" id="pseudo"
+               <c:choose>
+                    <c:when test="${page == 'updateProfile'}">
+                        value="<jsp:getProperty name="utilisateurSession" property="pseudo"/>"
+                    </c:when>
+                    <c:otherwise>
+                        placeholder="Pseudo (Caractères alphanumériques)"
+                    </c:otherwise>
+               </c:choose>
+            >
+        </div>
+        <label class="col-form-label offset-md-1 col-md-1" for="name">Nom</label>
+        <div class="col-md-4">
+            <input required type="text" class="form-control" name="name" id="name"
+               <c:choose>
+                    <c:when test="${page == 'updateProfile'}">
+                        value="<jsp:getProperty name="utilisateurSession" property="nom"/>"
+                    </c:when>
+                    <c:otherwise>
+                        placeholder="Nom"
+                    </c:otherwise>
+               </c:choose>
+            >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-md-1" for="first_name">Prénom</label>
+        <div class="col-md-4">
+            <input required type="text" class="form-control" name="first_name" id="first_name"
+               <c:choose>
+                    <c:when test="${page == 'updateProfile'}">
+                        value="<jsp:getProperty name="utilisateurSession" property="prenom"/>"
+                    </c:when>
+                    <c:otherwise>
+                        placeholder="Prénom"
+                    </c:otherwise>
+               </c:choose>
+            >
+        </div>
+        <label class="col-form-label offset-md-1 col-md-1" for="mail">Email</label>
+        <div class="col-md-4">
+            <input required type="text" class="form-control" name="mail" id="mail"
+               <c:choose>
+                    <c:when test="${page == 'updateProfile'}">
+                        value="<jsp:getProperty name="utilisateurSession" property="email"/>"
+                    </c:when>
+                    <c:otherwise>
+                        placeholder="Email"
+                    </c:otherwise>
+               </c:choose>
+            >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-md-1" for="phone">Téléphone</label>
+        <div class="col-md-4">
+            <input required type="text" class="form-control" name="phone" id="phone"
+               <c:choose>
+                    <c:when test="${page == 'updateProfile'}">
+                        value="<jsp:getProperty name="utilisateurSession" property="telephone"/>"
+                    </c:when>
+                    <c:otherwise>
+                       placeholder="Téléphone (format : 0699999999)"
+                    </c:otherwise>
+               </c:choose>
+            >
+        </div>
+        <label class="col-form-label offset-md-1 col-md-1" for="street">Rue</label>
+        <div class="col-md-4">
+            <input required type="text" class="form-control" name="street" id="street"
+               <c:choose>
+                    <c:when test="${page == 'updateProfile'}">
+                        value="<jsp:getProperty name="utilisateurSession" property="rue"/>"
+                    </c:when>
+                    <c:otherwise>
+                        placeholder="Rue"
+                    </c:otherwise>
+               </c:choose>
+            >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-md-1" for="post_code">Code Postal</label>
+        <div class="col-md-4">
+            <input required type="text" class="form-control" name="post_code" id="post_code"
+               <c:choose>
+                    <c:when test="${page == 'updateProfile'}">
+                        value="<jsp:getProperty name="utilisateurSession" property="codePostal"/>"
+                    </c:when>
+                    <c:otherwise>
+                        placeholder="Code Postal"
+                    </c:otherwise>
+               </c:choose>
+            >
+        </div>
+        <label class="col-form-label offset-md-1 col-md-1" for="city">Ville</label>
+        <div class="col-md-4">
+            <input required type="text" class="form-control" name="city" id="city"
+               <c:choose>
+                    <c:when test="${page == 'updateProfile'}">
+                        value="<jsp:getProperty name="utilisateurSession" property="ville"/>"
+                    </c:when>
+                    <c:otherwise>
+                        placeholder="Ville"
+                    </c:otherwise>
+                </c:choose>
+            >
+        </div>
+    </div>

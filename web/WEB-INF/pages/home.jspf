@@ -3,4 +3,7 @@
 <%--@elvariable id="loginCreated" type="boolean"--%>
 <c:if test="${ loginCreated }">
     <p class="text-center text-success">Compte créé avec succès ! Vous pouvez vous connecter.</p>
+</c:if><%--@elvariable id="loginUpdated" type="boolean"--%>
+<c:if test="${ loginUpdated }">
+    <p class="text-center text-success">Profil modifié avec succès !</p>
 </c:if>

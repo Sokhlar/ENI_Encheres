@@ -138,12 +138,14 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
                     "                        mot_de_passe = ?, " +
                     "                        credit = ?, " +
                     "                        administrateur = ? " +
-                    "WHERE no_utilisateur = ?;";
+                    "WHERE no_utilisateur = ?;" +
+                    "UPDATE UTILISATEURS_ROLES SET pseudo = ? WHERE no_utilisateur = ?;";
             PreparedStatement stmt = cnx.prepareStatement(UPDATE);
             fillPreparedStatement(utilisateur, stmt);
             stmt.setInt(12, utilisateur.getNoUtilisateur());
+            stmt.setString(13, utilisateur.getPseudo());
+            stmt.setInt(14, utilisateur.getNoUtilisateur());
             stmt.executeUpdate();
-            setSecurityRoles(utilisateur);
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -222,14 +224,15 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
      * @throws SQLException If there is any format issue with the values
      */
     private void setSecurityRoles(Utilisateur utilisateur) throws SQLException {
-        String ADD_ROLE = "INSERT INTO UTILISATEURS_ROLES (pseudo, nom_role) VALUES (?, ?);";
+        String ADD_ROLE = "INSERT INTO UTILISATEURS_ROLES (no_utilisateur, pseudo, nom_role) VALUES (?, ?, ?);";
         Connection cnx = JdbcTools.connect();
         PreparedStatement stmt = cnx.prepareStatement(ADD_ROLE);
         if (utilisateur.isAdministrateur()) {
             //TODO : Implements here the admin role
         } else {
-            stmt.setString(1, utilisateur.getPseudo());
-            stmt.setString(2, "basic_user");
+            stmt.setInt(1, utilisateur.getNoUtilisateur());
+            stmt.setString(2, utilisateur.getPseudo());
+            stmt.setString(3, "basic_user");
         }
         stmt.executeUpdate();
     }

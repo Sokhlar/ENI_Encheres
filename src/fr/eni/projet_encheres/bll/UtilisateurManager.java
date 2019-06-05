@@ -68,6 +68,9 @@ public class UtilisateurManager {
      */
     public void updateUtilisateur (Utilisateur utilisateur) throws BLLException, DALException {
         BLLException bllException = validateUtilisateur(utilisateur);
+        if (!dao.checkForUniquePseudoAndMail(utilisateur.getPseudo(), utilisateur.getEmail())) {
+            bllException.addError(ErrorCodesBLL.ERROR_PSEUDO_OR_MAIL_ALREADY_TAKEN);
+        }
         if (bllException.hasErrors()) {
             throw bllException;
         } else {
