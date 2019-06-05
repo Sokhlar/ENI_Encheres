@@ -1,5 +1,6 @@
 package fr.eni.projet_encheres.ihm.users;
 
+import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.ihm.ManagementTools.SessionManagement;
 
 import javax.servlet.RequestDispatcher;
@@ -21,6 +22,12 @@ public class ServletLogin extends HttpServlet {
             rd.forward(request, response);
         } else if (request.isUserInRole("basic_user")) {
             SessionManagement.setSessionConnected(request);
+            try {
+                SessionManagement.setUtilisateurSessionBean(request);
+            } catch (DALException e) {
+                // This is serious Fatal Error
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            }
             response.sendRedirect(request.getContextPath());
         }
     }
@@ -28,6 +35,12 @@ public class ServletLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.isUserInRole("basic_user")) {
             SessionManagement.setSessionConnected(request);
+            try {
+                SessionManagement.setUtilisateurSessionBean(request);
+            } catch (DALException e) {
+                // This is serious Fatal Error
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            }
             HttpSession session = request.getSession();
             // If there is this session attribute, we redirect to it
             if (session.getAttribute("uriAndParamsRequested") != null) {

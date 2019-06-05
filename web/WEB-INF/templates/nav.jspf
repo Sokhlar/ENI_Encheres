@@ -5,9 +5,13 @@
     <c:choose>
         <%--@elvariable id="isConnected" type="boolean"--%>
         <c:when test="${isConnected}">
+            <jsp:useBean id="utilisateurSession"
+                         scope="session"
+                         class="fr.eni.projet_encheres.bo.Utilisateur">
+            </jsp:useBean>
             <div>
                 <a class="ml-5 mr-5" href="">Vendre un article</a>
-                <a class="ml-5 mr-5" href="">Mon profil</a>
+                <a class="ml-5 mr-5" href="${pageContext.request.contextPath}/user?id=<jsp:getProperty name="utilisateurSession" property="noUtilisateur"/>">Mon profil</a>
                 <a class="ml-5 mr-5" href="${pageContext.request.contextPath}/logout">Déconnexion</a>
             </div>
         </c:when>
