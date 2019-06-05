@@ -34,7 +34,7 @@ public class ServletCreateLogin extends HttpServlet {
         );
         List<String> errors = new ArrayList<>();
         UtilisateurManager um = new UtilisateurManager();
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/index.jsp");
         try {
             um.createUtilisateur(utilisateur);
         } catch (BLLException e) {
