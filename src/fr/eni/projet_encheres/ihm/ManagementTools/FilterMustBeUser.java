@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 @WebFilter(
         urlPatterns = {
@@ -26,6 +27,9 @@ public class FilterMustBeUser implements Filter {
             chain.doFilter(req, resp);
         } else {
             HttpServletResponse httpResponse = (HttpServletResponse) resp;
+            HttpSession session = httpRequest.getSession();
+            session.setAttribute("uriAndParamsRequested", httpRequest.getRequestURI() + "?" + httpRequest.getQueryString());
+            session.setAttribute("mustBeLogged", "true");
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
         }
     }

@@ -1,5 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <form class="m-1 mt-5 mb-5" method="post" action="j_security_check">
+    <%--@elvariable id="mustBeLogged" type="boolean"--%>
+    <c:if test="${mustBeLogged}">
+        <p class="text-center text-danger">Vous devez être connecté pour accéder à cette page.</p>
+    </c:if>
     <div class="form-group row">
         <label class="col-4 offset-md-3 col-md-2 col-form-label" for="user_login">Identifiant</label>
         <div class="col-8 col-md-3 ">
@@ -12,6 +16,7 @@
             <input type="password" class="form-control" name="j_password" id="user_password" placeholder="Mot de passe">
         </div>
     </div>
+    <%--@elvariable id="login_error" type="boolean"--%>
     <c:if test="${login_error}">
             <p class="text-danger text-center">Identifiant ou mot de passe incorrect</p>
     </c:if>

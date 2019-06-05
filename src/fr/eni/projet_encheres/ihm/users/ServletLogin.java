@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/login", "/login_error", "/j_security_check"})
@@ -27,12 +28,18 @@ public class ServletLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.isUserInRole("basic_user")) {
             SessionManagement.setSessionConnected(request);
-            response.sendRedirect(request.getContextPath());
+            HttpSession session = request.getSession();
+            // If there is this session attribute, we redirect to it
+            if (session.getAttribute("uriAndParamsRequested") != null) {
+                response.sendRedirect((String) session.getAttribute("uriAndParamsRequested"));
+            } else {
+                response.sendRedirect(request.getContextPath());
+            }
+
         } else {
             request.setAttribute("page", "login");
             RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/index.jsp");
             rd.forward(request, response);
         }
     }
-
 }
