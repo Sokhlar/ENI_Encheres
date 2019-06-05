@@ -16,6 +16,7 @@ public class ServletHome extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/index.jsp");
+        request.setAttribute("page", "home");
         rd.forward(request, response);
     }
 }
