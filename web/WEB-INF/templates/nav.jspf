@@ -8,7 +8,7 @@
             <div>
                 <a class="ml-5 mr-5" href="">Vendre un article</a>
                 <a class="ml-5 mr-5" href="">Mon profil</a>
-                <a class="ml-5 mr-5" href="">Déconnexion</a>
+                <a class="ml-5 mr-5" href="${pageContext.request.contextPath}/logout">Déconnexion</a>
             </div>
         </c:when>
         <c:otherwise>
