@@ -5,7 +5,6 @@ import fr.eni.projet_encheres.bll.UtilisateurManager;
 import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.ihm.ManagementTools.ErrorsManagement;
-import fr.eni.projet_encheres.messages.MessageReader;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,6 +19,7 @@ import java.util.List;
 @WebServlet("/createLogin")
 public class ServletCreateUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         Utilisateur utilisateur = new Utilisateur(
                 request.getParameter("pseudo"),
                 request.getParameter("name"),
