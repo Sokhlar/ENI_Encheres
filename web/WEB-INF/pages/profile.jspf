@@ -1,0 +1,44 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%-- Use JavaBean to display informations --%>
+<h1 class="text-center">Profil</h1>
+
+<jsp:useBean id="utilisateur"
+             scope="request"
+             class="fr.eni.projet_encheres.bo.Utilisateur">
+</jsp:useBean>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">Pseudo</th>
+            <td><jsp:getProperty name="utilisateur" property="pseudo"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Nom</th>
+            <td><jsp:getProperty name="utilisateur" property="nom"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Prénom</th>
+            <td><jsp:getProperty name="utilisateur" property="prenom"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Email</th>
+            <td><jsp:getProperty name="utilisateur" property="email"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Téléphone</th>
+            <td><jsp:getProperty name="utilisateur" property="telephone"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Rue</th>
+            <td><jsp:getProperty name="utilisateur" property="rue"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Code Postal</th>
+            <td><jsp:getProperty name="utilisateur" property="codePostal"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Ville</th>
+            <td><jsp:getProperty name="utilisateur" property="ville"/></td>
+        </tr>
+    </tbody>
+</table>
