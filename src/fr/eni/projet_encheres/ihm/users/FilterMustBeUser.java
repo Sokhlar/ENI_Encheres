@@ -1,4 +1,4 @@
-package fr.eni.projet_encheres.ihm.ManagementTools;
+package fr.eni.projet_encheres.ihm.users;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -8,7 +8,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 @WebFilter(
         urlPatterns = {
-                "/user/*"
+                "/user/*",
+                "/updateProfile"
         },
         dispatcherTypes = {
                 DispatcherType.ERROR,
@@ -28,7 +29,11 @@ public class FilterMustBeUser implements Filter {
         } else {
             HttpServletResponse httpResponse = (HttpServletResponse) resp;
             HttpSession session = httpRequest.getSession();
-            session.setAttribute("uriAndParamsRequested", httpRequest.getRequestURI() + "?" + httpRequest.getQueryString());
+            if (httpRequest.getQueryString() != null) {
+                session.setAttribute("uriAndParamsRequested", httpRequest.getRequestURI() + "?" + httpRequest.getQueryString());
+            } else {
+                session.setAttribute("uriAndParamsRequested", httpRequest.getRequestURI());
+            }
             session.setAttribute("mustBeLogged", "true");
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
         }
