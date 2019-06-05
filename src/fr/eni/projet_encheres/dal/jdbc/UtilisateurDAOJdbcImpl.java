@@ -67,6 +67,34 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
         return utilisateur;
     }
     /**
+     * Extract data from the DB by pseudo (pseudo is unique value)
+     * @param pseudo String The pseudo of the utilisateur to extract from the DB
+     * @return utilisateur An instance of the utilisateur
+     * @throws DALException if the SQL INSERT request is wrong
+     */
+    @Override
+    public Utilisateur selectUtilisateurByPseudo(String pseudo) throws DALException {
+        Connection cnx = JdbcTools.connect();
+        Utilisateur utilisateur = null;
+        try {
+            String SELECT_BY_PSEUDO = "SELECT * FROM UTILISATEURS WHERE pseudo = ?";
+            PreparedStatement stmt = cnx.prepareStatement(SELECT_BY_PSEUDO);
+            stmt.setString(1, pseudo);
+            stmt.execute();
+            ResultSet rs = stmt.getResultSet();
+            if (rs.next()) {
+                utilisateur = hydrateUtilisateur(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_SELECT);
+            throw dalException;
+        }
+        return utilisateur;
+    }
+
+    /**
      * Select all the utilisateurs from the DB
      * @return An ArrayList filled with instances of Utilisateur
      */

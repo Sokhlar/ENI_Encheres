@@ -44,6 +44,15 @@ public class UtilisateurManager {
     }
     /**
      * Read part of CRUD
+     * @param pseudo The pseudo field of the utilisateur to get (pseudo is unique value)
+     * @return The instance of Utilisateur that matched the id param
+     * @throws DALException If there is any issues with the DAL part
+     */
+    public Utilisateur getUtilisateurByPseudo(String pseudo) throws DALException {
+        return dao.selectUtilisateurByPseudo(pseudo);
+    }
+    /**
+     * Read part of CRUD
      * @return An ArrayList of instances of every Utilisateurs in the database
      * @throws DALException If there is any issues with the DAL part
      */
