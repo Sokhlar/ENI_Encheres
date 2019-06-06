@@ -10,7 +10,8 @@ import java.io.IOException;
         urlPatterns = {
                 "/user/*",
                 "/updateProfile",
-                "/deleteProfile"
+                "/deleteProfile",
+                "/postAuction"
         },
         dispatcherTypes = {
                 DispatcherType.ERROR,

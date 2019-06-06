@@ -23,5 +23,8 @@
   <c:if test="${page == 'updateProfile'}">
     <%@include file="pages/updateProfile.jspf"%>
   </c:if>
+  <c:if test="${page == 'postAuction'}">
+    <%@include file="pages/newAuction.jspf"%>
+  </c:if>
 </body>
 </html>

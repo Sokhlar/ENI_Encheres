@@ -6,6 +6,7 @@ import fr.eni.projet_encheres.dal.dao.DAOArticleVendu;
 import fr.eni.projet_encheres.dal.dao.DAOFactory;
 
 import java.util.Arrays;
+import java.util.Date;
 
 public class ArticleVenduManager {
     private static DAOArticleVendu dao;
@@ -46,6 +47,12 @@ public class ArticleVenduManager {
         String[] acceptedValuesEtatVente = {"EC", "AN", "VE"};
         if (!Arrays.asList(acceptedValuesEtatVente).contains(articleVendu.getEtatVente())) {
             bllException.addError(ErrorCodesBLL.ERROR_VALUE_STATUT_VENTE_ARTICLE);
+        }
+        if (articleVendu.getDateDebutEncheres().after(articleVendu.getDateFinEncheres())) {
+            bllException.addError(ErrorCodesBLL.ERROR_START_DATE_AFTER_END_DATE);
+        }
+        if (articleVendu.getDateDebutEncheres().before(new Date()) || articleVendu.getDateFinEncheres().before(new Date())) {
+            bllException.addError(ErrorCodesBLL.ERROR_DATE_BEFORE_TODAY);
         }
         return bllException;
     }

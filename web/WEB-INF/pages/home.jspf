@@ -11,5 +11,9 @@
 <c:if test="${ loginDeleted }">
     <p class="text-center text-success">Profil supprimé avec succès !</p>
 </c:if>
+<%--@elvariable id="auctionCreated" type="boolean"--%>
+<c:if test="${ auctionCreated }">
+    <p class="text-center text-success">Enchère créée avec succès !</p>
+</c:if>
 
 

@@ -1,6 +1,8 @@
 package fr.eni.projet_encheres.bo;
 
-public class Categorie {
+import java.io.Serializable;
+
+public class Categorie implements Serializable {
     private int noCategorie;
     private String libelle;
 
