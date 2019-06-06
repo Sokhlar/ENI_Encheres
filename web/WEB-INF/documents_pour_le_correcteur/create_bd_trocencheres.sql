@@ -87,6 +87,7 @@ CREATE TABLE UTILISATEURS_ROLES (
 )
 ALTER TABLE UTILISATEURS_ROLES ADD CONSTRAINT utilisateurs_roles_pk PRIMARY KEY (no_utilisateur, pseudo, nom_role)
 
+-- Add of a new row : etat_vente with a CHECK contraint
 CREATE TABLE ARTICLES_VENDUS (
     no_article                    INTEGER IDENTITY(1,1) NOT NULL,
     nom_article                   VARCHAR(30) NOT NULL,
@@ -95,11 +96,14 @@ CREATE TABLE ARTICLES_VENDUS (
     date_fin_encheres             DATE NOT NULL,
     prix_initial                  INTEGER,
     prix_vente                    INTEGER,
+    etat_vente                    CHAR(2),
     no_utilisateur                INTEGER NOT NULL,
     no_categorie                  INTEGER NOT NULL
 )
 
 ALTER TABLE ARTICLES_VENDUS ADD constraint articles_vendus_pk PRIMARY KEY (no_article)
+
+ALTER TABLE ARTICLES_VENDUS ADD CONSTRAINT articles_vendus_etat_vente_ck CHECK (etat_vente IN ('EC', 'AN', 'VE'));
 
 ALTER TABLE ARTICLES_VENDUS
     ADD CONSTRAINT encheres_utilisateur_fk FOREIGN KEY ( no_utilisateur ) REFERENCES UTILISATEURS ( no_utilisateur )

@@ -5,11 +5,14 @@ import java.util.Date;
 public class ArticleVendu {
     private int noArticle;
     private String nomArticle;
+    private String description;
     private Date dateDebutEncheres;
     private Date dateFinEncheres;
     private int prixInitial;
     private int prixVente;
     private String etatVente;
+    private int noUtilisateur;
+    private int noCategorie;
     /**
      * Empty constructor
      */
@@ -18,49 +21,67 @@ public class ArticleVendu {
     /**
      * Constructor with all fields
      * @param nomArticle String must not exceed 30 characters
+     * @param description  String must not exceed 300 characters
      * @param dateDebutEncheres Date
      * @param dateFinEncheres Date
      * @param prixInitial int
      * @param prixVente int
      * @param etatVente String values can be "EC" (En cours), "AN" (Annulé) or "VE" (Vendu)
+     * @param noUtilisateur BO mapping with DAL Foreign Key to Utilisateur
+     * @param noCategorie BO mapping with DAL Foreign Key to Categorie
      */
     public ArticleVendu(int noArticle,
                         String nomArticle,
+                        String description,
                         Date dateDebutEncheres,
                         Date dateFinEncheres,
                         int prixInitial,
                         int prixVente,
-                        String etatVente) {
+                        String etatVente,
+                        int noUtilisateur,
+                        int noCategorie) {
         this.noArticle = noArticle;
         this.nomArticle = nomArticle;
+        this.description = description;
         this.dateDebutEncheres = dateDebutEncheres;
         this.dateFinEncheres = dateFinEncheres;
         this.prixInitial = prixInitial;
         this.prixVente = prixVente;
         this.etatVente = etatVente;
+        this.noUtilisateur = noUtilisateur;
+        this.noCategorie = noCategorie;
     }
 
     /**
      * Constructor with all fields except noArticle
      * @param nomArticle String must not exceed 30 characters
+     * @param description  String must not exceed 300 characters
      * @param dateDebutEncheres Date
      * @param dateFinEncheres Date
      * @param prixInitial int
      * @param prixVente int
      * @param etatVente String values can be "EC" (En cours), "AN" (Annulé) or "VE" (Vendu)
+     * @param noUtilisateur BO mapping with DAL Foreign Key to Utilisateur
+     * @param noCategorie BO mapping with DAL Foreign Key to Categorie
      */
     public ArticleVendu(String nomArticle,
+                        String description,
                         Date dateDebutEncheres,
                         Date dateFinEncheres,
                         int prixInitial,
                         int prixVente,
-                        String etatVente) {
+                        String etatVente,
+                        int noUtilisateur,
+                        int noCategorie) {
         this.nomArticle = nomArticle;
+        this.description = description;
         this.dateDebutEncheres = dateDebutEncheres;
         this.dateFinEncheres = dateFinEncheres;
         this.prixInitial = prixInitial;
         this.prixVente = prixVente;
         this.etatVente = etatVente;
+        this.noUtilisateur = noUtilisateur;
+        this.noCategorie = noCategorie;
     }
 
     public int getNoArticle() {
@@ -77,6 +98,14 @@ public class ArticleVendu {
 
     public void setNomArticle(String nomArticle) {
         this.nomArticle = nomArticle;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getDateDebutEncheres() {
@@ -119,16 +148,35 @@ public class ArticleVendu {
         this.etatVente = etatVente;
     }
 
+    public int getNoUtilisateur() {
+        return noUtilisateur;
+    }
+
+    public void setNoUtilisateur(int noUtilisateur) {
+        this.noUtilisateur = noUtilisateur;
+    }
+
+    public int getNoCategorie() {
+        return noCategorie;
+    }
+
+    public void setNoCategorie(int noCategorie) {
+        this.noCategorie = noCategorie;
+    }
+
     @Override
     public String toString() {
         return "ArticleVendu{" +
                 "noArticle=" + noArticle +
                 ", nomArticle='" + nomArticle + '\'' +
+                ", description='" + description + '\'' +
                 ", dateDebutEncheres=" + dateDebutEncheres +
                 ", dateFinEncheres=" + dateFinEncheres +
                 ", prixInitial=" + prixInitial +
                 ", prixVente=" + prixVente +
                 ", etatVente='" + etatVente + '\'' +
+                ", noUtilisateur=" + noUtilisateur +
+                ", noCategorie=" + noCategorie +
                 '}';
     }
 }
