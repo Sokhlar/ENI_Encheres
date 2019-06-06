@@ -41,7 +41,7 @@ public class ServletUpdateUser extends HttpServlet {
         } catch (DALException e) {
             ErrorsManagement.DALExceptionsCatcher(e, errors, request);
         } catch (BLLException e) {
-            ErrorsManagement.BLLExceptionsCatcher(e, errors);
+            ErrorsManagement.BLLExceptionsCatcher(e, errors, request);
         }
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/index.jsp");
         if (errors.isEmpty()) {
@@ -49,7 +49,6 @@ public class ServletUpdateUser extends HttpServlet {
             request.setAttribute("page", "home");
         } else {
             request.setAttribute("page", "updateProfile");
-            request.setAttribute("errors", errors);
         }
         rd.forward(request, response);
     }

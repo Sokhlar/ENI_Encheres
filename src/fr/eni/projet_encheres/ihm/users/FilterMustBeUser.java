@@ -9,7 +9,8 @@ import java.io.IOException;
 @WebFilter(
         urlPatterns = {
                 "/user/*",
-                "/updateProfile"
+                "/updateProfile",
+                "/deleteProfile"
         },
         dispatcherTypes = {
                 DispatcherType.ERROR,

@@ -39,7 +39,7 @@ public class ServletCreateUser extends HttpServlet {
         try {
             um.createUtilisateur(utilisateur);
         } catch (BLLException e) {
-            ErrorsManagement.BLLExceptionsCatcher(e, errors);
+            ErrorsManagement.BLLExceptionsCatcher(e, errors, request);
         } catch (DALException e) {
             ErrorsManagement.DALExceptionsCatcher(e, errors, request);
         }
@@ -48,7 +48,6 @@ public class ServletCreateUser extends HttpServlet {
             request.setAttribute("page", "home");
         } else {
             request.setAttribute("page", "createLogin");
-            request.setAttribute("errors", errors);
         }
         rd.forward(request, response);
     }
