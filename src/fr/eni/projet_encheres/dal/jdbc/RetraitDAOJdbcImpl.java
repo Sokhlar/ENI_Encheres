@@ -2,7 +2,7 @@ package fr.eni.projet_encheres.dal.jdbc;
 
 import fr.eni.projet_encheres.bo.Retrait;
 import fr.eni.projet_encheres.dal.DALException;
-import fr.eni.projet_encheres.dal.DAO;
+import fr.eni.projet_encheres.dal.dao.DAO;
 import fr.eni.projet_encheres.dal.ErrorCodesDAL;
 
 import java.sql.Connection;

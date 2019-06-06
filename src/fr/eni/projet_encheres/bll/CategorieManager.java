@@ -2,8 +2,8 @@ package fr.eni.projet_encheres.bll;
 
 import fr.eni.projet_encheres.bo.Categorie;
 import fr.eni.projet_encheres.dal.DALException;
-import fr.eni.projet_encheres.dal.DAOCategorie;
-import fr.eni.projet_encheres.dal.DAOFactory;
+import fr.eni.projet_encheres.dal.dao.DAOCategorie;
+import fr.eni.projet_encheres.dal.dao.DAOFactory;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package fr.eni.projet_encheres.dal;
+package fr.eni.projet_encheres.dal.dao;
 
 import fr.eni.projet_encheres.bo.Retrait;
 import fr.eni.projet_encheres.dal.jdbc.*;

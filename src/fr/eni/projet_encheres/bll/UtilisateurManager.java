@@ -2,8 +2,8 @@ package fr.eni.projet_encheres.bll;
 
 import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
-import fr.eni.projet_encheres.dal.DAOFactory;
-import fr.eni.projet_encheres.dal.DAOUtilisateur;
+import fr.eni.projet_encheres.dal.dao.DAOFactory;
+import fr.eni.projet_encheres.dal.dao.DAOUtilisateur;
 
 import java.util.List;
 import java.util.regex.Pattern;

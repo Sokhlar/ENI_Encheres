@@ -2,8 +2,8 @@ package fr.eni.projet_encheres.bll;
 
 import fr.eni.projet_encheres.bo.Retrait;
 import fr.eni.projet_encheres.dal.DALException;
-import fr.eni.projet_encheres.dal.DAO;
-import fr.eni.projet_encheres.dal.DAOFactory;
+import fr.eni.projet_encheres.dal.dao.DAO;
+import fr.eni.projet_encheres.dal.dao.DAOFactory;
 
 public class RetraitManager {
     private static DAO<Retrait> dao;

@@ -2,7 +2,7 @@ package fr.eni.projet_encheres.dal.jdbc;
 
 import fr.eni.projet_encheres.bo.Categorie;
 import fr.eni.projet_encheres.dal.DALException;
-import fr.eni.projet_encheres.dal.DAOCategorie;
+import fr.eni.projet_encheres.dal.dao.DAOCategorie;
 import fr.eni.projet_encheres.dal.ErrorCodesDAL;
 
 import java.sql.*;
