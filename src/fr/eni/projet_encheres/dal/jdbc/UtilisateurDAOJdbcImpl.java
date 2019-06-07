@@ -7,6 +7,7 @@ import fr.eni.projet_encheres.dal.ErrorCodesDAL;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
@@ -43,7 +44,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
      * Extract data from the DB by id
      * @param id int The id of the utilisateur to extract from the DB
      * @return utilisateur An instance of the utilisateur
-     * @throws DALException if the SQL INSERT request is wrong
+     * @throws DALException if the SQL SELECT request is wrong
      */
     @Override
     public Utilisateur selectById(int id) throws DALException {
@@ -70,7 +71,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
      * Extract data from the DB by pseudo (pseudo is unique value)
      * @param pseudo String The pseudo of the utilisateur to extract from the DB
      * @return utilisateur An instance of the utilisateur
-     * @throws DALException if the SQL INSERT request is wrong
+     * @throws DALException if the SQL SELECT request is wrong
      */
     @Override
     public Utilisateur selectUtilisateurByPseudo(String pseudo) throws DALException {
@@ -93,6 +94,38 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
         }
         return utilisateur;
     }
+
+    /**
+     * Extract all users that have currently an auction and returns only their names
+     * Purpose of this query is to display the names of the sellers on homepage
+     * @return An ArrayList, index are for no_article and values are Strings with pseudo
+     * @throws DALException if the SQL SELECT request is wrong
+     */
+    @Override
+    public HashMap<Integer, String> selectUtilisateursWithCurrentAuction() throws DALException {
+        Connection cnx = JdbcTools.connect();
+        HashMap<Integer, String> pseudos = new HashMap<> ();
+        try {
+            String SELECT_USERS_WITH_CURRENT_AUCTIONS =
+                    "SELECT AV.no_article, pseudo " +
+                    "FROM UTILISATEURS " +
+                    "INNER JOIN ARTICLES_VENDUS AV on UTILISATEURS.no_utilisateur = AV.no_utilisateur " +
+                    "WHERE AV.etat_vente = 'EC'";
+            Statement stmt = cnx.createStatement();
+            stmt.execute(SELECT_USERS_WITH_CURRENT_AUCTIONS);
+            ResultSet rs = stmt.getResultSet();
+            while (rs.next()) {
+                pseudos.put(rs.getInt("no_article"), rs.getString("pseudo"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_SELECT);
+            throw dalException;
+        }
+        return pseudos;
+    }
+
 
     /**
      * Select all the utilisateurs from the DB

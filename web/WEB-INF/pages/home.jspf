@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-
+<jsp:useBean id="current_auctions" scope="request" type="java.util.List"/>
+<jsp:useBean id="pseudos" scope="request" type="java.util.HashMap"/>
 <%--@elvariable id="loginCreated" type="boolean"--%>
 <c:if test="${ loginCreated }">
     <p class="text-center text-success">Compte créé avec succès ! Vous pouvez vous connecter.</p>
@@ -16,4 +17,35 @@
     <p class="text-center text-success">Enchère créée avec succès !</p>
 </c:if>
 
+<h1 class="mb-5 text-center">Liste des enchères</h1>
 
+<div class="row">
+    <div class="offset-md-4
+     col-md-4 d-flex flex-column">
+        <p class="m-0">Filtres :</p>
+        <input type="text" class="form-control m-2" placeholder="Le nom de l'article contient">
+        <p class="d-flex flex-row">
+            <label class="col-md-3 pt-3" for="categories">Catégorie :</label>
+            <select id="categories" class="col-md-9 mt-2 form-control">
+                <option value="all">Toutes</option>
+                <c:forEach items="${categories}" var="category">
+                    <option value="${category.noCategorie}">${category.libelle}</option>
+                </c:forEach>
+            </select>
+        </p>
+        <button class="btn btn-primary btn-lg btn-block" id="#searchButton">Rechercher</button>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <c:forEach items="${current_auctions}" var="articleVendu">
+        
+            <div class="d-flex flex-column col-md-4 offset-md-1 border border-dark mt-3 mb-3">
+                <p><u>${articleVendu.nomArticle}</u></p>
+                <p>Prix : ${articleVendu.prixVente}</p>
+                <p>Fin de l'enchère : <fmt:formatDate value="${articleVendu.dateFinEncheres}" type="date" pattern="dd/MM/YYYY"/> </p>
+                <p>Vendeur : ${pseudos[articleVendu.noArticle]}</p>
+            </div>
+        </c:forEach>
+    </div>
+</div>

@@ -5,6 +5,7 @@ import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.dal.dao.DAOFactory;
 import fr.eni.projet_encheres.dal.dao.DAOUtilisateur;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -50,6 +51,10 @@ public class UtilisateurManager {
      */
     public Utilisateur getUtilisateurByPseudo(String pseudo) throws DALException {
         return dao.selectUtilisateurByPseudo(pseudo);
+    }
+
+    public HashMap<Integer, String> getPseudosUtilisateursWithCurrentAuctions() throws DALException {
+        return dao.selectUtilisateursWithCurrentAuction();
     }
     /**
      * Read part of CRUD
