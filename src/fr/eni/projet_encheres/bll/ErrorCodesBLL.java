@@ -23,4 +23,5 @@ package fr.eni.projet_encheres.bll;
      static final int ERROR_LENGTH_RUE_RETRAIT = 30040;
      static final int ERROR_LENGTH_CODE_POSTAL_RETRAIT = 30041;
      static final int ERROR_LENGTH_VILLE_RETRAIT = 30042;
+     static final int ERROR_NO_RESULTS = 30050;
 }

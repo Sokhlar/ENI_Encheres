@@ -1,12 +1,14 @@
 package fr.eni.projet_encheres.bll;
 
 import fr.eni.projet_encheres.bo.ArticleVendu;
+import fr.eni.projet_encheres.bo.Categorie;
 import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.dal.dao.DAOArticleVendu;
 import fr.eni.projet_encheres.dal.dao.DAOFactory;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class ArticleVenduManager {
     private static DAOArticleVendu dao;
@@ -27,6 +29,59 @@ public class ArticleVenduManager {
             throw bllException;
         } else {
             dao.insert(articleVendu);
+        }
+    }
+
+    /**
+     * Read part of CRUD
+     * Select all from DB
+     * @return An ArrayList filled with instances
+     * @throws DALException if there any issues with the DAL part
+     * @throws BLLException If the query returns no results
+     */
+    public List<ArticleVendu> getAllArticlesVendus() throws DALException, BLLException {
+        List<ArticleVendu> articlesVendus = dao.selectAll();
+        if (articlesVendus.isEmpty()) {
+            BLLException bllException = new BLLException();
+            bllException.addError(ErrorCodesBLL.ERROR_NO_RESULTS);
+            throw bllException;
+        } else {
+            return articlesVendus;
+        }
+    }
+
+    /**
+     * Select from the DB the articlesVendus from a particular category
+     * @param categorie the filter
+     * @return An ArrayList filled with instances
+     * @throws DALException if there any issues with the DAL part
+     * @throws BLLException If the query returns no results
+     */
+    public List<ArticleVendu> getArticlesFromCategory(Categorie categorie) throws DALException, BLLException {
+        List<ArticleVendu> articlesVendus = dao.filterByCategory(categorie);
+        if (articlesVendus.isEmpty()) {
+            BLLException bllException = new BLLException();
+            bllException.addError(ErrorCodesBLL.ERROR_NO_RESULTS);
+            throw bllException;
+        } else {
+            return articlesVendus;
+        }
+    }
+    /**
+     * Select from the DB the articlesVendus filtered by nomArticle
+     * @param filter String the filter
+     * @return An ArrayList filled with instances
+     * @throws DALException if there any issues with the DAL part
+     * @throws BLLException If the query returns no results
+     */
+    public List<ArticleVendu> getArticlesFilterByNomArticle(String filter) throws DALException, BLLException {
+        List<ArticleVendu> articlesVendus = dao.filterByString(filter);
+        if (articlesVendus.isEmpty()) {
+            BLLException bllException = new BLLException();
+            bllException.addError(ErrorCodesBLL.ERROR_NO_RESULTS);
+            throw bllException;
+        } else {
+            return articlesVendus;
         }
     }
 
