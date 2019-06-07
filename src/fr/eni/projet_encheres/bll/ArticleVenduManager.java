@@ -49,6 +49,23 @@ public class ArticleVenduManager {
             return articlesVendus;
         }
     }
+    /**
+     * Select from the DB the articlesVendus from a particular state
+     * @param etat the filter
+     * @return An ArrayList filled with instances
+     * @throws DALException if there any issues with the DAL part
+     * @throws BLLException If the query returns no results
+     */
+    public List<ArticleVendu> getArticlesByEtat(String etat) throws DALException, BLLException {
+        List<ArticleVendu> articlesVendus = dao.filterByEtat(etat);
+        if (articlesVendus.isEmpty()) {
+            BLLException bllException = new BLLException();
+            bllException.addError(ErrorCodesBLL.ERROR_NO_RESULTS);
+            throw bllException;
+        } else {
+            return articlesVendus;
+        }
+    }
 
     /**
      * Select from the DB the articlesVendus from a particular category

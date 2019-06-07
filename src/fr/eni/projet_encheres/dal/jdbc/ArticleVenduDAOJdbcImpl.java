@@ -74,6 +74,27 @@ public class ArticleVenduDAOJdbcImpl implements DAOArticleVendu {
         return articlesVendus;
     }
 
+    public List<ArticleVendu> filterByEtat(String etat) throws DALException {
+        Connection cnx = JdbcTools.connect();
+        List<ArticleVendu> articlesVendus = new ArrayList<>();
+        try {
+            String SELECT_BY_ETAT = "SELECT * FROM ARTICLES_VENDUS WHERE etat_vente = ?";
+            PreparedStatement stmt = cnx.prepareStatement(SELECT_BY_ETAT);
+            stmt.setString(1, etat);
+            stmt.execute();
+            ResultSet rs = stmt.getResultSet();
+            while (rs.next()) {
+                articlesVendus.add(hydrateArticleVendu(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_SELECT);
+            throw dalException;
+        }
+        return articlesVendus;
+    }
+
     /**
      *
      * Get all ArticleVendu instances that the field no_article match a String from the DB

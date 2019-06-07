@@ -9,4 +9,5 @@ import java.util.List;
 public interface DAOArticleVendu extends DAO<ArticleVendu> {
     List<ArticleVendu> filterByCategory(Categorie categorie) throws DALException;
     List<ArticleVendu> filterByString(String filter) throws DALException;
+    List<ArticleVendu> filterByEtat(String etat) throws DALException;
 }
