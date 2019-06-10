@@ -26,7 +26,8 @@ public class ServletHome extends HttpServlet {
         CategorieManager cm = new CategorieManager();
         UtilisateurManager um = new UtilisateurManager();
         EnchereManager em = new EnchereManager();
-
+        String CURRENT_AUCTION_STATE = "EC";
+        request.setAttribute("current_auctions", null);
         try {
             Utilisateur utilisateurLogged = null;
             if (request.getUserPrincipal() != null) {
@@ -62,7 +63,7 @@ public class ServletHome extends HttpServlet {
             // Actualize clone of the ArrayList
             articlesToFilter = new ArrayList<>(articlesVendus);
             if (request.getParameter("myCurrentAuctions") != null) {
-                List<Integer> articlesToKeep = em.selectIdArticlesFromUserAndState(utilisateurLogged, "EC");
+                List<Integer> articlesToKeep = em.selectIdArticlesFromUserAndState(utilisateurLogged, CURRENT_AUCTION_STATE);
                 for (ArticleVendu articleVendu : articlesToFilter) {
                     if(!articlesToKeep.contains(articleVendu.getNoArticle())) {
                        articlesVendus.remove(articleVendu);
@@ -71,8 +72,7 @@ public class ServletHome extends HttpServlet {
                 request.setAttribute("filterByMyCurrentAuctions", "true");
             }
 
-            // If this choice is made by the user, we reset the lists
-            articlesVendus = avm.getAllArticlesVendus();
+            // Actualize clone of the ArrayList
             articlesToFilter = new ArrayList<>(articlesVendus);
             if (request.getParameter("myWonAuctions") != null) {
                 List<Integer> wonAuctions = em.selectIdArticlesWonByUser(utilisateurLogged);
@@ -82,6 +82,18 @@ public class ServletHome extends HttpServlet {
                     }
                 }
                 request.setAttribute("filterByWonAuctions", "true");
+            }
+
+            // Actualize clone of the ArrayList
+            articlesToFilter = new ArrayList<>(articlesVendus);
+            if (request.getParameter("myCurrentSales") != null) {
+                List<Integer> currentSales = avm.getArticlesFilteredBySellerAndState(utilisateurLogged, CURRENT_AUCTION_STATE);
+                for (ArticleVendu articleVendu : articlesToFilter) {
+                    if (!currentSales.contains(articleVendu.getNoArticle())) {
+                        articlesVendus.remove(articleVendu);
+                    }
+                }
+                request.setAttribute("filterByMyCurrentSales", "true");
             }
 
             request.setAttribute("current_auctions", articlesVendus);

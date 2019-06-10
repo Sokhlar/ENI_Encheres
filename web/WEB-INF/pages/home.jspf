@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<jsp:useBean id="current_auctions" scope="request" type="java.util.List"/>
-<jsp:useBean id="pseudos" scope="request" type="java.util.HashMap"/>
+<c:if test="${empty(errors)}">
+    <jsp:useBean id="current_auctions" scope="request" type="java.util.List"/>
+    <jsp:useBean id="pseudos" scope="request" type="java.util.HashMap"/>
+</c:if>
 <%--@elvariable id="loginCreated" type="boolean"--%>
 <c:if test="${ loginCreated }">
     <p class="text-center text-success">Compte créé avec succès ! Vous pouvez vous connecter.</p>
@@ -55,12 +57,12 @@
                 <tbody class="w-100">
                 <tr class="d-flex justify-content-between">
                     <td>
-                        <input checked class="form-check-input guiFilterChoice" type="radio" id="currentBuying">
+                        <input checked class="form-check-input guiFilterChoice" type="radio" id="currentBuying" name="checboxesChoice">
                         <label for="currentBuying" class="form-check-label">Achats</label>
                     </td>
                     <td>
                         <label for="currentSelling" class="form-check-label">Mes ventes</label>
-                        <input type="radio" id="currentSelling" class="form-check-input guiFilterChoice">
+                        <input type="radio" id="currentSelling" class="form-check-input guiFilterChoice" name="checboxesChoice">
                     </td>
                 </tr>
                 <tr class="form-check-inline w-100 d-flex justify-content-between">
@@ -80,7 +82,7 @@
                     </td>
                     <td class="d-flex flex-column text-left mr-3 guiFilterChoiceCheckboxes">
                         <div class="form-check">
-                            <input disabled type="checkbox" class="form-check-input" id="myCurrentSales">
+                            <input <c:if test="${filterByMyCurrentSales}">checked</c:if> disabled type="checkbox" class="form-check-input" id="myCurrentSales" name="myCurrentSales" value="true">
                             <label for="myCurrentSales" class="form-check-label">Mes ventes en cours</label>
                         </div>
                         <div class="form-check">

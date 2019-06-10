@@ -2,6 +2,7 @@ package fr.eni.projet_encheres.dal.jdbc;
 
 import fr.eni.projet_encheres.bo.ArticleVendu;
 import fr.eni.projet_encheres.bo.Categorie;
+import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.dal.dao.DAOArticleVendu;
 import fr.eni.projet_encheres.dal.ErrorCodesDAL;
@@ -74,11 +75,17 @@ public class ArticleVenduDAOJdbcImpl implements DAOArticleVendu {
         return articlesVendus;
     }
 
+    /**
+     * Get every ArticleVendu from the DB from a particular state
+     * @param etat String Values : EC, VA or AN
+     * @return An ArrayList
+     * @throws DALException If there is any issue with the SQL query
+     */
     public List<ArticleVendu> filterByEtat(String etat) throws DALException {
         Connection cnx = JdbcTools.connect();
         List<ArticleVendu> articlesVendus = new ArrayList<>();
         try {
-            String SELECT_BY_ETAT = "SELECT * FROM ARTICLES_VENDUS WHERE etat_vente = ?";
+            String SELECT_BY_ETAT = "SELECT * FROM ARTICLES_VENDUS AV WHERE AV.etat_vente = ?";
             PreparedStatement stmt = cnx.prepareStatement(SELECT_BY_ETAT);
             stmt.setString(1, etat);
             stmt.execute();
@@ -93,6 +100,32 @@ public class ArticleVenduDAOJdbcImpl implements DAOArticleVendu {
             throw dalException;
         }
         return articlesVendus;
+    }
+
+    @Override
+    public List<Integer> getArticlesFromASellerAndState(Utilisateur utilisateur, String state) throws DALException {
+        Connection cnx = JdbcTools.connect();
+        List <Integer> articleVendus = new ArrayList<>();
+
+        String SELECT_BY_SELLER_AND_STATE = "SELECT AV.no_article FROM UTILISATEURS U " +
+                "INNER JOIN ARTICLES_VENDUS AV on U.no_utilisateur = AV.no_utilisateur " +
+                "WHERE U.no_utilisateur = ? AND AV.etat_vente = ?";
+        try {
+            PreparedStatement stmt = cnx.prepareStatement(SELECT_BY_SELLER_AND_STATE);
+            stmt.setInt(1, utilisateur.getNoUtilisateur());
+            stmt.setString(2, state);
+            stmt.execute();
+            ResultSet rs = stmt.getResultSet();
+            while (rs.next()) {
+                articleVendus.add(rs.getInt("no_article"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_SELECT);
+            throw dalException;
+        }
+        return articleVendus;
     }
 
     /**

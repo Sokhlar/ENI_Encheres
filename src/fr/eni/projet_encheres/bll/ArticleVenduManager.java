@@ -2,9 +2,12 @@ package fr.eni.projet_encheres.bll;
 
 import fr.eni.projet_encheres.bo.ArticleVendu;
 import fr.eni.projet_encheres.bo.Categorie;
+import fr.eni.projet_encheres.bo.Enchere;
+import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.dal.dao.DAOArticleVendu;
 import fr.eni.projet_encheres.dal.dao.DAOFactory;
+import fr.eni.projet_encheres.ihm.ManagementTools.ErrorsManagement;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -99,6 +102,25 @@ public class ArticleVenduManager {
             throw bllException;
         } else {
             return articlesVendus;
+        }
+    }
+
+    /**
+     * Call the DAL for all articles id sell by a particular user in a particular state
+     * @param utilisateur The user
+     * @param state The State (can be EC, VA or AN)
+     * @return An ArrayList filled with these instances
+     * @throws DALException If there any issue with the DAL part
+     * @throws BLLException If the query returns no results
+     */
+    public List<Integer> getArticlesFilteredBySellerAndState(Utilisateur utilisateur, String state) throws DALException, BLLException {
+        List<Integer> articleVendus = dao.getArticlesFromASellerAndState(utilisateur, state);
+        if (articleVendus.isEmpty()) {
+            BLLException bllException = new BLLException();
+            bllException.addError(ErrorCodesBLL.ERROR_NO_RESULTS);
+            throw bllException;
+        } else {
+            return articleVendus;
         }
     }
 
