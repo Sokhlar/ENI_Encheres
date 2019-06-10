@@ -27,4 +27,8 @@ public class EnchereManager {
     public List<Integer> selectIdArticlesFromUserAndState(Utilisateur utilisateur, String state) throws DALException {
         return dao.getNoArticlesByUtilisateurAndEtat(utilisateur, state);
     }
+
+    public List<Integer> selectIdArticlesWonByUser(Utilisateur utilisateur) throws DALException {
+        return dao.getNoArticlesWonByUtilisateur(utilisateur);
+    }
 }

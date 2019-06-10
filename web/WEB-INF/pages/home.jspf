@@ -74,7 +74,7 @@
                             <label for="myCurrentAuctions" class="form-check-label">Mes enchères en cours</label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="auctionsIWon">
+                            <input <c:if test="${filterByWonAuctions}">checked</c:if> type="checkbox" class="form-check-input" id="auctionsIWon" name="myWonAuctions" value="true">
                             <label for="auctionsIWon" class="form-check-label">Mes enchères remportées</label>
                         </div>
                     </td>

@@ -59,11 +59,49 @@ public class EnchereDAOJdbcImpl implements DAOEnchere {
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
-            dalException.addError(ErrorCodesDAL.ERROR_SQL_INSERT);
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_SELECT);
             throw dalException;
         }
 
         return noArticlesMatched;
+    }
+
+    /**
+     * Return an ArrayList filled by no_articles that matched
+     * the articles won by an user. SQL is looking for the latest auction made before the end date
+     * @param utilisateur Utilisateur The user
+     * @return ArrayList<Integer> all the id of the articles that matched
+     * @throws DALException If there is any issue with the SQL query
+     */
+    @Override
+    public List<Integer> getNoArticlesWonByUtilisateur(Utilisateur utilisateur) throws DALException {
+        Connection cnx = JdbcTools.connect();
+        List<Integer> articlesWonByUtilisateur = new ArrayList<>();
+        String SELECT_ARTICLES_WON_BY_USER =
+                "SELECT t.no_article FROM ( " +
+                "SELECT AV.no_article, E.date_enchere, E.no_utilisateur, " +
+                        "row_number() OVER (" +
+                        "PARTITION BY AV.no_utilisateur " +
+                        "ORDER BY datediff(MI, date_enchere, date_fin_encheres)) Ranking " +
+                "FROM ENCHERES E " +
+                "         INNER JOIN ARTICLES_VENDUS AV on E.no_article = AV.no_article " +
+                "WHERE AV.etat_vente = 'VE' AND E.no_utilisateur = ?) t " +
+                "WHERE Ranking = 1";
+        try {
+            PreparedStatement stmt = cnx.prepareStatement(SELECT_ARTICLES_WON_BY_USER);
+            stmt.setInt(1, utilisateur.getNoUtilisateur());
+            stmt.execute();
+            ResultSet rs = stmt.getResultSet();
+            while (rs.next()) {
+                articlesWonByUtilisateur.add(rs.getInt("no_article"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_SELECT);
+            throw dalException;
+        }
+        return articlesWonByUtilisateur;
     }
 
     @Override

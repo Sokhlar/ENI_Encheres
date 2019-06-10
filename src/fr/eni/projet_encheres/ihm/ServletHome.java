@@ -69,7 +69,19 @@ public class ServletHome extends HttpServlet {
                     }
                 }
                 request.setAttribute("filterByMyCurrentAuctions", "true");
+            }
 
+            // If this choice is made by the user, we reset the lists
+            articlesVendus = avm.getAllArticlesVendus();
+            articlesToFilter = new ArrayList<>(articlesVendus);
+            if (request.getParameter("myWonAuctions") != null) {
+                List<Integer> wonAuctions = em.selectIdArticlesWonByUser(utilisateurLogged);
+                for (ArticleVendu articleVendu : articlesToFilter) {
+                    if (!wonAuctions.contains(articleVendu.getNoArticle())) {
+                        articlesVendus.remove(articleVendu);
+                    }
+                }
+                request.setAttribute("filterByWonAuctions", "true");
             }
 
             request.setAttribute("current_auctions", articlesVendus);

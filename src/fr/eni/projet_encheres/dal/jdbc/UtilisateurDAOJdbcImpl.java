@@ -109,8 +109,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             String SELECT_USERS_WITH_CURRENT_AUCTIONS =
                     "SELECT AV.no_article, pseudo " +
                     "FROM UTILISATEURS " +
-                    "INNER JOIN ARTICLES_VENDUS AV on UTILISATEURS.no_utilisateur = AV.no_utilisateur " +
-                    "WHERE AV.etat_vente = 'EC'";
+                    "INNER JOIN ARTICLES_VENDUS AV on UTILISATEURS.no_utilisateur = AV.no_utilisateur ";
             Statement stmt = cnx.createStatement();
             stmt.execute(SELECT_USERS_WITH_CURRENT_AUCTIONS);
             ResultSet rs = stmt.getResultSet();
