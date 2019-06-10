@@ -5,7 +5,6 @@ import fr.eni.projet_encheres.bll.BLLException;
 import fr.eni.projet_encheres.bll.CategorieManager;
 import fr.eni.projet_encheres.bll.UtilisateurManager;
 import fr.eni.projet_encheres.bo.ArticleVendu;
-import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.ihm.ManagementTools.ErrorsManagement;
 
@@ -22,7 +21,52 @@ import java.util.List;
 @WebServlet("/")
 public class ServletHome extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/index.jsp");
+        request.setAttribute("page", "home");
+        List<String> errors = new ArrayList<>();
+        ArticleVenduManager avm = new ArticleVenduManager();
+        CategorieManager cm = new CategorieManager();
+        UtilisateurManager um = new UtilisateurManager();
+        try {
+            List<ArticleVendu> articlesVendus = avm.getArticlesByEtat("EC");
+            String categoryFilter = request.getParameter("category_filter");
+            // Let's filter !
+            // By category
+            // Create a clone of the ArrayList
+            List<ArticleVendu> articlesToFilter = new ArrayList<>(articlesVendus);
+            if (categoryFilter != null && !request.getParameter("category_filter").equals("all")) {
+                // Loop into this clone and remove from the original list
+                for (ArticleVendu articleVendu : articlesToFilter) {
+                    if (articleVendu.getNoCategorie() != Integer.valueOf(categoryFilter)) {
+                        articlesVendus.remove(articleVendu);
+                    }
+                }
+            }
+            // By keyword
+            String stringFilter = request.getParameter("string_filter");
+            // Create a clone of the ArrayList
+            articlesToFilter = new ArrayList<>(articlesVendus);
+            if (stringFilter != null) {
+                // Loop into this clone and remove from the original list
+                for (ArticleVendu articleVendu : articlesToFilter) {
+                    if (!articleVendu.getNomArticle().toLowerCase().contains(stringFilter.toLowerCase())) {
+                        articlesVendus.remove(articleVendu);
+                    }
+                }
+            }
+            request.setAttribute("current_auctions", articlesVendus);
+            request.setAttribute("categories", cm.getAllCategories());
+            request.setAttribute("pseudos", um.getPseudosUtilisateursWithCurrentAuctions());
+            // Now we have to keep the different filters in the way they were before the http request
+            request.setAttribute("categoryFilter", categoryFilter);
+            request.setAttribute("stringFilter", stringFilter);
+
+        } catch (DALException e) {
+            ErrorsManagement.DALExceptionsCatcher(e, errors, request);
+        } catch (BLLException e) {
+            ErrorsManagement.BLLExceptionsCatcher(e, errors, request);
+        }
+        rd.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

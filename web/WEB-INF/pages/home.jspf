@@ -19,27 +19,36 @@
 
 <h1 class="mb-5 text-center">Liste des enchères</h1>
 
-<div class="row">
+<form class="row" action="${pageContext.request.contextPath}/" method="post" id="filter_auctions">
     <div class="offset-md-4
      col-md-4 d-flex flex-column">
         <p class="m-0">Filtres :</p>
-        <input type="text" class="form-control m-2" placeholder="Le nom de l'article contient">
+        <%--@elvariable id="stringFilter" type="java.lang.String"--%>
+        <input name="string_filter" type="text" class="form-control m-2" placeholder="Le nom de l'article contient" value="${stringFilter}">
         <p class="d-flex flex-row">
             <label class="col-md-3 pt-3" for="categories">Catégorie :</label>
-            <select id="categories" class="col-md-9 mt-2 form-control">
+            <select name="category_filter" id="categories" class="col-md-9 mt-2 form-control">
                 <option value="all">Toutes</option>
                 <c:forEach items="${categories}" var="category">
-                    <option value="${category.noCategorie}">${category.libelle}</option>
+                    <c:choose>
+                        <%--@elvariable id="categoryFilter" type="java.lang.String"--%>
+                        <c:when test="${categoryFilter == category.noCategorie}">
+                            <option selected value="${category.noCategorie}">${category.libelle}</option>
+                        </c:when>
+                        <c:otherwise>
+                            <option value="${category.noCategorie}">${category.libelle}</option>
+                        </c:otherwise>
+                    </c:choose>
                 </c:forEach>
             </select>
         </p>
-        <button class="btn btn-primary btn-lg btn-block" id="#searchButton">Rechercher</button>
+        <input type="submit" class="btn btn-primary btn-lg btn-block" id="#searchButton" value="Rechercher"/>
     </div>
-</div>
+</form>
+<%@include file="../templates/displayErrorsFormUser.jspf"%>
 <div class="container">
     <div class="row">
         <c:forEach items="${current_auctions}" var="articleVendu">
-        
             <div class="d-flex flex-column col-md-4 offset-md-1 border border-dark mt-3 mb-3">
                 <p><u>${articleVendu.nomArticle}</u></p>
                 <p>Prix : ${articleVendu.prixVente}</p>
@@ -49,3 +58,8 @@
         </c:forEach>
     </div>
 </div>
+<script type="text/javascript">
+    $("#filter_auctions").on("onsubmit", function (e) {
+
+    })
+</script>
