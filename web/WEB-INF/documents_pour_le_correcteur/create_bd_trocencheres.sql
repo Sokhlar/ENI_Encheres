@@ -2,6 +2,7 @@
 --   type :      SQL Server 2012
 -- MODIFICATIONS APPORTÉES :
 -- Ajout du script de creation de la bdd et d'un utilisateur avec les rôles datareader et datawriter
+-- Création d'une procédure stockée pour mettre à jour l'état de "Pas commencé" à "En cours"
 
 
 -- Database creation
@@ -103,7 +104,7 @@ CREATE TABLE ARTICLES_VENDUS (
 
 ALTER TABLE ARTICLES_VENDUS ADD constraint articles_vendus_pk PRIMARY KEY (no_article)
 
-ALTER TABLE ARTICLES_VENDUS ADD CONSTRAINT articles_vendus_etat_vente_ck CHECK (etat_vente IN ('EC', 'AN', 'VE'));
+ALTER TABLE ARTICLES_VENDUS ADD CONSTRAINT articles_vendus_etat_vente_ck CHECK (etat_vente IN ('EC', 'PC', 'AN', 'VE'));
 
 ALTER TABLE ARTICLES_VENDUS
     ADD CONSTRAINT encheres_utilisateur_fk FOREIGN KEY ( no_utilisateur ) REFERENCES UTILISATEURS ( no_utilisateur )
@@ -134,3 +135,28 @@ ALTER TABLE ARTICLES_VENDUS
 ON DELETE NO ACTION 
     ON UPDATE no action 
 
+-- Stored Procedure
+CREATE OR ALTER PROCEDURE actualizeAuctionsState
+AS
+DECLARE @date_debut date
+DECLARE date_cursor CURSOR FOR
+    SELECT date_debut_encheres
+    FROM ARTICLES_VENDUS
+    WHERE etat_vente = 'PC';
+
+    OPEN date_cursor
+    FETCH NEXT FROM date_cursor
+        INTO @date_debut
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        IF @date_debut <= GETDATE()
+            BEGIN
+                UPDATE ARTICLES_VENDUS SET etat_vente = 'EC' WHERE date_debut_encheres = @date_debut
+            END
+        FETCH NEXT FROM date_cursor
+            INTO @date_debut
+    END
+    CLOSE date_cursor
+    DEALLOCATE date_cursor
+GO

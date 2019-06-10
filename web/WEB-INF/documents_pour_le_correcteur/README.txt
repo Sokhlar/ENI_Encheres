@@ -17,3 +17,7 @@ La placer à l'intérieur de la balise suivante (protection contre les attaques 
 <Realm className="org.apache.catalina.realm.LockOutRealm">
 </Realm>
 
+
+Mise en place d'une procédure stockée à exécuter toutes les minutes (Paramétrage via SSMS : https://stackoverflow.com/questions/2348863/how-to-run-a-stored-procedure-in-sql-server-every-hour0
+La procédure stockée se trouve dans le fichier create_bd_trocencheres.sql
+

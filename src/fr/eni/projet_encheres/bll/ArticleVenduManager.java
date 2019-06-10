@@ -2,12 +2,10 @@ package fr.eni.projet_encheres.bll;
 
 import fr.eni.projet_encheres.bo.ArticleVendu;
 import fr.eni.projet_encheres.bo.Categorie;
-import fr.eni.projet_encheres.bo.Enchere;
 import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.dal.dao.DAOArticleVendu;
 import fr.eni.projet_encheres.dal.dao.DAOFactory;
-import fr.eni.projet_encheres.ihm.ManagementTools.ErrorsManagement;
 
 import java.util.Arrays;
 import java.util.Date;

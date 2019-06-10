@@ -38,7 +38,7 @@ public class ServletPostAuction extends HttpServlet {
                     dateFormat.parse(request.getParameter("end_auction_date")),
                     Integer.valueOf(request.getParameter("starting_price")),
                     Integer.valueOf(request.getParameter("starting_price")),
-                    "EC",
+                    "PC",
                     utilisateur.getNoUtilisateur(),
                     Integer.valueOf(request.getParameter("category"))
             );
