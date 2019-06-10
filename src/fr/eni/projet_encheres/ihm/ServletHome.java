@@ -69,8 +69,10 @@ public class ServletHome extends HttpServlet {
                 articlesToFilter = new ArrayList<>(articlesVendus);
                 switch (filterChoice) {
                     case "currentAuctions":
+                        // get what we want
                         List<Integer> currentAuctions = avm.getArticlesByEtat(CURRENT_AUCTION_STATE);
                         for(ArticleVendu articleVendu : articlesToFilter) {
+                            // remove what we don't want
                             if (!currentAuctions.contains(articleVendu.getNoArticle())) {
                                 articlesVendus.remove(articleVendu);
                             }
@@ -124,11 +126,10 @@ public class ServletHome extends HttpServlet {
                 }
             }
 
-
             request.setAttribute("current_auctions", articlesVendus);
             request.setAttribute("categories", cm.getAllCategories());
             request.setAttribute("pseudos", um.getPseudosUtilisateursWithCurrentAuctions());
-            // Now we have to keep the different filters in the way they were before the http request
+            // We also have to keep the different filters in the way they were before the http request
             request.setAttribute("categoryFilter", categoryFilter);
             request.setAttribute("stringFilter", stringFilter);
 

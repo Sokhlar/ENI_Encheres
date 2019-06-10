@@ -120,6 +120,21 @@
             <div class="d-flex flex-column col-md-4 offset-md-1 border border-dark mt-3 mb-3">
                 <p><u>${articleVendu.nomArticle}</u></p>
                 <p>Prix : ${articleVendu.prixVente}</p>
+                <p>
+                    Statut de l'enchère : 
+                    <c:if test="${articleVendu.etatVente == 'EC'}">
+                        En cours
+                    </c:if>
+                    <c:if test="${articleVendu.etatVente == 'PC'}">
+                        Pas encore commencée
+                    </c:if>
+                    <c:if test="${articleVendu.etatVente == 'VE'}">
+                        Finie
+                    </c:if>
+                    <c:if test="${articleVendu.etatVente == 'AN'}">
+                        Annulée
+                    </c:if>
+                </p>
                 <p>Fin de l'enchère : <fmt:formatDate value="${articleVendu.dateFinEncheres}" type="date" pattern="dd/MM/YYYY"/> </p>
                 <p>Vendeur : ${pseudos[articleVendu.noArticle]}</p>
             </div>
