@@ -81,17 +81,17 @@ public class ArticleVenduDAOJdbcImpl implements DAOArticleVendu {
      * @return An ArrayList
      * @throws DALException If there is any issue with the SQL query
      */
-    public List<ArticleVendu> filterByEtat(String etat) throws DALException {
+    public List<Integer> filterByEtat(String etat) throws DALException {
         Connection cnx = JdbcTools.connect();
-        List<ArticleVendu> articlesVendus = new ArrayList<>();
+        List<Integer> articlesVendus = new ArrayList<>();
         try {
-            String SELECT_BY_ETAT = "SELECT * FROM ARTICLES_VENDUS AV WHERE AV.etat_vente = ?";
+            String SELECT_BY_ETAT = "SELECT AV.no_article FROM ARTICLES_VENDUS AV WHERE AV.etat_vente = ?";
             PreparedStatement stmt = cnx.prepareStatement(SELECT_BY_ETAT);
             stmt.setString(1, etat);
             stmt.execute();
             ResultSet rs = stmt.getResultSet();
             while (rs.next()) {
-                articlesVendus.add(hydrateArticleVendu(rs));
+                articlesVendus.add(rs.getInt("no_article"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

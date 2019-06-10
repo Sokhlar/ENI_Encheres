@@ -57,8 +57,8 @@ public class ArticleVenduManager {
      * @throws DALException if there any issues with the DAL part
      * @throws BLLException If the query returns no results
      */
-    public List<ArticleVendu> getArticlesByEtat(String etat) throws DALException, BLLException {
-        List<ArticleVendu> articlesVendus = dao.filterByEtat(etat);
+    public List<Integer> getArticlesByEtat(String etat) throws DALException, BLLException {
+        List<Integer> articlesVendus = dao.filterByEtat(etat);
         if (articlesVendus.isEmpty()) {
             BLLException bllException = new BLLException();
             bllException.addError(ErrorCodesBLL.ERROR_NO_RESULTS);

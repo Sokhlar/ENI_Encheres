@@ -28,6 +28,7 @@ public class ServletHome extends HttpServlet {
         EnchereManager em = new EnchereManager();
         String CURRENT_AUCTION_STATE = "EC";
         String NOT_STARTED_AUCTION_STATE = "PC";
+        String FINISHED_AUCTION_STATE = "VE";
 
         request.setAttribute("current_auctions", null);
         try {
@@ -67,6 +68,14 @@ public class ServletHome extends HttpServlet {
                 // Actualize clone of the ArrayList
                 articlesToFilter = new ArrayList<>(articlesVendus);
                 switch (filterChoice) {
+                    case "currentAuctions":
+                        List<Integer> currentAuctions = avm.getArticlesByEtat(CURRENT_AUCTION_STATE);
+                        for(ArticleVendu articleVendu : articlesToFilter) {
+                            if (!currentAuctions.contains(articleVendu.getNoArticle())) {
+                                articlesVendus.remove(articleVendu);
+                            }
+                        }
+                        break;
                     case "myCurrentAuctions":
                         List<Integer> articlesToKeep = em.selectIdArticlesFromUserAndState(utilisateurLogged, CURRENT_AUCTION_STATE);
                         for (ArticleVendu articleVendu : articlesToFilter) {
@@ -102,6 +111,16 @@ public class ServletHome extends HttpServlet {
                             }
                         }
                         request.setAttribute("filterByMyNotStartedSales", "true");
+                        break;
+                    case "myEndedSales":
+                        List<Integer> endedSales = avm.getArticlesFilteredBySellerAndState(utilisateurLogged, FINISHED_AUCTION_STATE);
+                        for (ArticleVendu articleVendu : articlesToFilter) {
+                            if (!endedSales.contains(articleVendu.getNoArticle())) {
+                                articlesVendus.remove(articleVendu);
+                            }
+                        }
+                        request.setAttribute("filterByMyEndedSales", "true");
+                        break;
                 }
             }
 
@@ -129,7 +148,7 @@ public class ServletHome extends HttpServlet {
         ArticleVenduManager avm = new ArticleVenduManager();
         UtilisateurManager um = new UtilisateurManager();
         try {
-            request.setAttribute("current_auctions", avm.getArticlesByEtat("EC"));
+            request.setAttribute("current_auctions", avm.getAllArticlesVendus());
             request.setAttribute("categories", cm.getAllCategories());
             request.setAttribute("pseudos", um.getPseudosUtilisateursWithCurrentAuctions());
         } catch (DALException e) {

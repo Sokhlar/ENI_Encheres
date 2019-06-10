@@ -90,7 +90,7 @@
                             <label for="nonStartedSales" class="form-check-label">Ventes non débutées</label>
                         </div>
                         <div class="form-check">
-                            <input disabled type="radio" class="form-check-input radioFilterChoice" id="endedSales">
+                            <input <c:if test="${filterByMyEndedSales}">checked</c:if> disabled type="radio" class="form-check-input radioFilterChoice" id="endedSales" name="filterChoice" value="myEndedSales">
                             <label for="endedSales" class="form-check-label">Ventes terminées</label>
                         </div>
                     </td>
