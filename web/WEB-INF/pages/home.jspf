@@ -42,7 +42,65 @@
                 </c:forEach>
             </select>
         </p>
-        <input type="submit" class="btn btn-primary btn-lg btn-block" id="#searchButton" value="Rechercher"/>
+        <c:if test="${isConnected}">
+            <table class="form-check form-check-inline mr-0 d-flex justify-content-between">
+                <tbody class="w-100">
+                <tr class="d-flex justify-content-between">
+                    <td>
+                        <input checked class="form-check-input guiFilterChoice" name="guiFilterChoice" type="radio" id="currentBuying">
+                        <label for="currentBuying" class="form-check-label">Achats</label>
+                    </td>
+                    <td>
+                        <label for="currentSelling" class="form-check-label">Mes ventes</label>
+                        <input type="radio" id="currentSelling" name="guiFilterChoice" class="form-check-input guiFilterChoice">
+                    </td>
+                </tr>
+                <tr class="form-check-inline w-100 d-flex justify-content-between">
+                    <td class="d-flex flex-column text-left guiFilterChoiceCheckboxes">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="allCurrentAuctions">
+                            <label for="allCurrentAuctions" class="form-check-label">Enchères ouvertes</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="myCurrentAuctions">
+                            <label for="myCurrentAuctions" class="form-check-label">Mes enchères en cours</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="auctionsIWon">
+                            <label for="auctionsIWon" class="form-check-label">Mes enchères remportées</label>
+                        </div>
+                    </td>
+                    <td class="d-flex flex-column text-left mr-3 guiFilterChoiceCheckboxes">
+                        <div class="form-check">
+                            <input disabled type="checkbox" class="form-check-input" id="myCurrentSales">
+                            <label for="myCurrentSales" class="form-check-label">Mes ventes en cours</label>
+                        </div>
+                        <div class="form-check">
+                            <input disabled type="checkbox" class="form-check-input" id="nonStartedSales">
+                            <label for="nonStartedSales" class="form-check-label">Ventes non débutées</label>
+                        </div>
+                        <div class="form-check">
+                            <input disabled type="checkbox" class="form-check-input" id="endedSales">
+                            <label for="endedSales" class="form-check-label">Ventes terminées</label>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <script type="text/javascript">
+                var guiSelectChoice = $(".guiFilterChoice");
+                var guiFilterChoiceCheckboxes = $(".guiFilterChoiceCheckboxes");
+                var filterAuctions =    $("#filter_auctions");
+                guiSelectChoice.each(function (i) {
+                    $(this).on("click", function () {
+                        filterAuctions.find(":checkbox").prop("disabled", true);
+                        filterAuctions.find(":checkbox").prop("checked", false);
+                        guiFilterChoiceCheckboxes.eq(i).find(":checkbox").prop("disabled", false);
+                    });
+                });
+            </script>
+        </c:if>
+        <input type="submit" class="btn btn-primary btn-lg btn-block mt-2" id="#searchButton" value="Rechercher"/>
     </div>
 </form>
 <%@include file="../templates/displayErrorsFormUser.jspf"%>
@@ -58,8 +116,3 @@
         </c:forEach>
     </div>
 </div>
-<script type="text/javascript">
-    $("#filter_auctions").on("onsubmit", function (e) {
-
-    })
-</script>
