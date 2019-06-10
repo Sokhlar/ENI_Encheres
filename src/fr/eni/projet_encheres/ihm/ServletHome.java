@@ -1,10 +1,8 @@
 package fr.eni.projet_encheres.ihm;
 
-import fr.eni.projet_encheres.bll.ArticleVenduManager;
-import fr.eni.projet_encheres.bll.BLLException;
-import fr.eni.projet_encheres.bll.CategorieManager;
-import fr.eni.projet_encheres.bll.UtilisateurManager;
+import fr.eni.projet_encheres.bll.*;
 import fr.eni.projet_encheres.bo.ArticleVendu;
+import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.ihm.ManagementTools.ErrorsManagement;
 
@@ -27,7 +25,13 @@ public class ServletHome extends HttpServlet {
         ArticleVenduManager avm = new ArticleVenduManager();
         CategorieManager cm = new CategorieManager();
         UtilisateurManager um = new UtilisateurManager();
+        EnchereManager em = new EnchereManager();
+
         try {
+            Utilisateur utilisateurLogged = null;
+            if (request.getUserPrincipal() != null) {
+                utilisateurLogged = um.getUtilisateurByPseudo(request.getUserPrincipal().getName());
+            }
             List<ArticleVendu> articlesVendus = avm.getArticlesByEtat("EC");
             String categoryFilter = request.getParameter("category_filter");
             // Let's filter !
@@ -54,6 +58,20 @@ public class ServletHome extends HttpServlet {
                     }
                 }
             }
+            // Now the attributes for connected users
+            // Actualize clone of the ArrayList
+            articlesToFilter = new ArrayList<>(articlesVendus);
+            if (request.getParameter("myCurrentAuctions") != null) {
+                List<Integer> articlesToKeep = em.selectIdArticlesFromUserAndState(utilisateurLogged, "EC");
+                for (ArticleVendu articleVendu : articlesToFilter) {
+                    if(!articlesToKeep.contains(articleVendu.getNoArticle())) {
+                       articlesVendus.remove(articleVendu);
+                    }
+                }
+                request.setAttribute("filterByMyCurrentAuctions", "true");
+
+            }
+
             request.setAttribute("current_auctions", articlesVendus);
             request.setAttribute("categories", cm.getAllCategories());
             request.setAttribute("pseudos", um.getPseudosUtilisateursWithCurrentAuctions());
