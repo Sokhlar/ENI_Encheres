@@ -133,30 +133,36 @@ ALTER TABLE ARTICLES_VENDUS
     ADD CONSTRAINT ventes_utilisateur_fk FOREIGN KEY ( no_utilisateur )
         REFERENCES utilisateurs ( no_utilisateur )
 ON DELETE NO ACTION 
-    ON UPDATE no action 
+    ON UPDATE no action
+
+-- Set for Categories
+INSERT INTO CATEGORIES (libelle) VALUES 'Informatique';
+INSERT INTO CATEGORIES (libelle) VALUES 'Ameublement';
+INSERT INTO CATEGORIES (libelle) VALUES 'Vêtement';
+INSERT INTO CATEGORIES (libelle) VALUES 'Sport&Loisirs';
 
 -- Stored Procedure
 CREATE OR ALTER PROCEDURE actualizeAuctionsState
 AS
 DECLARE @date_debut date
 DECLARE date_cursor CURSOR FOR
-    SELECT date_debut_encheres
-    FROM ARTICLES_VENDUS
-    WHERE etat_vente = 'PC';
+SELECT date_debut_encheres
+FROM ARTICLES_VENDUS
+WHERE etat_vente = 'PC';
 
-    OPEN date_cursor
+OPEN date_cursor
+FETCH NEXT FROM date_cursor
+    INTO @date_debut
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    IF @date_debut <= GETDATE()
+        BEGIN
+            UPDATE ARTICLES_VENDUS SET etat_vente = 'EC' WHERE date_debut_encheres = @date_debut
+        END
     FETCH NEXT FROM date_cursor
         INTO @date_debut
-
-    WHILE @@FETCH_STATUS = 0
-    BEGIN
-        IF @date_debut <= GETDATE()
-            BEGIN
-                UPDATE ARTICLES_VENDUS SET etat_vente = 'EC' WHERE date_debut_encheres = @date_debut
-            END
-        FETCH NEXT FROM date_cursor
-            INTO @date_debut
-    END
-    CLOSE date_cursor
-    DEALLOCATE date_cursor
+END
+CLOSE date_cursor
+DEALLOCATE date_cursor
 GO

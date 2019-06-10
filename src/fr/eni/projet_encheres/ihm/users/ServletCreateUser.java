@@ -1,6 +1,8 @@
 package fr.eni.projet_encheres.ihm.users;
 
+import fr.eni.projet_encheres.bll.ArticleVenduManager;
 import fr.eni.projet_encheres.bll.BLLException;
+import fr.eni.projet_encheres.bll.CategorieManager;
 import fr.eni.projet_encheres.bll.UtilisateurManager;
 import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
@@ -45,6 +47,15 @@ public class ServletCreateUser extends HttpServlet {
             ErrorsManagement.DALExceptionsCatcher(e, errors, request);
         }
         if (errors.isEmpty()) {
+            try {
+                request.setAttribute("current_auctions", new ArticleVenduManager().getAllArticlesVendus());
+                request.setAttribute("categories", new CategorieManager().getAllCategories());
+                request.setAttribute("pseudos", new UtilisateurManager().getPseudosUtilisateursWithCurrentAuctions());
+            } catch (DALException e) {
+                ErrorsManagement.DALExceptionsCatcher(e, errors, request);
+            } catch (BLLException e) {
+                ErrorsManagement.BLLExceptionsCatcher(e, errors, request);
+            }
             request.setAttribute("loginCreated", "true");
             request.setAttribute("page", "home");
         } else {
