@@ -27,13 +27,15 @@ public class ServletHome extends HttpServlet {
         UtilisateurManager um = new UtilisateurManager();
         EnchereManager em = new EnchereManager();
         String CURRENT_AUCTION_STATE = "EC";
+        String NOT_STARTED_AUCTION_STATE = "PC";
+
         request.setAttribute("current_auctions", null);
         try {
             Utilisateur utilisateurLogged = null;
             if (request.getUserPrincipal() != null) {
                 utilisateurLogged = um.getUtilisateurByPseudo(request.getUserPrincipal().getName());
             }
-            List<ArticleVendu> articlesVendus = avm.getArticlesByEtat("EC");
+            List<ArticleVendu> articlesVendus = avm.getAllArticlesVendus();
             String categoryFilter = request.getParameter("category_filter");
             // Let's filter !
             // By category
@@ -60,41 +62,49 @@ public class ServletHome extends HttpServlet {
                 }
             }
             // Now the attributes for connected users
-            // Actualize clone of the ArrayList
-            articlesToFilter = new ArrayList<>(articlesVendus);
-            if (request.getParameter("myCurrentAuctions") != null) {
-                List<Integer> articlesToKeep = em.selectIdArticlesFromUserAndState(utilisateurLogged, CURRENT_AUCTION_STATE);
-                for (ArticleVendu articleVendu : articlesToFilter) {
-                    if(!articlesToKeep.contains(articleVendu.getNoArticle())) {
-                       articlesVendus.remove(articleVendu);
-                    }
+            if (request.getParameter("filterChoice") != null) {
+                String filterChoice = request.getParameter("filterChoice");
+                // Actualize clone of the ArrayList
+                articlesToFilter = new ArrayList<>(articlesVendus);
+                switch (filterChoice) {
+                    case "myCurrentAuctions":
+                        List<Integer> articlesToKeep = em.selectIdArticlesFromUserAndState(utilisateurLogged, CURRENT_AUCTION_STATE);
+                        for (ArticleVendu articleVendu : articlesToFilter) {
+                            if(!articlesToKeep.contains(articleVendu.getNoArticle())) {
+                                articlesVendus.remove(articleVendu);
+                            }
+                        }
+                        request.setAttribute("filterByMyCurrentAuctions", "true");
+                        break;
+                    case "myWonAuctions":
+                        List<Integer> wonAuctions = em.selectIdArticlesWonByUser(utilisateurLogged);
+                        for (ArticleVendu articleVendu : articlesToFilter) {
+                            if (!wonAuctions.contains(articleVendu.getNoArticle())) {
+                                articlesVendus.remove(articleVendu);
+                            }
+                        }
+                        request.setAttribute("filterByWonAuctions", "true");
+                        break;
+                    case "myCurrentSales":
+                        List<Integer> currentSales = avm.getArticlesFilteredBySellerAndState(utilisateurLogged, CURRENT_AUCTION_STATE);
+                        for (ArticleVendu articleVendu : articlesToFilter) {
+                            if (!currentSales.contains(articleVendu.getNoArticle())) {
+                                articlesVendus.remove(articleVendu);
+                            }
+                        }
+                        request.setAttribute("filterByMyCurrentSales", "true");
+                        break;
+                    case "myNotStartedSales":
+                        List<Integer> notStartedSales = avm.getArticlesFilteredBySellerAndState(utilisateurLogged, NOT_STARTED_AUCTION_STATE);
+                        for (ArticleVendu articleVendu : articlesToFilter) {
+                            if (!notStartedSales.contains(articleVendu.getNoArticle())) {
+                                articlesVendus.remove(articleVendu);
+                            }
+                        }
+                        request.setAttribute("filterByMyNotStartedSales", "true");
                 }
-                request.setAttribute("filterByMyCurrentAuctions", "true");
             }
 
-            // Actualize clone of the ArrayList
-            articlesToFilter = new ArrayList<>(articlesVendus);
-            if (request.getParameter("myWonAuctions") != null) {
-                List<Integer> wonAuctions = em.selectIdArticlesWonByUser(utilisateurLogged);
-                for (ArticleVendu articleVendu : articlesToFilter) {
-                    if (!wonAuctions.contains(articleVendu.getNoArticle())) {
-                        articlesVendus.remove(articleVendu);
-                    }
-                }
-                request.setAttribute("filterByWonAuctions", "true");
-            }
-
-            // Actualize clone of the ArrayList
-            articlesToFilter = new ArrayList<>(articlesVendus);
-            if (request.getParameter("myCurrentSales") != null) {
-                List<Integer> currentSales = avm.getArticlesFilteredBySellerAndState(utilisateurLogged, CURRENT_AUCTION_STATE);
-                for (ArticleVendu articleVendu : articlesToFilter) {
-                    if (!currentSales.contains(articleVendu.getNoArticle())) {
-                        articlesVendus.remove(articleVendu);
-                    }
-                }
-                request.setAttribute("filterByMyCurrentSales", "true");
-            }
 
             request.setAttribute("current_auctions", articlesVendus);
             request.setAttribute("categories", cm.getAllCategories());

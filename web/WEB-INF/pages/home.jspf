@@ -66,31 +66,31 @@
                     </td>
                 </tr>
                 <tr class="form-check-inline w-100 d-flex justify-content-between">
-                    <td class="d-flex flex-column text-left guiFilterChoiceCheckboxes">
+                    <td class="d-flex flex-column text-left guiFilterChoiceRadios">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="allCurrentAuctions">
+                            <input type="radio" class="form-check-input radioFilterChoice" id="allCurrentAuctions" name="filterChoice" value="currentAuctions">
                             <label for="allCurrentAuctions" class="form-check-label">Enchères ouvertes</label>
                         </div>
                         <div class="form-check">
-                            <input <c:if test="${filterByMyCurrentAuctions}">checked</c:if> type="checkbox" class="form-check-input" id="myCurrentAuctions" name="myCurrentAuctions" value="true">
+                            <input <c:if test="${filterByMyCurrentAuctions}">checked</c:if> type="radio" class="form-check-input radioFilterChoice" id="myCurrentAuctions" name="filterChoice" value="myCurrentAuctions">
                             <label for="myCurrentAuctions" class="form-check-label">Mes enchères en cours</label>
                         </div>
                         <div class="form-check">
-                            <input <c:if test="${filterByWonAuctions}">checked</c:if> type="checkbox" class="form-check-input" id="auctionsIWon" name="myWonAuctions" value="true">
+                            <input <c:if test="${filterByWonAuctions}">checked</c:if> type="radio" class="form-check-input radioFilterChoice" id="auctionsIWon" name="filterChoice" value="myWonAuctions">
                             <label for="auctionsIWon" class="form-check-label">Mes enchères remportées</label>
                         </div>
                     </td>
-                    <td class="d-flex flex-column text-left mr-3 guiFilterChoiceCheckboxes">
+                    <td class="d-flex flex-column text-left mr-3 guiFilterChoiceRadios">
                         <div class="form-check">
-                            <input <c:if test="${filterByMyCurrentSales}">checked</c:if> disabled type="checkbox" class="form-check-input" id="myCurrentSales" name="myCurrentSales" value="true">
+                            <input <c:if test="${filterByMyCurrentSales}">checked</c:if> disabled type="radio" class="form-check-input radioFilterChoice" id="myCurrentSales" name="filterChoice" value="myCurrentSales">
                             <label for="myCurrentSales" class="form-check-label">Mes ventes en cours</label>
                         </div>
                         <div class="form-check">
-                            <input disabled type="checkbox" class="form-check-input" id="nonStartedSales">
+                            <input <c:if test="${filterByMyNotStartedSales}">checked</c:if> disabled type="radio" class="form-check-input radioFilterChoice" id="nonStartedSales"  name="filterChoice" value="myNotStartedSales">
                             <label for="nonStartedSales" class="form-check-label">Ventes non débutées</label>
                         </div>
                         <div class="form-check">
-                            <input disabled type="checkbox" class="form-check-input" id="endedSales">
+                            <input disabled type="radio" class="form-check-input radioFilterChoice" id="endedSales">
                             <label for="endedSales" class="form-check-label">Ventes terminées</label>
                         </div>
                     </td>
@@ -99,13 +99,13 @@
             </table>
             <script type="text/javascript">
                 var guiSelectChoice = $(".guiFilterChoice");
-                var guiFilterChoiceCheckboxes = $(".guiFilterChoiceCheckboxes");
+                var guiFilterChoiceRadios = $(".guiFilterChoiceRadios");
                 var filterAuctions =    $("#filter_auctions");
                 guiSelectChoice.each(function (i) {
                     $(this).on("click", function () {
-                        filterAuctions.find(":checkbox").prop("disabled", true);
-                        filterAuctions.find(":checkbox").prop("checked", false);
-                        guiFilterChoiceCheckboxes.eq(i).find(":checkbox").prop("disabled", false);
+                        filterAuctions.find(".radioFilterChoice").prop("disabled", true);
+                        filterAuctions.find(".radioFilterChoice").prop("checked", false);
+                        guiFilterChoiceRadios.eq(i).find(".radioFilterChoice").prop("disabled", false);
                     });
                 });
             </script>
