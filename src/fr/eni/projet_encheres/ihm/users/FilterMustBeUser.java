@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 @WebFilter(
+        // These patterns will be forbid to non-logged visitors
         urlPatterns = {
                 "/user/*",
                 "/updateProfile",
@@ -29,13 +30,16 @@ public class FilterMustBeUser implements Filter {
         if (httpRequest.isUserInRole("basic_user")) {
             chain.doFilter(req, resp);
         } else {
+            // Forbid the access
             HttpServletResponse httpResponse = (HttpServletResponse) resp;
             HttpSession session = httpRequest.getSession();
+            // Redirect to the page were the user were
             if (httpRequest.getQueryString() != null) {
                 session.setAttribute("uriAndParamsRequested", httpRequest.getRequestURI() + "?" + httpRequest.getQueryString());
             } else {
                 session.setAttribute("uriAndParamsRequested", httpRequest.getRequestURI());
             }
+            // And display an error message
             session.setAttribute("mustBeLogged", "true");
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
         }

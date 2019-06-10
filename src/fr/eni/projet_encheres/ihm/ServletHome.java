@@ -44,7 +44,7 @@ public class ServletHome extends HttpServlet {
             }
             // By keyword
             String stringFilter = request.getParameter("string_filter");
-            // Create a clone of the ArrayList
+            // Actualize clone of the ArrayList
             articlesToFilter = new ArrayList<>(articlesVendus);
             if (stringFilter != null) {
                 // Loop into this clone and remove from the original list

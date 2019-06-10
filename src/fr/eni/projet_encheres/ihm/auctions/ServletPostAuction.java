@@ -30,6 +30,7 @@ public class ServletPostAuction extends HttpServlet {
         List<String> errors = new ArrayList<>();
         try {
             Utilisateur utilisateur = um.getUtilisateurByPseudo(request.getUserPrincipal().getName());
+            // New auction
             ArticleVendu articleVendu = new ArticleVendu(
                 request.getParameter("name"),
                     request.getParameter("description"),
@@ -42,6 +43,7 @@ public class ServletPostAuction extends HttpServlet {
                     Integer.valueOf(request.getParameter("category"))
             );
             avm.createArticleVendu(articleVendu);
+            // New retrait point
             Retrait retrait = new Retrait(
                     articleVendu.getNoArticle(),
                     request.getParameter("street"),

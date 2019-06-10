@@ -20,6 +20,9 @@ import java.util.List;
 public class ServletCreateUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        UtilisateurManager um = new UtilisateurManager();
+        List<String> errors = new ArrayList<>();
+        // New user
         Utilisateur utilisateur = new Utilisateur(
                 request.getParameter("pseudo"),
                 request.getParameter("name"),
@@ -33,8 +36,6 @@ public class ServletCreateUser extends HttpServlet {
                 0,
                 false
         );
-        List<String> errors = new ArrayList<>();
-        UtilisateurManager um = new UtilisateurManager();
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/index.jsp");
         try {
             um.createUtilisateur(utilisateur);

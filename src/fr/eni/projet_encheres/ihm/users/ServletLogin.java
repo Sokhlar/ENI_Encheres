@@ -15,17 +15,21 @@ import java.io.IOException;
 @WebServlet(urlPatterns = {"/login", "/login_error", "/j_security_check"})
 public class ServletLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Tomcat do the authentication
         RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/index.jsp");
         if (request.getRequestURI().contains("error")) {
+            // display errors
             request.setAttribute("page", "login");
             request.setAttribute("login_error", "true");
             rd.forward(request, response);
         } else if (request.isUserInRole("basic_user")) {
+            // authentication sucess !
             SessionManagement.setSessionConnected(request);
             try {
+                // Set the user informations in the session in order to display them everywhere
                 SessionManagement.setUtilisateurSessionBean(request, request.getUserPrincipal().getName());
             } catch (DALException e) {
-                // This is serious Fatal Error
+                // This is serious
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
             response.sendRedirect(request.getContextPath());
@@ -36,9 +40,10 @@ public class ServletLogin extends HttpServlet {
         if (request.isUserInRole("basic_user")) {
             SessionManagement.setSessionConnected(request);
             try {
+                // Set the user informations in the session in order to display them everywhere
                 SessionManagement.setUtilisateurSessionBean(request, request.getUserPrincipal().getName());
             } catch (DALException e) {
-                // This is serious Fatal Error
+                // This is serious
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
             HttpSession session = request.getSession();
@@ -50,6 +55,7 @@ public class ServletLogin extends HttpServlet {
             }
 
         } else {
+            // 1st call to this servlet : GET request without any session bean set
             request.setAttribute("page", "login");
             RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/index.jsp");
             rd.forward(request, response);
