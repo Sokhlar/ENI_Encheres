@@ -51,6 +51,8 @@ public class ServletPostAuction extends HttpServlet {
                     request.getParameter("city")
             );
             rm.createRetrait(retrait);
+            request.setAttribute("current_auctions", avm.getArticlesByEtat("EC"));
+            request.setAttribute("pseudos", um.getPseudosUtilisateursWithCurrentAuctions());
         } catch (ParseException e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
