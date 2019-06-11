@@ -4,7 +4,9 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 <!--Authentication managed by Tomcat FORM method -->
-
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
     <security-constraint>
         <display-name>
             BASIC_USERS
