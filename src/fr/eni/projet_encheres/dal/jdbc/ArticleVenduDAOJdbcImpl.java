@@ -151,6 +151,7 @@ public class ArticleVenduDAOJdbcImpl implements DAOArticleVendu {
         return articleVendus;
     }
 
+
     /**
      *
      * Get all ArticleVendu instances that the field no_article match a String from the DB
@@ -207,7 +208,52 @@ public class ArticleVenduDAOJdbcImpl implements DAOArticleVendu {
 
     @Override
     public void update(ArticleVendu articleVendu) throws DALException {
+        Connection cnx = JdbcTools.connect();
+        try {
+            String UPDATE = "UPDATE ARTICLES_VENDUS SET " +
+                    "nom_article = ?, " +
+                    "description = ?, " +
+                    "date_debut_encheres = ?, " +
+                    "date_fin_encheres = ?, " +
+                    "prix_initial = ?, " +
+                    "prix_vente = ?, " +
+                    "etat_vente = ?, " +
+                    "no_utilisateur = ?, " +
+                    "no_categorie = ? " +
+                    "WHERE no_article= ?;";
+            PreparedStatement stmt = cnx.prepareStatement(UPDATE);
+            fillPreparedStatement(articleVendu, stmt);
+            stmt.setInt(10, articleVendu.getNoArticle());
+            stmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_UPDATE);
+            throw dalException;
+        }
+    }
 
+    /**
+     * Update the current price of an article
+     * @param noArticle int the id of the article to update
+     * @param newPrice int the new price
+     * @throws DALException if there is any issue with the SQL query
+     */
+    @Override
+    public void updateCurrentPrice(int noArticle, int newPrice) throws DALException {
+        Connection cnx = JdbcTools.connect();
+        try {
+            String UPDATE_CURRENT_PRICE = "UPDATE ARTICLES_VENDUS SET prix_vente = ? WHERE no_article = ?";
+            PreparedStatement stmt = cnx.prepareStatement(UPDATE_CURRENT_PRICE);
+            stmt.setInt(1, newPrice);
+            stmt.setInt(2, noArticle);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_UPDATE);
+            throw dalException;
+        }
     }
 
     @Override

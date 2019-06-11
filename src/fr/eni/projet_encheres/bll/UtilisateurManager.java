@@ -83,6 +83,10 @@ public class UtilisateurManager {
         }
     }
 
+    public void updateCredit (int noUtilisateur, int newCredit) throws DALException {
+        dao.updateCredit(noUtilisateur, newCredit);
+    }
+
     /**
      * Delete part of CRUD
      * @param utilisateur The instance to delete from the DB

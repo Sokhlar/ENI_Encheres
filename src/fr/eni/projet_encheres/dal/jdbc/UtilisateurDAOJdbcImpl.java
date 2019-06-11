@@ -125,7 +125,6 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
         return pseudos;
     }
 
-
     /**
      * Select all the utilisateurs from the DB
      * @return An ArrayList filled with instances of Utilisateur
@@ -185,6 +184,30 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             throw dalException;
         }
     }
+
+    /**
+     * Update the credit of an user
+     * @param noUtilisateur the id of the user
+     * @param newCredit the amount of new credit
+     * @throws DALException If there is any issue with the SQL query
+     */
+    @Override
+    public void updateCredit(int noUtilisateur, int newCredit) throws DALException {
+        Connection cnx = JdbcTools.connect();
+        try {
+            String UPDATE_CREDIT = "UPDATE UTILISATEURS SET credit = ? WHERE no_utilisateur = ?";
+            PreparedStatement stmt = cnx.prepareStatement(UPDATE_CREDIT);
+            stmt.setInt(1, newCredit);
+            stmt.setInt(2, noUtilisateur);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_UPDATE);
+            throw dalException;
+        }
+    }
+
     /**
      * Delete from the db from an instance of Utilisateur
      * @param utilisateur Utilisateur the instance filled with the noUtilisateur to delete

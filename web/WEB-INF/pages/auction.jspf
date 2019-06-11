@@ -38,12 +38,12 @@
             <th scope="row">Vendeur :</th>
             <td>${seller.pseudo}</td>
         </tr>
-        <c:if test="${auction.etatVente == 'EC'}">
+        <c:if test="${auction.etatVente == 'EC' && utilisateurSession.noUtilisateur != auction.noUtilisateur}">
             <tr>
                 <th scope="row"><label for="myAuction">Ma proposition :</label></th>
                 <td>
-                    <form class="form-inline" method="post" action="/raiseAuction">
-                        <input class="form-control" id="myAuction" type="number" value="${auction.prixVente + 1}" min="${auction.prixVente + 1}" step="1">
+                    <form class="form-inline" method="post" action="${pageContext.request.contextPath}/raiseAuction?id=${auction.noArticle}">
+                        <input class="form-control" id="myAuction" type="number" value="${auction.prixVente + 1}" min="${auction.prixVente + 1}" step="1" name="myAuction">
                         <input type="submit" class="btn btn-success ml-3" content="Enchérir">
                     </form>
                 </td>

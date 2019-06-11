@@ -51,6 +51,24 @@ public class ArticleVenduManager {
     }
 
     /**
+     * Update part of CRUD
+     * @param articleToUpdate Instance of the entity to update into the DB
+     * @throws BLLException if the new article is not valid
+     */
+    public void updateArticle(ArticleVendu articleToUpdate) throws BLLException, DALException {
+        BLLException bllException = validateArticleVendu(articleToUpdate);
+        if (bllException.hasErrors()) {
+            throw bllException;
+        } else {
+            dao.update(articleToUpdate);
+        }
+    }
+
+    public void updateCurrentPrice(int noArticle, int newPrice) throws DALException {
+        dao.updateCurrentPrice(noArticle, newPrice);
+    }
+
+    /**
      * Read part of CRUD
      * Select all from DB
      * @return An ArrayList filled with instances

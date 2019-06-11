@@ -47,8 +47,9 @@ CREATE TABLE ENCHERES (
     date_enchere     datetime NOT NULL,
 	montant_enchere  INTEGER NOT NULL
 )
-
-ALTER TABLE ENCHERES ADD constraint enchere_pk PRIMARY KEY (no_utilisateur, no_article)
+-- Add a third primary key contraint, an user should be able to make several auctions on a sale
+-- And we might want keep an history of all auctions for further improvements
+ALTER TABLE ENCHERES ADD constraint enchere_pk PRIMARY KEY (no_utilisateur, no_article, montant_enchere)
 
 CREATE TABLE RETRAITS (
 	no_article       INTEGER NOT NULL,
