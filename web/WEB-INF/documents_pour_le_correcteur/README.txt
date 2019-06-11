@@ -18,7 +18,7 @@ La placer à l'intérieur de la balise suivante (protection contre les attaques 
 </Realm>
 
 
-Mise en place d'une procédure stockée à exécuter toutes les minutes (Elle met à jour le statut des enchères de "Non commencée" à "En cours" lorsque la date de début d'enchère a été atteinte)
+Mise en place d'une procédure stockée à exécuter tous les jours à 0h (Elle met à jour le statut des enchères de "Non commencée" à "En cours" lorsque la date de début d'enchère a été atteinte)
 
 Paramétrage via SSMS :
 https://docs.microsoft.com/fr-fr/sql/ssms/agent/create-a-job?view=sql-server-2017

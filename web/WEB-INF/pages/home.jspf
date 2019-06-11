@@ -110,7 +110,7 @@
                 });
             </script>
         </c:if>
-        <input type="submit" class="btn btn-primary btn-lg btn-block mt-2" id="#searchButton" value="Rechercher"/>
+        <input type="submit" class="btn btn-info btn-lg btn-block mt-2" id="#searchButton" value="Rechercher"/>
     </div>
 </form>
 <%@include file="../templates/displayErrorsFormUser.jspf"%>
@@ -137,6 +137,7 @@
                 </p>
                 <p>Fin de l'enchère : <fmt:formatDate value="${articleVendu.dateFinEncheres}" type="date" pattern="dd/MM/YYYY"/> </p>
                 <p>Vendeur : ${pseudos[articleVendu.noArticle]}</p>
+                <a class="text-center" href="${pageContext.request.contextPath}/auction?id=${articleVendu.noArticle}"><button class="btn btn-info mb-3">Voir l'enchère</button></a>
             </div>
         </c:forEach>
     </div>

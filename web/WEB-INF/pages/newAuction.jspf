@@ -46,10 +46,8 @@
             <script type="text/javascript">
                 $(function () {
                     $('#datetimepicker1').datetimepicker({
-                        locale: 'fr',
-                        icons: {
-                            time:"fa fa-clock"
-                        }
+                        format: 'L',
+                        locale: 'fr'
                     });
                 });
             </script>
@@ -69,10 +67,8 @@
             <script type="text/javascript">
                 $(function () {
                     $('#datetimepicker2').datetimepicker({
-                        locale: 'fr',
-                        icons: {
-                            time:"fa fa-clock"
-                        }
+                        format: 'L',
+                        locale: 'fr'
                     });
                 });
             </script>

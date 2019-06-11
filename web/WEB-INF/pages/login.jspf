@@ -21,7 +21,7 @@
             <p class="text-danger text-center">Identifiant ou mot de passe incorrect</p>
     </c:if>
     <div class="form-group d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary col-4 col-md-2">Connexion</button>
+        <button type="submit" class="btn btn-info col-4 col-md-2">Connexion</button>
         <div class="form-group form-check d-flex flex-column offset-1 col-7 col-md-3 pt-2">
             <input type="checkbox" class="form-check-input" id="remember_login">
             <label class="form-check-label" for="remember_login">Se souvenir de moi</label>
@@ -31,6 +31,6 @@
 </form>
 <div class="row">
     <a class="offset-2 col-8 offset-md-4 col-md-3" href="${pageContext.request.contextPath}/createLogin">
-        <button class="btn btn-primary btn-md btn-block">Créer un compte</button>
+        <button class="btn btn-info btn-md btn-block">Créer un compte</button>
     </a>
 </div>
