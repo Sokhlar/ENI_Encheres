@@ -27,6 +27,10 @@ public class RetraitManager {
         }
     }
 
+    public Retrait getRetraitByNoArticle(int noArticle) throws DALException {
+        return dao.selectById(noArticle);
+    }
+
     /**
      * Validate the format of different fields from an instance of Utilisateurs before any actions with the DB
      * Check length of the different fields

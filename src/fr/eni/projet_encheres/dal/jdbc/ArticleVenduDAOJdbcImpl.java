@@ -39,9 +39,32 @@ public class ArticleVenduDAOJdbcImpl implements DAOArticleVendu {
         }
     }
 
+    /**
+     * Extract an instance of ArticleVendu from the DB with the noArticle of it
+     * @param id The noArticle
+     * @return An instance of ArticleVendu
+     * @throws DALException If there is any issu with the SQL query
+     */
     @Override
     public ArticleVendu selectById(int id) throws DALException {
-        return null;
+        Connection cnx = JdbcTools.connect();
+        ArticleVendu articleVendu = null;
+        try {
+            String SELECT_BY_ID = "SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?";
+            PreparedStatement stmt = cnx.prepareStatement(SELECT_BY_ID);
+            stmt.setInt(1, id);
+            stmt.execute();
+            ResultSet rs = stmt.getResultSet();
+            if (rs.next()) {
+                articleVendu = hydrateArticleVendu(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_SELECT);
+            throw dalException;
+        }
+        return articleVendu;
     }
 
     /**

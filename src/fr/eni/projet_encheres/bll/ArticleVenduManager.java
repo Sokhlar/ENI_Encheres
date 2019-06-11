@@ -35,6 +35,23 @@ public class ArticleVenduManager {
 
     /**
      * Read part of CRUD
+     * @param id The noArticle of the ArticleVendu to get
+     * @return An instance of the ArticleVendu
+     * @throws DALException If there is any issue with the DAL part
+     * @throws BLLException If there is no ArticleVendu with this id
+     */
+    public ArticleVendu getArticleById(int id) throws DALException, BLLException {
+        ArticleVendu articleVendu = dao.selectById(id);
+        if (articleVendu == null) {
+            BLLException bllException = new BLLException();
+            bllException.addError(ErrorCodesBLL.ERROR_NO_RESULTS);
+            throw bllException;
+        }
+        return articleVendu;
+    }
+
+    /**
+     * Read part of CRUD
      * Select all from DB
      * @return An ArrayList filled with instances
      * @throws DALException if there any issues with the DAL part

@@ -44,6 +44,7 @@ public class RetraitDAOJdbcImpl implements DAO<Retrait> {
     @Override
     public Retrait selectById(int noArticle) throws DALException {
         Connection cnx = JdbcTools.connect();
+        Retrait retrait = null;
         String SELECT_BY_ID = "SELECT * FROM RETRAITS WHERE no_article = ?";
         try {
             PreparedStatement stmt = cnx.prepareStatement(SELECT_BY_ID);
@@ -51,13 +52,15 @@ public class RetraitDAOJdbcImpl implements DAO<Retrait> {
             stmt.execute();
             ResultSet rs = stmt.getResultSet();
             if (rs.next()) {
-
+                retrait = hydrateRetrait(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_SELECT);
+            throw dalException;
         }
-
-        return null;
+        return retrait;
     }
 
     @Override

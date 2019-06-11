@@ -1,5 +1,6 @@
 package fr.eni.projet_encheres.dal.jdbc;
 
+import fr.eni.projet_encheres.bo.ArticleVendu;
 import fr.eni.projet_encheres.bo.Enchere;
 import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
@@ -8,6 +9,7 @@ import fr.eni.projet_encheres.dal.ErrorCodesDAL;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class EnchereDAOJdbcImpl implements DAOEnchere {
@@ -102,6 +104,47 @@ public class EnchereDAOJdbcImpl implements DAOEnchere {
             throw dalException;
         }
         return articlesWonByUtilisateur;
+    }
+
+    /**
+     * Return a couple of values about the current best auction on a particular sale.
+     * First value is the amount of the offert
+     * Second value is the id of the user that had made the current best auction
+     * @param articleVendu The auction that we want to get the best offer
+     * @return HashMap<Integer, Integer> <amount, user_id>
+     * @throws DALException If there is an issue with the SQL query
+     */
+    public HashMap<Integer, Integer> getAmountAndPseudoOfBestOffer(ArticleVendu articleVendu) throws DALException {
+        Connection cnx = JdbcTools.connect();
+        HashMap<Integer, Integer> result = new HashMap<>();
+        try {
+            String GET_UTILISATEUR_AND_BEST_AUCTIONS = "SELECT no_utilisateur, " +
+                    "       montant_enchere " +
+                    "       FROM ( " +
+                    "    SELECT AV.no_article, E.date_enchere, E.no_utilisateur, E.montant_enchere, " +
+                    "            row_number() OVER ( " +
+                    "            PARTITION BY AV.no_utilisateur " +
+                    "            ORDER BY datediff(MI, date_enchere, date_fin_encheres)) Ranking " +
+                    "    FROM ENCHERES E " +
+                    "    INNER JOIN ARTICLES_VENDUS AV on E.no_article = AV.no_article" +
+                    "    WHERE AV.no_article = ?) t " +
+                    "    WHERE Ranking = 1;";
+            PreparedStatement stmt = cnx.prepareStatement(GET_UTILISATEUR_AND_BEST_AUCTIONS);
+            stmt.setInt(1, articleVendu.getNoArticle());
+            stmt.execute();
+            ResultSet rs = stmt.getResultSet();
+            if (rs.next()) {
+                result.put(rs.getInt("montant_enchere"), rs.getInt("no_utilisateur"));
+            } else {
+                result = null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_SELECT);
+            throw dalException;
+        }
+        return result;
     }
 
     @Override

@@ -1,0 +1,53 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%--<c:if test="${empty(errors)}">--%>
+    <jsp:useBean id="auction" scope="request" class="fr.eni.projet_encheres.bo.ArticleVendu">
+    </jsp:useBean>
+<%--</c:if>--%>
+<h1 class="text-center mb-2">Détail vente</h1>
+<h4 class="text-center m-4"><jsp:getProperty name="auction" property="nomArticle"/></h4>
+<div class="row">
+    <table class="table offset-md-4 col-md-4">
+        <tr>
+            <th scope="row">Description :</th>
+            <td><jsp:getProperty name="auction" property="description"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Catégorie : </th>
+            <td>${category.libelle}</td>
+        </tr>
+        <c:if test="${!empty(user_best_offer)}">
+            <tr>
+                <th scope="row">Meilleure offre :</th>
+                <td>${auction.prixVente} par ${user_best_offer}</td>
+            </tr>
+        </c:if>
+        <tr>
+            <th scope="row">Mise à prix :</th>
+            <td><jsp:getProperty name="auction" property="prixInitial"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Fin de l'enchère :</th>
+            <td><fmt:formatDate value="${auction.dateFinEncheres}" type="date" pattern="dd/MM/YYYY"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Retrait :</th>
+            <td>${withdrawal.rue}<br/>${withdrawal.codePostal} ${withdrawal.ville}</td>
+        </tr>
+        <tr>
+            <th scope="row">Vendeur :</th>
+            <td>${seller.pseudo}</td>
+        </tr>
+        <c:if test="${auction.etatVente == 'EC'}">
+            <tr>
+                <th scope="row"><label for="myAuction">Ma proposition :</label></th>
+                <td>
+                    <form class="form-inline" method="post" action="/raiseAuction">
+                        <input class="form-control" id="myAuction" type="number" value="${auction.prixVente + 1}" min="${auction.prixVente + 1}" step="1">
+                        <input type="submit" class="btn btn-success ml-3" content="Enchérir">
+                    </form>
+                </td>
+            </tr>
+        </c:if>
+    </table>
+</div>

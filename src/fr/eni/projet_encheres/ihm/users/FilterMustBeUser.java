@@ -12,7 +12,8 @@ import java.io.IOException;
                 "/user/*",
                 "/updateProfile",
                 "/deleteProfile",
-                "/postAuction"
+                "/postAuction",
+                "/auction/*"
         },
         dispatcherTypes = {
                 DispatcherType.ERROR,
