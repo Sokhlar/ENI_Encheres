@@ -83,7 +83,7 @@ public class EnchereDAOJdbcImpl implements DAOEnchere {
                 "SELECT t.no_article FROM ( " +
                 "SELECT AV.no_article, E.date_enchere, E.no_utilisateur, " +
                         "row_number() OVER (" +
-                        "PARTITION BY AV.no_utilisateur " +
+                        "PARTITION BY AV.no_article " +
                         "ORDER BY datediff(MI, date_enchere, date_fin_encheres)) Ranking " +
                 "FROM ENCHERES E " +
                 "         INNER JOIN ARTICLES_VENDUS AV on E.no_article = AV.no_article " +

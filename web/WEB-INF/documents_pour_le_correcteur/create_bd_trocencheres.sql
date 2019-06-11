@@ -142,17 +142,19 @@ INSERT INTO CATEGORIES (libelle) VALUES 'Ameublement';
 INSERT INTO CATEGORIES (libelle) VALUES 'Vêtement';
 INSERT INTO CATEGORIES (libelle) VALUES 'Sport&Loisirs';
 
--- Stored Procedure
-CREATE OR ALTER PROCEDURE actualizeAuctionsState
+-- Stored Procedures
+
+-- Set the state of the auction from PC to EC when the date has been reached
+CREATE OR ALTER PROCEDURE startAuction
 AS
 DECLARE @date_debut date
-DECLARE date_cursor CURSOR FOR
+DECLARE date_begin_cursor CURSOR FOR
 SELECT date_debut_encheres
 FROM ARTICLES_VENDUS
 WHERE etat_vente = 'PC';
 
-OPEN date_cursor
-FETCH NEXT FROM date_cursor
+OPEN date_begin_cursor
+FETCH NEXT FROM date_begin_cursor
     INTO @date_debut
 
 WHILE @@FETCH_STATUS = 0
@@ -161,9 +163,34 @@ BEGIN
         BEGIN
             UPDATE ARTICLES_VENDUS SET etat_vente = 'EC' WHERE date_debut_encheres = @date_debut
         END
-    FETCH NEXT FROM date_cursor
+    FETCH NEXT FROM date_begin_cursor
         INTO @date_debut
 END
-CLOSE date_cursor
-DEALLOCATE date_cursor
+CLOSE date_begin_cursor
+DEALLOCATE date_begin_cursor
+GO
+-- Set the state of the auction from EC to VE when the date has been reached
+CREATE OR ALTER PROCEDURE endAuction
+AS
+DECLARE @date_fin date
+DECLARE date_end_cursor CURSOR FOR
+    SELECT date_fin_encheres
+    FROM ARTICLES_VENDUS
+    WHERE etat_vente = 'EC';
+
+    OPEN date_end_cursor
+    FETCH NEXT FROM date_end_cursor
+        INTO @date_fin
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        IF @date_fin <= GETDATE()
+            BEGIN
+                UPDATE ARTICLES_VENDUS SET etat_vente = 'VE' WHERE date_fin_encheres = @date_fin
+            END
+        FETCH NEXT FROM date_end_cursor
+            INTO @date_fin
+    END
+    CLOSE date_end_cursor
+    DEALLOCATE date_end_cursor
 GO
