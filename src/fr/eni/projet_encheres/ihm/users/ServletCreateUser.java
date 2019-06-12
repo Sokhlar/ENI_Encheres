@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +26,22 @@ public class ServletCreateUser extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         UtilisateurManager um = new UtilisateurManager();
         List<String> errors = new ArrayList<>();
+        // Hash password
+        String password = request.getParameter("password");
+        String generatedPassword = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] bytes = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0 ; i < bytes.length ; i++) {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            generatedPassword = sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+
         // New user
         Utilisateur utilisateur = new Utilisateur(
                 request.getParameter("pseudo"),
@@ -34,7 +52,7 @@ public class ServletCreateUser extends HttpServlet {
                 request.getParameter("street"),
                 request.getParameter("post_code"),
                 request.getParameter("city"),
-                request.getParameter("password"),
+                generatedPassword,
                 0,
                 false
         );
