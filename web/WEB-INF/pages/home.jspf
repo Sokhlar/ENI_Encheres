@@ -22,14 +22,14 @@
 <h1 class="mb-5 text-center">Liste des enchères</h1>
 
 <form class="row" action="${pageContext.request.contextPath}/" method="post" id="filter_auctions">
-    <div class="offset-md-4
-     col-md-4 d-flex flex-column">
+    <div class="offset-lg-2
+     col-lg-8 d-flex flex-column">
         <p class="m-0">Filtres :</p>
         <%--@elvariable id="stringFilter" type="java.lang.String"--%>
         <input name="string_filter" type="text" class="form-control m-2" placeholder="Le nom de l'article contient" value="${stringFilter}">
         <p class="d-flex flex-row">
-            <label class="col-md-3 pt-3" for="categories">Catégorie :</label>
-            <select name="category_filter" id="categories" class="col-md-9 mt-2 form-control">
+            <label class="col-lg-3 pt-3" for="categories">Catégorie :</label>
+            <select name="category_filter" id="categories" class="col-lg-9 mt-2 form-control">
                 <option value="all">Toutes</option>
                 <c:forEach items="${categories}" var="category">
                     <c:choose>
@@ -53,20 +53,13 @@
             </select>
         </p>
         <c:if test="${isConnected}">
-            <table class="form-check form-check-inline mr-0 d-flex justify-content-between">
-                <tbody class="w-100">
-                <tr class="d-flex justify-content-between">
-                    <td>
+            <div class="form-check form-check-inline ml-3 ml-lg-0 row">
+                <div class="offset-1 offset-lg-0 col-10 col-lg-6 d-flex flex-column text-left ml-0">
+                    <div>
                         <input checked class="form-check-input guiFilterChoice" type="radio" id="currentBuying" name="checboxesChoice">
                         <label for="currentBuying" class="form-check-label">Achats</label>
-                    </td>
-                    <td>
-                        <label for="currentSelling" class="form-check-label">Mes ventes</label>
-                        <input type="radio" id="currentSelling" class="form-check-input guiFilterChoice" name="checboxesChoice">
-                    </td>
-                </tr>
-                <tr class="form-check-inline w-100 d-flex justify-content-between">
-                    <td class="d-flex flex-column text-left guiFilterChoiceRadios">
+                    </div>
+                    <div class="d-flex flex-column text-left guiFilterChoiceRadios">
                         <div class="form-check">
                             <input type="radio" class="form-check-input radioFilterChoice" id="allCurrentAuctions" name="filterChoice" value="currentAuctions">
                             <label for="allCurrentAuctions" class="form-check-label">Enchères ouvertes</label>
@@ -79,8 +72,14 @@
                             <input <c:if test="${filterByWonAuctions}">checked</c:if> type="radio" class="form-check-input radioFilterChoice" id="auctionsIWon" name="filterChoice" value="myWonAuctions">
                             <label for="auctionsIWon" class="form-check-label">Mes enchères remportées</label>
                         </div>
-                    </td>
-                    <td class="d-flex flex-column text-left mr-3 guiFilterChoiceRadios">
+                    </div>
+                </div>
+                <div class="offset-1 offset-lg-0 col-10 col-lg-6 d-flex flex-column text-left ml-0">
+                    <div>
+                        <input type="radio" id="currentSelling" class="form-check-input guiFilterChoice" name="checboxesChoice">
+                        <label for="currentSelling" class="form-check-label">Mes ventes</label>
+                    </div>
+                    <div class="d-flex flex-column text-left guiFilterChoiceRadios">
                         <div class="form-check">
                             <input <c:if test="${filterByMyCurrentSales}">checked</c:if> disabled type="radio" class="form-check-input radioFilterChoice" id="myCurrentSales" name="filterChoice" value="myCurrentSales">
                             <label for="myCurrentSales" class="form-check-label">Mes ventes en cours</label>
@@ -93,14 +92,13 @@
                             <input <c:if test="${filterByMyEndedSales}">checked</c:if> disabled type="radio" class="form-check-input radioFilterChoice" id="endedSales" name="filterChoice" value="myEndedSales">
                             <label for="endedSales" class="form-check-label">Ventes terminées</label>
                         </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                    </div>
+                </div>
+            </div>
             <script type="text/javascript">
                 var guiSelectChoice = $(".guiFilterChoice");
                 var guiFilterChoiceRadios = $(".guiFilterChoiceRadios");
-                var filterAuctions =    $("#filter_auctions");
+                var filterAuctions = $("#filter_auctions");
                 guiSelectChoice.each(function (i) {
                     $(this).on("click", function () {
                         filterAuctions.find(".radioFilterChoice").prop("disabled", true);

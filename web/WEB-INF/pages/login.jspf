@@ -21,8 +21,8 @@
             <p class="text-danger text-center">Identifiant ou mot de passe incorrect</p>
     </c:if>
     <div class="form-group d-flex justify-content-center">
-        <button type="submit" class="btn btn-info col-4 col-md-2">Connexion</button>
-        <div class="form-group form-check d-flex flex-column offset-1 col-7 col-md-3 pt-2">
+        <button type="submit" class="btn btn-info col-4 col-lg-2 offset-sm-1 text-center offset-1">Connexion</button>
+        <div class="form-group form-check d-flex flex-column col-8 offset-md-1 col-md-3 pt-2 ml-2">
             <input type="checkbox" class="form-check-input" id="remember_login">
             <label class="form-check-label" for="remember_login">Se souvenir de moi</label>
             <a href="${pageContext.request.contextPath}/login-forgot">Mot de passe oublié</a>

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<form id="form_creation_login" method="post" action="${pageContext.request.contextPath}/createLogin" class="ml-5">
+<form id="form_creation_login" method="post" action="${pageContext.request.contextPath}/createLogin" class="ml-1 ml-md-5">
     <%@include file="../templates/userForm.jspf"%>
     <div class="form-group row" id="password_block">
         <label class="col-form-label col-md-1" for="password">Mot de passe</label>
@@ -13,8 +13,8 @@
     </div>
     <%@include file="../templates/displayErrorsFormUser.jspf"%>
     <div class="row mt-md-5">
-        <input type="submit" value="Créer" class="offset-md-2 col-md-3 btn btn-success btn-block btn-lg">
-        <a href="${pageContext.request.contextPath}" class="offset-md-1 col-md-3 ">
+        <input type="submit" value="Créer" class="offset-1 col-4 offset-md-2 col-md-3 btn btn-success btn-block btn-lg">
+        <a href="${pageContext.request.contextPath}" class="offset-1 col-5 offset-md-1 col-md-3 ">
             <button type="button" class="btn btn-danger btn-block btn-lg">Annuler</button>
         </a>
     </div>

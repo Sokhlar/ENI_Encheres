@@ -11,60 +11,60 @@
     <c:otherwise>
         <c:choose>
             <c:when test="${utilisateurSession.pseudo == user_best_offer}">
-                <h2 class="text-center mb-2">Vous avez remporté la vente !</h2>
+                <h3 class="text-center mb-2">Vous avez remporté la vente !</h3>
             </c:when>
             <c:otherwise>
-                <h2 class="text-center mb-2">${user_best_offer} a remporté l'enchère</h2>
+                <h3 class="text-center mb-2">${user_best_offer} a remporté l'enchère</h3>
             </c:otherwise>
         </c:choose>
     </c:otherwise>
 </c:choose>
 <h4 class="text-center m-4"><jsp:getProperty name="auction" property="nomArticle"/></h4>
 <div class="row">
-    <table class="table offset-md-4 col-md-4">
+    <table class="table offset-1 col-10 offset-md-4 col-md-4">
         <tr>
-            <th scope="row">Description :</th>
+            <th scope="row">Description&nbsp;:</th>
             <td><jsp:getProperty name="auction" property="description"/></td>
         </tr>
         <tr>
-            <th scope="row">Catégorie : </th>
+            <th scope="row">Catégorie&nbsp;: </th>
             <td>${category.libelle}</td>
         </tr>
         <c:if test="${!empty(user_best_offer)}">
             <tr>
-                <th scope="row">Meilleure offre :</th>
+                <th scope="row">Meilleure offre&nbsp;:</th>
                 <td>${auction.prixVente} par ${user_best_offer}</td>
             </tr>
         </c:if>
         <tr>
-            <th scope="row">Mise à prix :</th>
+            <th scope="row">Mise à prix&nbsp;:</th>
             <td><jsp:getProperty name="auction" property="prixInitial"/></td>
         </tr>
         <tr>
-            <th scope="row">Fin de l'enchère :</th>
+            <th scope="row">Fin de l'enchère&nbsp;:</th>
             <td><fmt:formatDate value="${auction.dateFinEncheres}" type="date" pattern="dd/MM/YYYY"/></td>
         </tr>
         <tr>
-            <th scope="row">Retrait :</th>
+            <th scope="row">Retrait&nbsp;:</th>
             <td>${withdrawal.rue}<br/>${withdrawal.codePostal} ${withdrawal.ville}</td>
         </tr>
         <tr>
-            <th scope="row">Vendeur :</th>
+            <th scope="row">Vendeur&nbsp;:</th>
             <td>${seller.pseudo}</td>
         </tr>
         <c:if test="${utilisateurSession.pseudo == user_best_offer && auction.etatVente == 'VE'}">
             <tr>
-                <th scope="row">Téléphone :</th>
+                <th scope="row">Téléphone&nbsp;:</th>
                 <td>${seller.telephone}</td>
             </tr>
         </c:if>
         <c:if test="${auction.etatVente == 'EC' && utilisateurSession.noUtilisateur != auction.noUtilisateur}">
             <tr>
-                <th scope="row"><label for="myAuction">Ma proposition :</label></th>
+                <th scope="row" class="align-middle"><label for="myAuction">Ma&nbsp;proposition&nbsp;:</label></th>
                 <td>
-                    <form class="form-inline" method="post" action="${pageContext.request.contextPath}/raiseAuction?id=${auction.noArticle}">
-                        <input class="form-control" id="myAuction" type="number" value="${auction.prixVente + 1}" min="${auction.prixVente + 1}" step="1" name="myAuction">
-                        <input type="submit" class="btn btn-success ml-3" content="Enchérir">
+                    <form class="form-inline row" method="post" action="${pageContext.request.contextPath}/raiseAuction?id=${auction.noArticle}">
+                        <input class="form-control offset-1 col-4" id="myAuction" type="number" value="${auction.prixVente + 1}" min="${auction.prixVente + 1}" step="1" name="myAuction">
+                        <input type="submit" class="col-5 btn btn-success ml-3" value="Enchérir">
                     </form>
                 </td>
             </tr>
@@ -73,7 +73,8 @@
 </div>
 <p class="text-center">
     <c:if test="${utilisateurSession.noUtilisateur == auction.noUtilisateur && auction.etatVente == 'PC'}">
-        <a href="#" ><button class="btn btn-primary">Modifier ma vente</button></a> (Non fonctionnel, prévu pour l'itération 2)
-        <a href="#" ><button class="btn btn-danger">Supprimer ma vente</button></a> (Non fonctionnel, prévu pour l'itération 2)
+        <a href="#" ><button class="btn btn-primary">Modifier ma vente</button></a>
+        <a href="#" ><button class="btn btn-danger">Supprimer ma vente</button></a>
+        <br/>(Non fonctionnel, prévu pour l'itération 2)
     </c:if>
 </p>
