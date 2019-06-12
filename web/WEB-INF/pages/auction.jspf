@@ -4,7 +4,21 @@
     <jsp:useBean id="auction" scope="request" class="fr.eni.projet_encheres.bo.ArticleVendu">
     </jsp:useBean>
 <%--</c:if>--%>
-<h1 class="text-center mb-2">Détail vente</h1>
+<c:choose>
+    <c:when test="${auction.etatVente != 'VE'}">
+        <h1 class="text-center mb-2">Détail vente</h1>
+    </c:when>
+    <c:otherwise>
+        <c:choose>
+            <c:when test="${utilisateurSession.pseudo == user_best_offer}">
+                <h2 class="text-center mb-2">Vous avez remporté la vente !</h2>
+            </c:when>
+            <c:otherwise>
+                <h2 class="text-center mb-2">${user_best_offer} a remporté l'enchère</h2>
+            </c:otherwise>
+        </c:choose>
+    </c:otherwise>
+</c:choose>
 <h4 class="text-center m-4"><jsp:getProperty name="auction" property="nomArticle"/></h4>
 <div class="row">
     <table class="table offset-md-4 col-md-4">
@@ -38,6 +52,12 @@
             <th scope="row">Vendeur :</th>
             <td>${seller.pseudo}</td>
         </tr>
+        <c:if test="${utilisateurSession.pseudo == user_best_offer && auction.etatVente == 'VE'}">
+            <tr>
+                <th scope="row">Téléphone :</th>
+                <td>${seller.telephone}</td>
+            </tr>
+        </c:if>
         <c:if test="${auction.etatVente == 'EC' && utilisateurSession.noUtilisateur != auction.noUtilisateur}">
             <tr>
                 <th scope="row"><label for="myAuction">Ma proposition :</label></th>
