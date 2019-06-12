@@ -9,11 +9,12 @@ import javax.servlet.http.HttpSession;
 
 public class SessionManagement {
     /**
-     * Get the session and record a session attribute
+     * Get the session and record a session attribute for 5 minutes
      * @param request The request instance
      */
     public static void setSessionConnected (HttpServletRequest request) {
         HttpSession session = request.getSession();
+        session.setMaxInactiveInterval(300);
         session.setAttribute("isConnected", "true");
     }
 
