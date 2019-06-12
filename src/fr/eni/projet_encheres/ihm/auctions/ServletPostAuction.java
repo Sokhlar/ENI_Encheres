@@ -6,6 +6,7 @@ import fr.eni.projet_encheres.bo.Retrait;
 import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.ihm.ManagementTools.ErrorsManagement;
+import fr.eni.projet_encheres.ihm.ManagementTools.RequestManagement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.stream.events.Characters;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,7 +25,8 @@ import java.util.List;
 @WebServlet("/postAuction")
 public class ServletPostAuction extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        request.setCharacterEncoding("UTF-8");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         UtilisateurManager um = new UtilisateurManager();
         ArticleVenduManager avm = new ArticleVenduManager();
         RetraitManager rm = new RetraitManager();
@@ -42,7 +45,6 @@ public class ServletPostAuction extends HttpServlet {
                     utilisateur.getNoUtilisateur(),
                     Integer.valueOf(request.getParameter("category"))
             );
-            avm.createArticleVendu(articleVendu);
             // New retrait point
             Retrait retrait = new Retrait(
                     articleVendu.getNoArticle(),
@@ -50,6 +52,8 @@ public class ServletPostAuction extends HttpServlet {
                     request.getParameter("postal_code"),
                     request.getParameter("city")
             );
+            // Process
+            avm.createArticleVendu(articleVendu);
             rm.createRetrait(retrait);
             request.setAttribute("current_auctions", avm.getArticlesByEtat("EC"));
             request.setAttribute("pseudos", um.getPseudosUtilisateursWithCurrentAuctions());
@@ -63,6 +67,13 @@ public class ServletPostAuction extends HttpServlet {
         }
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/index.jsp");
         if (errors.isEmpty()) {
+            try {
+                RequestManagement.processHomePageAttributes(request);
+            } catch (DALException e) {
+                ErrorsManagement.DALExceptionsCatcher(e, errors, request);
+            } catch (BLLException e) {
+                ErrorsManagement.BLLExceptionsCatcher(e, errors, request);
+            }
             request.setAttribute("page", "home");
             request.setAttribute("auctionCreated", "true");
         } else {

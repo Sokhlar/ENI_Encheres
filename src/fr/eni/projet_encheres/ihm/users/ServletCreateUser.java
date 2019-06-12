@@ -7,6 +7,7 @@ import fr.eni.projet_encheres.bll.UtilisateurManager;
 import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.ihm.ManagementTools.ErrorsManagement;
+import fr.eni.projet_encheres.ihm.ManagementTools.RequestManagement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -66,9 +67,7 @@ public class ServletCreateUser extends HttpServlet {
         }
         if (errors.isEmpty()) {
             try {
-                request.setAttribute("current_auctions", new ArticleVenduManager().getAllArticlesVendus());
-                request.setAttribute("categories", new CategorieManager().getAllCategories());
-                request.setAttribute("pseudos", new UtilisateurManager().getPseudosUtilisateursWithCurrentAuctions());
+                RequestManagement.processHomePageAttributes(request);
             } catch (DALException e) {
                 ErrorsManagement.DALExceptionsCatcher(e, errors, request);
             } catch (BLLException e) {

@@ -171,7 +171,7 @@ public class ArticleVenduManager {
         if (articleVendu.getDescription().length() > 300) {
             bllException.addError(ErrorCodesBLL.ERROR_LENGTH_DESCRIPTION_ARTICLE);
         }
-        String[] acceptedValuesEtatVente = {"EC", "AN", "VE"};
+        String[] acceptedValuesEtatVente = {"PC", "EC", "AN", "VE"};
         if (!Arrays.asList(acceptedValuesEtatVente).contains(articleVendu.getEtatVente())) {
             bllException.addError(ErrorCodesBLL.ERROR_VALUE_STATUT_VENTE_ARTICLE);
         }

@@ -2,6 +2,7 @@
 --   type :      SQL Server 2012
 -- MODIFICATIONS APPORTÉES :
 -- Ajout du script de creation de la bdd et d'un utilisateur avec les rôles datareader et datawriter
+-- Modifications diverses explicitées dans les commentaires
 -- Création d'une procédure stockée pour mettre à jour l'état de "Pas commencé" à "En cours"
 
 
@@ -136,14 +137,13 @@ ALTER TABLE ARTICLES_VENDUS
 ON DELETE NO ACTION 
     ON UPDATE no action
 
--- Set for Categories
+-- dataset for categories
 INSERT INTO CATEGORIES (libelle) VALUES 'Informatique';
 INSERT INTO CATEGORIES (libelle) VALUES 'Ameublement';
 INSERT INTO CATEGORIES (libelle) VALUES 'Vêtement';
 INSERT INTO CATEGORIES (libelle) VALUES 'Sport&Loisirs';
 
 -- Stored Procedures
-
 -- Set the state of the auction from PC to EC when the date has been reached
 CREATE OR ALTER PROCEDURE startAuction
 AS
