@@ -36,13 +36,15 @@ public class ServletDeleteAuction extends HttpServlet {
         List<String> errors = new ArrayList<>();
         try {
             ArticleVendu auctionToDelete = avm.getArticleById(idAuctionToDelete);
-            // Check if there is no tricky URL manipulation here
+            // Check if there is tricky URL manipulation here
+            // Is our user allowed to delete this auction ?
             int idUser = new UtilisateurManager().getUtilisateurByPseudo(request.getUserPrincipal().getName()).getNoUtilisateur();
             if (idUser != auctionToDelete.getNoUtilisateur()) {
                 BLLException bllException = new BLLException();
                 bllException.addError(40000);
                 throw bllException;
             }
+            rm.deleteRetrait(rm.getRetraitByNoArticle(idAuctionToDelete));
             avm.deleteArticle(auctionToDelete);
         } catch (DALException e) {
             ErrorsManagement.DALExceptionsCatcher(e, errors, request);

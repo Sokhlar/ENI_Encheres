@@ -89,7 +89,18 @@ public class RetraitDAOJdbcImpl implements DAO<Retrait> {
 
     @Override
     public void delete(Retrait retrait) throws DALException {
-        
+        Connection cnx = JdbcTools.connect();
+        String DELETE = "DELETE FROM RETRAITS WHERE no_article = ? ";
+        try {
+            PreparedStatement stmt = cnx.prepareStatement(DELETE);
+            stmt.setInt(1, retrait.getNoArticle());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_DELETE);
+            throw dalException;
+        }
     }
 
     /**

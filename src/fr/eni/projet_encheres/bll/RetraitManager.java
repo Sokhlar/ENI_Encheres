@@ -40,6 +40,10 @@ public class RetraitManager {
         }
     }
 
+    public void deleteRetrait(Retrait retrait) throws DALException {
+        dao.delete(retrait);
+    }
+
     /**
      * Validate the format of different fields from an instance of Utilisateurs before any actions with the DB
      * Check length of the different fields

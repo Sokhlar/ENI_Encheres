@@ -259,12 +259,10 @@ public class ArticleVenduDAOJdbcImpl implements DAOArticleVendu {
     @Override
     public void delete(ArticleVendu articleVendu) throws DALException {
         Connection cnx = JdbcTools.connect();
-        String DELETE = "DELETE FROM RETRAITS WHERE no_article = ? " +
-                "DELETE FROM ARTICLES_VENDUS WHERE no_article = ? ";
+        String DELETE = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ? ";
         try {
             PreparedStatement stmt = cnx.prepareStatement(DELETE);
             stmt.setInt(1, articleVendu.getNoArticle());
-            stmt.setInt(2, articleVendu.getNoArticle());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
