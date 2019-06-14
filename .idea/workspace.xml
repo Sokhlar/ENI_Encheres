@@ -1,0 +1,1573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="web:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e95625de-4b9d-46db-a4a5-954cdc13c34a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="127" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="ENI_ENCHERES@localhost DB_OWNER" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="ENI_ENCHERES@localhost DB_OWNER" type="feb32156:DbDataSourceImpl" />
+        <item name="ENI_ENCHERES: database" type="ccb7ac2a:MsImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="ENI_ENCHERES@localhost DB_OWNER" type="feb32156:DbDataSourceImpl" />
+        <item name="ENI_ENCHERES: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="ENI_ENCHERES@localhost DB_OWNER" type="feb32156:DbDataSourceImpl" />
+        <item name="ENI_ENCHERES: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="ENI_ENCHERES@localhost DB_OWNER" type="feb32156:DbDataSourceImpl" />
+        <item name="ENI_ENCHERES: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+        <item name="routines" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/jdbc/RetraitDAOJdbcImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/bll/RetraitManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/jdbc/ArticleVenduDAOJdbcImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/auctions/ServletDeleteAuction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Jsp File" />
+        <option value="JavaScript File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>var</find>
+      <find>col</find>
+      <find>fa fa</find>
+      <find>offset-md-4 col-md-1</find>
+      <find>input</find>
+      <find>required</find>
+      <find>public</find>
+      <find>guiFilterChoiceCheckboxes</find>
+      <find>checkbox</find>
+      <find>btn-primary</find>
+      <find>\n</find>
+      <find>fillPreparedStatement</find>
+      <find>+</find>
+      <find>col-md-4</find>
+      <find>col-2 offset</find>
+      <find>col-8 col-md-3</find>
+      <find>ml-5 mr-5</find>
+      <find>&lt;td</find>
+      <find>&lt;/td</find>
+      <find>/td</find>
+      <find>filter_auctions</find>
+      <find>col-9</find>
+      <find>form-control col-md-3</find>
+      <find>md</find>
+      <find>:</find>
+      <find>httpResponse</find>
+      <find>httpRequest</find>
+      <find>errors</find>
+      <find>categories</find>
+      <find>error</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>remember_login</replace>
+      <replace>md</replace>
+      <replace>.</replace>
+      <replace>name=&quot;utilisateurRequest</replace>
+      <replace>c:when</replace>
+      <replace>update</replace>
+      <replace>updateProfile</replace>
+      <replace>articleVendu</replace>
+      <replace>categorie</replace>
+      <replace>enchere</replace>
+      <replace>retrait</replace>
+      <replace>col-md</replace>
+      <replace>offset-md-3 col-md-2</replace>
+      <replace>input required</replace>
+      <replace />
+      <replace>radio</replace>
+      <replace>btn-info</replace>
+      <replace>col-md-4 offset-1 offset-md-0 col-9</replace>
+      <replace>form-group-md</replace>
+      <replace>col-7 col-md-3</replace>
+      <replace>ml-md-5 mr-md-5</replace>
+      <replace>/span</replace>
+      <replace>div</replace>
+      <replace>col-9 mb-2 mb-md-0</replace>
+      <replace>form-control offset-1 col-8 col-md-3</replace>
+      <replace>lg</replace>
+      <replace>&amp;nbsp;:</replace>
+      <replace>response</replace>
+      <replace>request</replace>
+      <replace>categories1</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="2007" />
+      </map>
+    </option>
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/bll/UtilisateurManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/dao/DAOArticleVendu.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/auctions/ServletRaiseAuction.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3b93c85a-0ed6-49df-bef8-89943da1dbbf/console.sql" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/jdbc/EnchereDAOJdbcImpl.java" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/ServletHome.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/templates/userForm.jspf" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/createLogin.jspf" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/updateProfile.jspf" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/profile.jspf" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/templates/nav.jspf" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/ManagementTools/SessionManagement.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/ServletCreateUser.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/documents_pour_le_correcteur/README.txt" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/FilterMustBeUser.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/FilterRememberOurUser.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/FilterRememberMeAfterLoggedIn.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/login.jspf" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/FilterRememberMeLogin.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/ServletLogin.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/ServletOperateBeforeTomcat.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/documents_pour_le_correcteur/create_bd_trocencheres.sql" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/bo/Utilisateur.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/dao/DAOUtilisateur.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/jdbc/UtilisateurDAOJdbcImpl.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/dao/DAOUtilisateurAuth.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/bo/UtilisateurAuthToken.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/jdbc/UtilisateurAuthJdbcImpl.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/dao/DAOFactory.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/bll/UtilisateurAuthTokenManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/FilterJSecurityCheck.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/index.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/newAuction.jspf" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/updateAuction.jspf" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/bll/ArticleVenduManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/messages/error_messages.properties" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/auctions/ServletUpdateAuction.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/home.jspf" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/auction.jspf" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/templates/auctionForm.jspf" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/auctions/ServletPostAuction.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/auctions/ServletSeeAuction.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/ManagementTools/RequestManagement.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/jdbc/RetraitDAOJdbcImpl.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/jdbc/ArticleVenduDAOJdbcImpl.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/bll/RetraitManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/auctions/ServletDeleteAuction.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1918" />
+    <option name="width" value="1924" />
+    <option name="height" value="1082" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet_encheres" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet_encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="bll" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet_encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="bo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet_encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="dal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet_encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="dal" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet_encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="dal" type="462c0819:PsiDirectoryNode" />
+              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet_encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="ihm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet_encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="ihm" type="462c0819:PsiDirectoryNode" />
+              <item name="auctions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet_encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="ihm" type="462c0819:PsiDirectoryNode" />
+              <item name="ManagementTools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet_encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="ihm" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projet_encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="messages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="documents_pour_le_correcteur" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENI-Encheres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENI-Encheres" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="sqlserver" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.34411764" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="MTCustomThemeConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/" />
+      <recent name="$PROJECT_DIR$/web" />
+      <recent name="$PROJECT_DIR$/web/WEB-INF/js" />
+      <recent name="$PROJECT_DIR$/web/WEB-INF" />
+      <recent name="$PROJECT_DIR$/META-INF" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/WEB-INF/lib" />
+      <recent name="$PROJECT_DIR$/src/fr/eni/projet_encheres/messages" />
+      <recent name="$PROJECT_DIR$/src/fr/eni/projet_encheres/dal" />
+      <recent name="$PROJECT_DIR$/web/WEB-INF/documents" />
+      <recent name="$PROJECT_DIR$/web/WEB-INF" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 8.5.41" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.41" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <deployment>
+        <artifact name="web:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/encheres" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_5_411_ENI-Encheres" />
+      </server-settings>
+      <log_file alias="Tomcat Manager Log" path="%IDEA_RUN:CATALINA_BASE%/logs/manager.*" />
+      <log_file alias="Tomcat Host Manager Log" path="%IDEA_RUN:CATALINA_BASE%/logs/host-manager.*" />
+      <log_file alias="Tomcat Localhost Access Log" path="%IDEA_RUN:CATALINA_BASE%/logs/localhost_access_log.*" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="38041" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="web:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="1" Folder0="$USER_HOME$/Nextcloud/ComputerStuff/dev/tools/jetbrains/fr" CustomDictionaries="1" CustomDictionary0="$USER_HOME$/Nextcloud/ComputerStuff/dev/tools/jetbrains/fr/fr.dic" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="project-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e95625de-4b9d-46db-a4a5-954cdc13c34a" name="Default Changelist" comment="" />
+      <created>1559295551905</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559295551905</updated>
+      <workItem from="1559295554000" duration="1515000" />
+      <workItem from="1559297240239" duration="3001000" />
+      <workItem from="1559309179927" duration="13221000" />
+      <workItem from="1559401080310" duration="14531000" />
+      <workItem from="1559570071762" duration="4166000" />
+      <workItem from="1559574341956" duration="4483000" />
+      <workItem from="1559629914531" duration="28025000" />
+      <workItem from="1559715392847" duration="12603000" />
+      <workItem from="1559737278942" duration="12636000" />
+      <workItem from="1559802153223" duration="26667000" />
+      <workItem from="1559887843896" duration="672000" />
+      <workItem from="1559890118381" duration="2938000" />
+      <workItem from="1559893405654" duration="11029000" />
+      <workItem from="1559914216394" duration="8754000" />
+      <workItem from="1560147658077" duration="3148000" />
+      <workItem from="1560150990194" duration="25792000" />
+      <workItem from="1560236709965" duration="28951000" />
+      <workItem from="1560323415582" duration="25998000" />
+      <workItem from="1560408512694" duration="7255000" />
+      <workItem from="1560495557169" duration="12762000" />
+      <workItem from="1560517670902" duration="147000" />
+      <workItem from="1560520497508" duration="774000" />
+    </task>
+    <task id="LOCAL-00013" summary="Refactor managements packages">
+      <created>1559723649852</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1559723649852</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Users profile now displayed by url /user and an id GET param">
+      <created>1559724827552</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1559724827552</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Correct an issue with encoding charset in mssql">
+      <created>1559726344993</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1559726344993</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Set a filter to forbid page for non-logged users">
+      <created>1559727214452</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1559727214452</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Improve the front part for seeing user's profile">
+      <created>1559727340110</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1559727340110</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Now the login page redirects to the requested page if you tried to access it without being logged">
+      <created>1559738205905</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1559738205905</updated>
+    </task>
+    <task id="LOCAL-00019" summary="New method getUtilisateurByPseudo, in order to set a session JavaBean from only the pseudo value of the connected user">
+      <created>1559741735760</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1559741735760</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Set a session javabean for connected user. Ready to use !">
+      <created>1559742841873</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1559742841873</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Fix a tiny bug about GET param that shown null in the URL after redirection">
+      <created>1559744157510</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1559744157510</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Users can update their profiles. Tested.">
+      <created>1559749262826</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1559749262826</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Modularize the errors displaying as a template for users relative forms">
+      <created>1559749802507</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1559749802507</updated>
+    </task>
+    <task id="LOCAL-00024" summary="HttpServletRequest errors attributes is now deal by the ErrorsManagement class">
+      <created>1559803488251</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1559803488251</updated>
+    </task>
+    <task id="LOCAL-00025" summary="User can now delete their profile by GUI">
+      <created>1559803907080</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1559803907080</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Create BO for the actions">
+      <created>1559805476055</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1559805476055</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Create DAL for the auctions">
+      <created>1559808722335</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1559808722335</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Create DAL and BLL for all entities related to auctions. Not tested.">
+      <created>1559813979165</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1559813979165</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Refactor all DAO related files">
+      <created>1559823631570</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1559823631570</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Auction now can be created by users (tested)">
+      <created>1559836759953</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1559836759953</updated>
+    </task>
+    <task id="LOCAL-00031" summary="End DAL of id 2004">
+      <created>1559892089550</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1559892089550</updated>
+    </task>
+    <task id="LOCAL-00032" summary="End BLL of id 2004">
+      <created>1559892787825</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1559892787825</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Add a new method to filter ArticlesVendus by state of auction">
+      <created>1559895437937</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1559895437937</updated>
+    </task>
+    <task id="LOCAL-00034" summary="List of current auctions is now displaying correctly. Filters needs to be implemented">
+      <created>1559901183324</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1559901183324</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Search in auctions can now be filtered">
+      <created>1560149749424</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1560149749424</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Improve servlet's comments">
+      <created>1560150754749</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1560150754749</updated>
+    </task>
+    <task id="LOCAL-00037" summary="IHM for id 2005">
+      <created>1560155840564</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1560155840565</updated>
+    </task>
+    <task id="LOCAL-00038" summary="IHM for id 2005">
+      <created>1560155899978</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1560155899978</updated>
+    </task>
+    <task id="LOCAL-00039" summary="IHM for id 2005">
+      <created>1560156039653</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1560156039653</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Fix a bug with home redirection from ServletPostAuction">
+      <created>1560158119803</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1560158119803</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Can filter by user's current auctions">
+      <created>1560159197647</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1560159197647</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Can filter by user's won auctions">
+      <created>1560162263087</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1560162263087</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Can filter by user's current selling">
+      <created>1560172567441</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1560172567441</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Creation of a new state for auction that had not start yet. Created a stored procedure to run every minutes to actualize the status when the auction starts">
+      <created>1560177765593</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1560177765593</updated>
+    </task>
+    <task id="LOCAL-00045" summary="change the previous checkboxes to radio inputs into the filters auction">
+      <created>1560180186585</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1560180186585</updated>
+    </task>
+    <task id="LOCAL-00046" summary="All filters from homepage are now working (tested)">
+      <created>1560181348575</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1560181348575</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Update readme and .gitignore, add some commets...">
+      <created>1560182499497</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1560182499497</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Change button's color and now remove hours and minutes from data mgmt">
+      <created>1560240321004</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1560240321004</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Display auctions is working but raise on an auction is not implemented yet">
+      <created>1560254810388</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1560254810388</updated>
+    </task>
+    <task id="LOCAL-00050" summary="If auction has not start yet, display buttons to update or delete for the owner (buttons are not functional yet)">
+      <created>1560255555375</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1560255555376</updated>
+    </task>
+    <task id="LOCAL-00051" summary="User can now make auction on a sale (tested)">
+      <created>1560261916260</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1560261916260</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Add a stored procedure to update the state of an auction after his enddate">
+      <created>1560267092655</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1560267092655</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Add a logo and a link to homePage on it. Remove / servlet">
+      <created>1560270072554</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1560270072555</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Display informations about the winner of an auction on auction's display">
+      <created>1560324190371</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1560324190372</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Dwebsite is now responsive design for small screens">
+      <created>1560334437415</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1560334437415</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Session have now 5 minutes inactive interval before disconnection">
+      <created>1560343280406</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1560343280406</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Password are now stored hashed">
+      <created>1560346278166</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1560346278167</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Fix a lot of few bugs, update readme...">
+      <created>1560350424641</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1560350424641</updated>
+    </task>
+    <task id="LOCAL-00059" summary="User can now update his auction before it starts (tested)">
+      <created>1560502908920</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1560502908920</updated>
+    </task>
+    <task id="LOCAL-00060" summary="User can now delete his auction before it starts (tested)">
+      <created>1560508537668</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1560508537668</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Improve the dal between objects">
+      <created>1560521076009</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1560521076011</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="249068000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1918" y="0" width="1924" height="1082" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5588723" visible="true" weight="0.20117396" />
+      <window_info id="Structure" order="1" sideWeight="0.4376013" side_tool="true" weight="0.19690502" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="JavaEE:App" order="7" sideWeight="0.43117744" side_tool="true" weight="0.1905016" />
+      <window_info id="Web" order="8" sideWeight="0.4411277" side_tool="true" visible="true" weight="0.20117396" />
+      <window_info anchor="bottom" id="Database Console" order="0" sideWeight="0.4994664" weight="0.34431455" />
+      <window_info anchor="bottom" id="Inspection Results" order="1" weight="0.32943678" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32943678" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.5976521" visible="true" weight="0.35919234" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.5533618" weight="0.4484591" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.32943678" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4466382" side_tool="true" weight="0.46333688" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.18065888" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49893278" weight="0.32837406" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32943678" />
+      <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32943678" />
+      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.4994664" weight="0.33900106" />
+      <window_info anchor="bottom" id="Thumbnails" order="16" weight="0.32943678" />
+      <window_info anchor="bottom" id="Duplicates" order="17" weight="0.32943678" />
+      <window_info anchor="bottom" id="TODO" order="18" weight="0.32943678" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" sideWeight="0.49635038" visible="true" weight="0.20384204" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.50364965" side_tool="true" weight="0.20330843" />
+      <window_info anchor="right" id="Bean Validation" order="10" weight="0.32977587" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.56549937" visible="true" weight="0.19263607" />
+      <window_info id="Structure" order="1" sideWeight="0.4344942" side_tool="true" weight="0.19263607" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="JavaEE:App" order="7" sideWeight="0.43117744" side_tool="true" weight="0.1905016" />
+      <window_info id="Web" order="8" sideWeight="0.43450063" side_tool="true" visible="true" weight="0.19263607" />
+      <window_info anchor="bottom" id="Database Console" order="0" sideWeight="0.4994664" weight="0.34431455" />
+      <window_info anchor="bottom" id="Inspection Results" order="1" weight="0.32943678" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32943678" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.5976521" weight="0.35919234" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.5533618" weight="0.46333688" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.32943678" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4466382" side_tool="true" weight="0.46333688" />
+      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.18065888" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49893278" weight="0.32837406" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32943678" />
+      <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32943678" />
+      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.4994664" weight="0.34006375" />
+      <window_info anchor="bottom" id="TODO" order="16" weight="0.32943678" />
+      <window_info anchor="bottom" id="Thumbnails" order="17" weight="0.32943678" />
+      <window_info anchor="bottom" id="Duplicates" order="18" weight="0.32943678" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" sideWeight="0.49635038" visible="true" weight="0.20384204" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.50364965" side_tool="true" weight="0.20330843" />
+      <window_info anchor="right" id="Bean Validation" order="10" weight="0.32977587" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="2007" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Search in auctions can now be filtered" />
+    <MESSAGE value="Improve servlet's comments" />
+    <MESSAGE value="IHM for id 2005" />
+    <MESSAGE value="Fix a bug with home redirection from ServletPostAuction" />
+    <MESSAGE value="Can filter by user's current auctions" />
+    <MESSAGE value="Can filter by user's won auctions" />
+    <MESSAGE value="Can filter by user's current selling" />
+    <MESSAGE value="Creation of a new state for auction that had not start yet. Created a stored procedure to run every minutes to actualize the status when the auction starts" />
+    <MESSAGE value="change the previous checkboxes to radio inputs into the filters auction" />
+    <MESSAGE value="All filters from homepage are now working (tested)" />
+    <MESSAGE value="Update readme and .gitignore, add some commets..." />
+    <MESSAGE value="Change button's color and now remove hours and minutes from data mgmt" />
+    <MESSAGE value="Display auctions is working but raise on an auction is not implemented yet" />
+    <MESSAGE value="If auction has not start yet, display buttons to update or delete for the owner (buttons are not functional yet)" />
+    <MESSAGE value="User can now make auction on a sale (tested)" />
+    <MESSAGE value="Add a stored procedure to update the state of an auction after his enddate" />
+    <MESSAGE value="Add a logo and a link to homePage on it. Remove / servlet" />
+    <MESSAGE value="Display informations about the winner of an auction on auction's display" />
+    <MESSAGE value="Dwebsite is now responsive design for small screens" />
+    <MESSAGE value="Session have now 5 minutes inactive interval before disconnection" />
+    <MESSAGE value="Password are now stored hashed" />
+    <MESSAGE value="Fix a lot of few bugs, update readme..." />
+    <MESSAGE value="User can now update his auction before it starts (tested)" />
+    <MESSAGE value="User can now delete his auction before it starts (tested)" />
+    <MESSAGE value="Improve the dal between objects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve the dal between objects" />
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ENI_Encheres$Tomcat_8_5_41.ic" NAME="Tomcat 8.5.41 Coverage Results" MODIFIED="1560171641870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>httpRequest.getMethod()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>httpRequest.getParameter(&quot;remember_me&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getParameter(&quot;remember_me&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>em.getAmountAndPseudoOfBestOffer(articleVendu)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>um.getPseudosUtilisateursWithCurrentAuctions()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getParameter(&quot;string_filter&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getUserPrincipal().getName()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getUserPrincipal()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>httpRequest.getRequestURI() + &quot;?&quot; + httpRequest.getQueryString()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>httpRequest.getRequestURI() + httpRequest.getQueryString()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="das://3b93c85a-0ed6-49df-bef8-89943da1dbbf/database/ENI_ENCHERES/schema/dbo/table/UTILISATEURS_ROLES">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="c82da21d-7c84-4920-99cc-824943e773d2">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/FilterRememberOurUser.java" />
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/ServletLogout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/FilterRememberMeAfterLoggedIn.java" />
+    <entry file="jar://$USER_HOME$/tomcat-8.5/lib/servlet-api.jar!/javax/servlet/http/HttpServletResponse.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://3b93c85a-0ed6-49df-bef8-89943da1dbbf/database/ENI_ENCHERES/schema/dbo/table/UTILISATEURS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="2a783996-6467-4a7e-b866-54cbd12034b4">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/FilterRememberMeLogin.java" />
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/ServletOperateBeforeTomcat.java" />
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/dao/DAOUtilisateur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="76" lean-forward="true" selection-start-line="11" selection-start-column="76" selection-end-line="11" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/bo/UtilisateurAuthToken.java" />
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/dao/DAOUtilisateurAuth.java" />
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/jdbc/UtilisateurAuthJdbcImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/bll/UtilisateurAuthTokenManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/FilterJSecurityCheck.java" />
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/login.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="86" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/dao/DAOFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/bo/Utilisateur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="197" column="45" selection-start-line="197" selection-start-column="45" selection-end-line="197" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/documents_pour_le_correcteur/create_bd_trocencheres.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="93" column="30" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/ServletLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/FilterMustBeUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/templates/userForm.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/templates/nav.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/updateProfile.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/createLogin.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="66" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/newAuction.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="49" selection-start-column="49" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbSrc:///2853a048/3b93c85a-0ed6-49df-bef8-89943da1dbbf/database/ENI_ENCHERES/schema/dbo/routine/startAuction.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/jdbc/UtilisateurDAOJdbcImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1369">
+          <caret line="300" column="7" lean-forward="true" selection-start-line="300" selection-start-column="7" selection-end-line="300" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/ManagementTools/ErrorsManagement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/messages/MessageReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/messages/error_messages.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/auctions/ServletUpdateAuction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="64" selection-start-line="64" selection-end-line="65" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/templates/displayErrors.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/home.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/auctions/ServletPostAuction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="30" column="60" lean-forward="true" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/updateAuction.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="79" selection-start-line="3" selection-start-column="79" selection-end-line="3" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/ServletUpdateUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="50" column="58" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/bll/UtilisateurManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="80" column="16" lean-forward="true" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/bll/ArticleVenduManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/ManagementTools/RequestManagement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/auctions/ServletSeeAuction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="33" column="25" selection-start-line="33" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/templates/auctionForm.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="871">
+          <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/auction.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/users/ServletCreateUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="33" column="64" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://3b93c85a-0ed6-49df-bef8-89943da1dbbf/database/ENI_ENCHERES/schema/dbo/table/RETRAITS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="f27330e0-e69d-46cc-b5b0-bdb81bc730fb">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://3b93c85a-0ed6-49df-bef8-89943da1dbbf/database/ENI_ENCHERES/schema/dbo/table/ARTICLES_VENDUS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="f27330e0-e69d-46cc-b5b0-bdb81bc730fb">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/ihm/auctions/ServletDeleteAuction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/jdbc/RetraitDAOJdbcImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/bll/RetraitManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/eni/projet_encheres/dal/jdbc/ArticleVenduDAOJdbcImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor>
+            <show-content>
+              <type id="javaee-facet-resources" />
+              <type id="jpa-descriptors" />
+              <type id="library" />
+              <type id="artifact" />
+            </show-content>
+          </artifact-editor>
+          <last-edited>web:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.34411764" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web (ENI-Encheres)|Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.34411764" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>bootstrap</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.34411764" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.34411764" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ENI-Encheres</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.34411764" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>lib</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.34411764" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

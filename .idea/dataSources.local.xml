@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="ENI_ENCHERES@localhost" uuid="81bccef4-b6a2-43fa-9bee-1b404c1747e2">
+      <database-info product="Microsoft SQL Server" version="14.00.3162" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.2 for SQL Server" driver-version="7.2.1.0" dbms="MSSQL" exact-version="14.0.3162" exact-driver-version="7.2">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>utilisateur_ENI</user-name>
+      <introspection-schemas>@:@</introspection-schemas>
+    </data-source>
+    <data-source name="ENI_ENCHERES@localhost DB_OWNER" uuid="3b93c85a-0ed6-49df-bef8-89943da1dbbf">
+      <database-info product="Microsoft SQL Server" version="14.00.3162" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.2 for SQL Server" driver-version="7.2.1.0" dbms="MSSQL" exact-version="14.0.3162" exact-driver-version="7.2">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>sa</user-name>
+      <introspection-schemas>@:@</introspection-schemas>
+    </data-source>
+  </component>
+</project>

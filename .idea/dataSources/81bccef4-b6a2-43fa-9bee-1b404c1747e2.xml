@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="ENI_ENCHERES@localhost">
+  <database-model serializer="dbm" dbms="MSSQL" family-id="MSSQL" format-version="4.15">
+    <root id="1">
+      <ServerVersion>14.0.3162</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="BDD_DEMO">
+      <ObjectId>10</ObjectId>
+      <Collation>French_CI_AS</Collation>
+    </database>
+    <database id="3" parent="1" name="ENI_ENCHERES">
+      <ObjectId>11</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+      <Collation>French_CI_AS</Collation>
+      <Fingerprint>11.43615/463D2E08-3FFB-4285-A8F2-3C7B6E45A7A3@neon</Fingerprint>
+    </database>
+    <database id="4" parent="1" name="GESTION_EMPLOYES">
+      <ObjectId>5</ObjectId>
+      <Collation>French_CI_AS</Collation>
+    </database>
+    <database id="5" parent="1" name="Locations">
+      <ObjectId>6</ObjectId>
+      <Collation>French_CI_AS</Collation>
+    </database>
+    <database id="6" parent="1" name="VideoLoc">
+      <ObjectId>7</ObjectId>
+      <Collation>French_CI_AS</Collation>
+    </database>
+    <database id="7" parent="1" name="eval_db">
+      <ObjectId>8</ObjectId>
+      <Collation>French_CI_AS</Collation>
+    </database>
+    <database id="8" parent="1" name="master">
+      <ObjectId>1</ObjectId>
+      <Collation>French_CI_AS</Collation>
+    </database>
+    <database id="9" parent="1" name="model">
+      <ObjectId>3</ObjectId>
+      <Collation>French_CI_AS</Collation>
+    </database>
+    <database id="10" parent="1" name="msdb">
+      <ObjectId>4</ObjectId>
+      <Collation>French_CI_AS</Collation>
+    </database>
+    <database id="11" parent="1" name="papeterie_db">
+      <ObjectId>9</ObjectId>
+      <Collation>French_CI_AS</Collation>
+    </database>
+    <database id="12" parent="1" name="tempdb">
+      <ObjectId>2</ObjectId>
+      <Collation>French_CI_AS</Collation>
+    </database>
+    <schema id="13" parent="3" name="INFORMATION_SCHEMA">
+      <ObjectId>3</ObjectId>
+    </schema>
+    <schema id="14" parent="3" name="db_accessadmin">
+      <ObjectId>16385</ObjectId>
+    </schema>
+    <schema id="15" parent="3" name="db_backupoperator">
+      <ObjectId>16389</ObjectId>
+    </schema>
+    <schema id="16" parent="3" name="db_datareader">
+      <ObjectId>16390</ObjectId>
+    </schema>
+    <schema id="17" parent="3" name="db_datawriter">
+      <ObjectId>16391</ObjectId>
+    </schema>
+    <schema id="18" parent="3" name="db_ddladmin">
+      <ObjectId>16387</ObjectId>
+    </schema>
+    <schema id="19" parent="3" name="db_denydatareader">
+      <ObjectId>16392</ObjectId>
+    </schema>
+    <schema id="20" parent="3" name="db_denydatawriter">
+      <ObjectId>16393</ObjectId>
+    </schema>
+    <schema id="21" parent="3" name="db_owner">
+      <ObjectId>16384</ObjectId>
+    </schema>
+    <schema id="22" parent="3" name="db_securityadmin">
+      <ObjectId>16386</ObjectId>
+    </schema>
+    <schema id="23" parent="3" name="dbo">
+      <ObjectId>1</ObjectId>
+      <IntrospectionTimestamp>2019-06-04.11:35:32.800</IntrospectionTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="24" parent="3" name="guest">
+      <ObjectId>2</ObjectId>
+    </schema>
+    <schema id="25" parent="3" name="sys">
+      <ObjectId>4</ObjectId>
+    </schema>
+    <table id="26" parent="23" name="ARTICLES_VENDUS">
+      <ObjectId>1013578649</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.227</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.250</ModifiedTimestamp>
+    </table>
+    <table id="27" parent="23" name="CATEGORIES">
+      <ObjectId>885578193</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.197</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.243</ModifiedTimestamp>
+    </table>
+    <table id="28" parent="23" name="ENCHERES">
+      <ObjectId>917578307</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.207</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.237</ModifiedTimestamp>
+    </table>
+    <table id="29" parent="23" name="RETRAITS">
+      <ObjectId>949578421</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.213</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.240</ModifiedTimestamp>
+    </table>
+    <table id="30" parent="23" name="UTILISATEURS">
+      <ObjectId>981578535</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.220</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-03.12:28:08.980</ModifiedTimestamp>
+    </table>
+    <column id="31" parent="26" name="no_article">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="26" name="nom_article">
+      <Position>2</Position>
+      <DataType>varchar(30 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="26" name="description">
+      <Position>3</Position>
+      <DataType>varchar(300 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="26" name="date_debut_encheres">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="26" name="date_fin_encheres">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="26" name="prix_initial">
+      <Position>6</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="37" parent="26" name="prix_vente">
+      <Position>7</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="38" parent="26" name="no_utilisateur">
+      <Position>8</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="26" name="no_categorie">
+      <Position>9</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="40" parent="26" name="articles_vendus_pk">
+      <Position>1</Position>
+      <ColNames>no_article</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="41" parent="26" name="articles_vendus_pk">
+      <ObjectId>1029578706</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.230</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.230</ModifiedTimestamp>
+      <ColNames>no_article</ColNames>
+      <UnderlyingIndexName>articles_vendus_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="42" parent="26" name="encheres_utilisateur_fk">
+      <ObjectId>1045578763</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.233</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.233</ModifiedTimestamp>
+      <ColNames>no_utilisateur</ColNames>
+      <RefTableId>981578535</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>UTILISATEURS</RefTableName>
+      <RefKeyName>utilisateur_pk</RefKeyName>
+      <RefColNames>no_utilisateur</RefColNames>
+    </foreign-key>
+    <foreign-key id="43" parent="26" name="ventes_utilisateur_fk">
+      <ObjectId>1109578991</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.247</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.247</ModifiedTimestamp>
+      <ColNames>no_utilisateur</ColNames>
+      <RefTableId>981578535</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>UTILISATEURS</RefTableName>
+      <RefKeyName>utilisateur_pk</RefKeyName>
+      <RefColNames>no_utilisateur</RefColNames>
+    </foreign-key>
+    <foreign-key id="44" parent="26" name="articles_vendus_categories_fk">
+      <ObjectId>1093578934</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.243</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.243</ModifiedTimestamp>
+      <ColNames>no_categorie</ColNames>
+      <RefTableId>885578193</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>CATEGORIES</RefTableName>
+      <RefKeyName>categorie_pk</RefKeyName>
+      <RefColNames>no_categorie</RefColNames>
+    </foreign-key>
+    <column id="45" parent="27" name="no_categorie">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="27" name="libelle">
+      <Position>2</Position>
+      <DataType>varchar(30 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="47" parent="27" name="categorie_pk">
+      <Position>1</Position>
+      <ColNames>no_categorie</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="48" parent="27" name="categorie_pk">
+      <ObjectId>901578250</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.203</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.203</ModifiedTimestamp>
+      <ColNames>no_categorie</ColNames>
+      <UnderlyingIndexName>categorie_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="28" name="no_utilisateur">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="28" name="no_article">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="28" name="date_enchere">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="28" name="montant_enchere">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="53" parent="28" name="enchere_pk">
+      <Position>1</Position>
+      <ColNames>no_utilisateur
+no_article</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="54" parent="28" name="enchere_pk">
+      <ObjectId>933578364</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.210</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.210</ModifiedTimestamp>
+      <ColNames>no_utilisateur
+no_article</ColNames>
+      <UnderlyingIndexName>enchere_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="55" parent="28" name="encheres_articles_vendus_fk">
+      <ObjectId>1061578820</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.237</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.237</ModifiedTimestamp>
+      <ColNames>no_article</ColNames>
+      <RefTableId>1013578649</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>ARTICLES_VENDUS</RefTableName>
+      <RefKeyName>articles_vendus_pk</RefKeyName>
+      <RefColNames>no_article</RefColNames>
+    </foreign-key>
+    <column id="56" parent="29" name="no_article">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="29" name="rue">
+      <Position>2</Position>
+      <DataType>varchar(30 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="29" name="code_postal">
+      <Position>3</Position>
+      <DataType>varchar(15 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="29" name="ville">
+      <Position>4</Position>
+      <DataType>varchar(30 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="60" parent="29" name="retrait_pk">
+      <Position>1</Position>
+      <ColNames>no_article</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="61" parent="29" name="retrait_pk">
+      <ObjectId>965578478</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.217</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.217</ModifiedTimestamp>
+      <ColNames>no_article</ColNames>
+      <UnderlyingIndexName>retrait_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="62" parent="29" name="retraits_articles_vendus_fk">
+      <ObjectId>1077578877</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.240</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.240</ModifiedTimestamp>
+      <ColNames>no_article</ColNames>
+      <RefTableId>1013578649</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>ARTICLES_VENDUS</RefTableName>
+      <RefKeyName>articles_vendus_pk</RefKeyName>
+      <RefColNames>no_article</RefColNames>
+    </foreign-key>
+    <column id="63" parent="30" name="no_utilisateur">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="30" name="pseudo">
+      <Position>2</Position>
+      <DataType>varchar(30 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="30" name="nom">
+      <Position>3</Position>
+      <DataType>varchar(30 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="30" name="prenom">
+      <Position>4</Position>
+      <DataType>varchar(30 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="30" name="email">
+      <Position>5</Position>
+      <DataType>varchar(40 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="30" name="telephone">
+      <Position>6</Position>
+      <DataType>varchar(15 char)|0s</DataType>
+    </column>
+    <column id="69" parent="30" name="rue">
+      <Position>7</Position>
+      <DataType>varchar(30 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="30" name="code_postal">
+      <Position>8</Position>
+      <DataType>varchar(10 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="30" name="ville">
+      <Position>9</Position>
+      <DataType>varchar(30 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="30" name="mot_de_passe">
+      <Position>10</Position>
+      <DataType>varchar(30 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="30" name="credit">
+      <Position>11</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="30" name="administrateur">
+      <Position>12</Position>
+      <DataType>bit|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="75" parent="30" name="utilisateur_pk">
+      <Position>1</Position>
+      <ColNames>no_utilisateur</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="76" parent="30" name="utilisateur_pk">
+      <ObjectId>997578592</ObjectId>
+      <CreatedTimestamp>2019-05-31.17:53:41.223</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.17:53:41.223</ModifiedTimestamp>
+      <ColNames>no_utilisateur</ColNames>
+      <UnderlyingIndexName>utilisateur_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

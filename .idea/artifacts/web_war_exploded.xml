@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="web:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/web_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ENI-Encheres/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ENI-Encheres" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/mssql-jdbc-7.2.2.jre8.jar" />
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="jstl-1.2" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
