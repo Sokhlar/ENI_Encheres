@@ -31,6 +31,15 @@ public class RetraitManager {
         return dao.selectById(noArticle);
     }
 
+    public void updateRetrait(Retrait retrait) throws DALException, BLLException {
+        BLLException bllException = validateRetrait(retrait);
+        if (bllException.hasErrors()) {
+            throw bllException;
+        } else {
+            dao.update(retrait);
+        }
+    }
+
     /**
      * Validate the format of different fields from an instance of Utilisateurs before any actions with the DB
      * Check length of the different fields

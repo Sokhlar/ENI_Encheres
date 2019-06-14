@@ -73,7 +73,7 @@
 </div>
 <p class="text-center">
     <c:if test="${utilisateurSession.noUtilisateur == auction.noUtilisateur && auction.etatVente == 'PC'}">
-        <a href="#" ><button class="btn btn-primary">Modifier ma vente</button></a>
+        <a href="updateAuction?id=${auction.noArticle}" ><button class="btn btn-primary">Modifier ma vente</button></a>
         <a href="#" ><button class="btn btn-danger">Supprimer ma vente</button></a>
         <br/>(Non fonctionnel, prévu pour l'itération 2)
     </c:if>

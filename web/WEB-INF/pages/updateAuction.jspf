@@ -1,0 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<h1 class="text-center mt-2 mb-4">Modifier ma vente</h1>
+<%--@elvariable id="auctionToUpdate" type="fr.eni.projet_encheres.bo.ArticleVendu"--%>
+<form method="post" action="${pageContext.request.contextPath}/updateAuction?id=${auctionToUpdate.noArticle}">
+    <div class="form-group">
+        <%@include file="../templates/auctionForm.jspf"%>

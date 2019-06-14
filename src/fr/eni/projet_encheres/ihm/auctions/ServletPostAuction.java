@@ -36,14 +36,14 @@ public class ServletPostAuction extends HttpServlet {
             // New auction
             ArticleVendu articleVendu = new ArticleVendu(
                 request.getParameter("name"),
-                    request.getParameter("description"),
-                    dateFormat.parse(request.getParameter("start_auction_date")),
-                    dateFormat.parse(request.getParameter("end_auction_date")),
-                    Integer.valueOf(request.getParameter("starting_price")),
-                    Integer.valueOf(request.getParameter("starting_price")),
-                    "PC",
-                    utilisateur.getNoUtilisateur(),
-                    Integer.valueOf(request.getParameter("category"))
+                request.getParameter("description"),
+                dateFormat.parse(request.getParameter("start_auction_date")),
+                dateFormat.parse(request.getParameter("end_auction_date")),
+                Integer.valueOf(request.getParameter("starting_price")),
+                Integer.valueOf(request.getParameter("starting_price")),
+                "PC",
+                utilisateur.getNoUtilisateur(),
+                Integer.valueOf(request.getParameter("category"))
             );
             // New retrait point
             Retrait retrait = new Retrait(
@@ -91,13 +91,7 @@ public class ServletPostAuction extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/index.jsp");
-        CategorieManager cm = new CategorieManager();
-        try {
-            request.setAttribute("categories", cm.getAllCategories());
-        } catch (DALException e) {
-            e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        }
+        RequestManagement.processInsertOrUpdateAuctionPageAttributes(request, response);
         request.setAttribute("page", "postAuction");
         rd.forward(request, response);
     }

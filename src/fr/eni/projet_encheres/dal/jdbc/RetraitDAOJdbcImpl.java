@@ -70,12 +70,26 @@ public class RetraitDAOJdbcImpl implements DAO<Retrait> {
 
     @Override
     public void update(Retrait retrait) throws DALException {
-
+        Connection cnx = JdbcTools.connect();
+        String UPDATE_RETRAIT = "UPDATE RETRAITS SET rue = ?, code_postal = ?, ville = ? WHERE no_article = ?";
+        try {
+            PreparedStatement stmt = cnx.prepareStatement(UPDATE_RETRAIT);
+            stmt.setString(1, retrait.getRue());
+            stmt.setString(2, retrait.getCodePostal());
+            stmt.setString(3, retrait.getVille());
+            stmt.setInt(4, retrait.getNoArticle());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_UPDATE);
+            throw dalException;
+        }
     }
 
     @Override
     public void delete(Retrait retrait) throws DALException {
-
+        
     }
 
     /**

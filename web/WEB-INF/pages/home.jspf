@@ -18,17 +18,20 @@
 <c:if test="${ auctionCreated }">
     <p class="text-center text-success">Enchère créée avec succès !</p>
 </c:if>
+<%--@elvariable id="auctionUpdated" type="boolean"--%>
+<c:if test="${ auctionUpdated }">
+    <p class="text-center text-success">Enchère modifiée avec succès !</p>
+</c:if>
 
 <h1 class="mb-5 text-center">Liste des enchères</h1>
 
 <form class="row" action="${pageContext.request.contextPath}/" method="post" id="filter_auctions">
-    <div class="offset-lg-2
-     col-lg-8 d-flex flex-column">
-        <p class="m-0">Filtres :</p>
+    <div class="offset-lg-3 col-lg-6 d-flex flex-column">
+        <p class="m-0">Filtres&nbsp;:</p>
         <%--@elvariable id="stringFilter" type="java.lang.String"--%>
         <input name="string_filter" type="text" class="form-control m-2" placeholder="Le nom de l'article contient" value="${stringFilter}">
         <p class="d-flex flex-row">
-            <label class="col-lg-3 pt-3" for="categories">Catégorie :</label>
+            <label class="col-lg-3 pt-3" for="categories">Catégorie&nbsp;:</label>
             <select name="category_filter" id="categories" class="col-lg-9 mt-2 form-control">
                 <option value="all">Toutes</option>
                 <c:forEach items="${categories}" var="category">
@@ -48,7 +51,6 @@
                             <option value="${category.noCategorie}">${category.libelle}</option>
                         </c:otherwise>
                     </c:choose>
-
                 </c:forEach>
             </select>
         </p>
@@ -113,13 +115,13 @@
 </form>
 <%@include file="../templates/displayErrorsFormUser.jspf"%>
 <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-between">
         <c:forEach items="${current_auctions}" var="articleVendu">
-            <div class="d-flex flex-column col-md-4 offset-md-1 border border-dark mt-3 mb-3">
+            <div class="d-flex flex-column col-md-5 border border-dark mt-3 mb-3">
                 <p><u>${articleVendu.nomArticle}</u></p>
                 <p>Prix : ${articleVendu.prixVente}</p>
                 <p>
-                    Statut de l'enchère : 
+                    Statut de l'enchère :
                     <c:if test="${articleVendu.etatVente == 'EC'}">
                         En cours
                     </c:if>

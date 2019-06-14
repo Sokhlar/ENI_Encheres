@@ -30,6 +30,8 @@
   <c:if test="${page == 'seeAuction'}">
     <%@include file="pages/auction.jspf"%>
   </c:if>
-
+  <c:if test="${page == 'updateAuction'}">
+    <%@include file="pages/updateAuction.jspf"%>
+  </c:if>
 </body>
 </html>
