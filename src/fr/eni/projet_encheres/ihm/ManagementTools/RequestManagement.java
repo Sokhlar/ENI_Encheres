@@ -1,9 +1,6 @@
 package fr.eni.projet_encheres.ihm.ManagementTools;
 
-import fr.eni.projet_encheres.bll.ArticleVenduManager;
-import fr.eni.projet_encheres.bll.BLLException;
-import fr.eni.projet_encheres.bll.CategorieManager;
-import fr.eni.projet_encheres.bll.UtilisateurManager;
+import fr.eni.projet_encheres.bll.*;
 import fr.eni.projet_encheres.bo.ArticleVendu;
 import fr.eni.projet_encheres.dal.DALException;
 
@@ -11,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class RequestManagement {
@@ -42,5 +40,22 @@ public class RequestManagement {
         } catch (BLLException e) {
             ErrorsManagement.BLLExceptionsCatcher(e, errors, request);
         }
+    }
+
+    public static void processSeeAuctionPage(HttpServletRequest request, int idAuction) throws DALException, BLLException {
+        ArticleVenduManager avm = new ArticleVenduManager();
+        CategorieManager cm = new CategorieManager();
+        EnchereManager em = new EnchereManager();
+        RetraitManager rm = new RetraitManager();
+        UtilisateurManager um = new UtilisateurManager();
+        ArticleVendu articleVendu = avm.getArticleById(idAuction);
+        request.setAttribute("auction", articleVendu);
+        request.setAttribute("category", cm.getCategorieById(articleVendu.getNoCategorie()));
+        if (em.getAmountAndPseudoOfBestOffer(articleVendu) != null) {
+            HashMap<Integer, Integer> bestOffer = em.getAmountAndPseudoOfBestOffer(articleVendu);
+            request.setAttribute("user_best_offer", um.getUtilisateurById(bestOffer.get(articleVendu.getPrixVente())).getPseudo());
+        }
+        request.setAttribute("withdrawal", rm.getRetraitByNoArticle(articleVendu.getNoArticle()));
+        request.setAttribute("seller", um.getUtilisateurById(articleVendu.getNoUtilisateur()));
     }
 }

@@ -45,6 +45,7 @@ public class ServletPostAuction extends HttpServlet {
                 utilisateur.getNoUtilisateur(),
                 Integer.valueOf(request.getParameter("category"))
             );
+            avm.createArticleVendu(articleVendu);
             // New retrait point
             Retrait retrait = new Retrait(
                     articleVendu.getNoArticle(),
@@ -52,8 +53,6 @@ public class ServletPostAuction extends HttpServlet {
                     request.getParameter("postal_code"),
                     request.getParameter("city")
             );
-            // Process
-            avm.createArticleVendu(articleVendu);
             rm.createRetrait(retrait);
             request.setAttribute("current_auctions", avm.getArticlesByEtat("EC"));
             request.setAttribute("pseudos", um.getPseudosUtilisateursWithCurrentAuctions());

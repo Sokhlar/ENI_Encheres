@@ -11,7 +11,7 @@
             <input required type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Répétez le mot de passe">
         </div>
     </div>
-    <%@include file="../templates/displayErrorsFormUser.jspf"%>
+    <%@include file="../templates/displayErrors.jspf"%>
     <div class="row mt-md-5">
         <input type="submit" value="Créer" class="offset-1 col-4 offset-md-2 col-md-3 btn btn-success btn-block btn-lg">
         <a href="${pageContext.request.contextPath}" class="offset-1 col-5 offset-md-1 col-md-3 ">

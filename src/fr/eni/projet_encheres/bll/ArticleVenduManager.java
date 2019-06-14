@@ -68,6 +68,10 @@ public class ArticleVenduManager {
         dao.updateCurrentPrice(noArticle, newPrice);
     }
 
+    public void deleteArticle(ArticleVendu articleVendu) throws DALException {
+        dao.delete(articleVendu);
+    }
+
     /**
      * Read part of CRUD
      * Select all from DB

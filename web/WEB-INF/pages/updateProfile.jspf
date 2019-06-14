@@ -21,7 +21,7 @@
         <div class="col-3 col-md-1">Crédits</div>
         <div class="col-3 col-md-1"><jsp:getProperty name="utilisateurSession" property="credit"/></div>
     </div>
-    <%@include file="../templates/displayErrorsFormUser.jspf"%>
+    <%@include file="../templates/displayErrors.jspf"%>
     <div class="row mt-3 mt-md-5">
         <input type="submit" value="Modifier" class="offset-1 col-10 offset-md-2 col-md-3 btn btn-success btn-block mb-2">
         <a href="${pageContext.request.contextPath}/deleteProfile" class="offset-1 col-10 offset-md-1 col-md-3 p-0">

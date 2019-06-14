@@ -73,8 +73,6 @@ public class ServletUpdateAuction extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/index.jsp");
-        int idAuctionToUpdate = Integer.valueOf(request.getParameter("id"));
-        ArticleVenduManager avm = new ArticleVenduManager();
         RequestManagement.processUpdateAuctionPage(request, response);
         request.setAttribute("page", "updateAuction");
         rd.forward(request, response);

@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static fr.eni.projet_encheres.ihm.ManagementTools.RequestManagement.processSeeAuctionPage;
+
 @WebServlet("/auction/*")
 public class ServletSeeAuction extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,22 +28,10 @@ public class ServletSeeAuction extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/index.jsp");
         int idAuction = Integer.valueOf(request.getParameter("id"));
-        ArticleVenduManager avm = new ArticleVenduManager();
-        CategorieManager cm = new CategorieManager();
-        EnchereManager em = new EnchereManager();
-        RetraitManager rm = new RetraitManager();
-        UtilisateurManager um = new UtilisateurManager();
+
         List<String> errors = new ArrayList<>();
         try {
-            ArticleVendu articleVendu = avm.getArticleById(idAuction);
-            request.setAttribute("auction", articleVendu);
-            request.setAttribute("category", cm.getCategorieById(articleVendu.getNoCategorie()));
-            if (em.getAmountAndPseudoOfBestOffer(articleVendu) != null) {
-                HashMap<Integer, Integer> bestOffer = em.getAmountAndPseudoOfBestOffer(articleVendu);
-                request.setAttribute("user_best_offer", um.getUtilisateurById(bestOffer.get(articleVendu.getPrixVente())).getPseudo());
-            }
-            request.setAttribute("withdrawal", rm.getRetraitByNoArticle(articleVendu.getNoArticle()));
-            request.setAttribute("seller", um.getUtilisateurById(articleVendu.getNoUtilisateur()));
+            processSeeAuctionPage(request, idAuction);
         } catch (DALException e) {
             ErrorsManagement.DALExceptionsCatcher(e, errors, request);
         } catch (BLLException e) {

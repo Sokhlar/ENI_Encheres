@@ -22,6 +22,10 @@
 <c:if test="${ auctionUpdated }">
     <p class="text-center text-success">Enchère modifiée avec succès !</p>
 </c:if>
+<%--@elvariable id="auctionDeleted" type="boolean"--%>
+<c:if test="${ auctionDeleted }">
+    <p class="text-center text-success">Enchère annulée avec succès !</p>
+</c:if>
 
 <h1 class="mb-5 text-center">Liste des enchères</h1>
 
@@ -113,7 +117,7 @@
         <input type="submit" class="btn btn-info btn-lg btn-block mt-2" id="#searchButton" value="Rechercher"/>
     </div>
 </form>
-<%@include file="../templates/displayErrorsFormUser.jspf"%>
+<%@include file="../templates/displayErrors.jspf"%>
 <div class="container">
     <div class="row d-flex justify-content-between">
         <c:forEach items="${current_auctions}" var="articleVendu">

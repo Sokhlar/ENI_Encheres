@@ -55,11 +55,12 @@
         $(function () {
             $('#datetimepicker1').datetimepicker({
                 format: 'L',
-                locale: 'fr',
+                locale: 'fr'
+                <c:if test="${!empty(auctionToUpdate)}">
+                ,
                 defaultDate:
-                    <c:if test="${!empty(auctionToUpdate)}">
                         value="${auctionToUpdate.dateDebutEncheres}"
-                    </c:if>
+                </c:if>
             });
         });
     </script>
@@ -80,11 +81,12 @@
         $(function () {
             $('#datetimepicker2').datetimepicker({
                 format: 'L',
-                locale: 'fr',
+                locale: 'fr'
+                <c:if test="${!empty(auctionToUpdate)}">
+                ,
                 defaultDate:
-                    <c:if test="${!empty(auctionToUpdate)}">
                         value="${auctionToUpdate.dateFinEncheres}"
-                    </c:if>
+                </c:if>
             });
         });
     </script>
@@ -109,7 +111,7 @@
         </div>
     </div>
 </fieldset>
-<%@include file="../templates/displayErrorsFormUser.jspf"%>
+<%@include file="displayErrors.jspf"%>
 <div class="form-row">
     <input type="submit" class="btn btn-lg btn-block btn-success offset-1 col-4 offset-md-4 col-md-2">
     <a href="${pageContext.request.contextPath}/home" class="offset-1 col-4 offset-md-1 col-md-2">

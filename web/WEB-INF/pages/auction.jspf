@@ -4,6 +4,7 @@
     <jsp:useBean id="auction" scope="request" class="fr.eni.projet_encheres.bo.ArticleVendu">
     </jsp:useBean>
 <%--</c:if>--%>
+<%@include file="../templates/displayErrors.jspf"%>
 <c:choose>
     <c:when test="${auction.etatVente != 'VE'}">
         <h1 class="text-center mb-2">Détail vente</h1>
@@ -74,7 +75,6 @@
 <p class="text-center">
     <c:if test="${utilisateurSession.noUtilisateur == auction.noUtilisateur && auction.etatVente == 'PC'}">
         <a href="updateAuction?id=${auction.noArticle}" ><button class="btn btn-primary">Modifier ma vente</button></a>
-        <a href="#" ><button class="btn btn-danger">Supprimer ma vente</button></a>
-        <br/>(Non fonctionnel, prévu pour l'itération 2)
+        <a href="deleteAuction?id=${auction.noArticle}" ><button class="btn btn-danger">Supprimer ma vente</button></a>
     </c:if>
 </p>
