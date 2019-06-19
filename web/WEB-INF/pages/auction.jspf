@@ -64,7 +64,7 @@
                 <th scope="row" class="align-middle"><label for="myAuction">Ma&nbsp;proposition&nbsp;:</label></th>
                 <td>
                     <form class="form-inline row" method="post" action="${pageContext.request.contextPath}/raiseAuction?id=${auction.noArticle}">
-                        <input class="form-control offset-1 col-4" id="myAuction" type="number" value="${auction.prixVente + 1}" min="${auction.prixVente + 1}" step="1" name="myAuction">
+                        <input  required class="form-control offset-1 col-4" id="myAuction" type="number" value="${auction.prixVente + 1}" min="${auction.prixVente + 1}" step="1" name="myAuction">
                         <input type="submit" class="col-5 btn btn-success ml-3" value="Enchérir">
                     </form>
                 </td>

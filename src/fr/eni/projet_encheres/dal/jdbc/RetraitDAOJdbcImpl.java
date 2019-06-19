@@ -79,6 +79,7 @@ public class RetraitDAOJdbcImpl implements DAO<Retrait> {
             stmt.setString(3, retrait.getVille());
             stmt.setInt(4, retrait.getNoArticle());
             stmt.executeUpdate();
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -95,6 +96,7 @@ public class RetraitDAOJdbcImpl implements DAO<Retrait> {
             PreparedStatement stmt = cnx.prepareStatement(DELETE);
             stmt.setInt(1, retrait.getNoArticle());
             stmt.executeUpdate();
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();

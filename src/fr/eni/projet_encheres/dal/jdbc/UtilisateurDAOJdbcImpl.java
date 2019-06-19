@@ -32,6 +32,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
                 utilisateur.setNoUtilisateur(rs.getInt(1));
             }
             setSecurityRoles(utilisateur);
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -59,6 +60,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             if (rs.next()) {
                 utilisateur = hydrateUtilisateur(rs);
             }
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -86,6 +88,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             if (rs.next()) {
                 utilisateur = hydrateUtilisateur(rs);
             }
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -116,6 +119,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             while (rs.next()) {
                 pseudos.put(rs.getInt("no_article"), rs.getString("pseudo"));
             }
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -141,6 +145,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             while (rs.next()) {
                 utilisateurs.add(hydrateUtilisateur(rs));
             }
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -177,6 +182,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             stmt.setString(13, utilisateur.getPseudo());
             stmt.setInt(14, utilisateur.getNoUtilisateur());
             stmt.executeUpdate();
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -200,6 +206,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             stmt.setInt(1, newCredit);
             stmt.setInt(2, noUtilisateur);
             stmt.executeUpdate();
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -222,6 +229,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             stmt.setInt(1, utilisateur.getNoUtilisateur());
             stmt.setString(2, utilisateur.getPseudo());
             stmt.executeUpdate();
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -315,6 +323,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             if (rs.next()) {
                 isUnique = false;
             }
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -345,6 +354,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             if (rs.next()) {
                 isUnique = false;
             }
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -375,6 +385,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
             if (rs.next()) {
                 isUnique = false;
             }
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();

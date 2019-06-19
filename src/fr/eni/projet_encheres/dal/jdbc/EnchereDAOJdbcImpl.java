@@ -24,6 +24,7 @@ public class EnchereDAOJdbcImpl implements DAOEnchere {
             stmt.setObject(3, new Timestamp(enchere.getDateEnchere().getTime()));
             stmt.setInt(4, enchere.getMontantEnchere());
             stmt.executeUpdate();
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -58,6 +59,7 @@ public class EnchereDAOJdbcImpl implements DAOEnchere {
             while (rs.next()) {
                 noArticlesMatched.add(rs.getInt("no_article"));
             }
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -97,6 +99,7 @@ public class EnchereDAOJdbcImpl implements DAOEnchere {
             while (rs.next()) {
                 articlesWonByUtilisateur.add(rs.getInt("no_article"));
             }
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
@@ -138,6 +141,7 @@ public class EnchereDAOJdbcImpl implements DAOEnchere {
             } else {
                 result = null;
             }
+            cnx.close();
         } catch (SQLException e) {
             e.printStackTrace();
             DALException dalException = new DALException();
