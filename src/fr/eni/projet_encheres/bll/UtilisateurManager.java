@@ -71,11 +71,19 @@ public class UtilisateurManager {
      * @throws BLLException If there is any format issues with the instance
      * @throws DALException If there is any issues with the DAL part
      */
-    public void updateUtilisateur (Utilisateur utilisateur) throws BLLException, DALException {
+    public void updateUtilisateur (Utilisateur utilisateur, boolean checkForMail, boolean checkForUser) throws BLLException, DALException {
         BLLException bllException = validateUtilisateur(utilisateur);
-        if (!dao.checkForUniquePseudoAndMail(utilisateur.getPseudo(), utilisateur.getEmail())) {
-            bllException.addError(ErrorCodesBLL.ERROR_PSEUDO_OR_MAIL_ALREADY_TAKEN);
+        if (checkForMail) {
+            if (!dao.checkForUniqueMail(utilisateur.getEmail())) {
+                bllException.addError(ErrorCodesBLL.ERROR_PSEUDO_OR_MAIL_ALREADY_TAKEN);
+            }
         }
+        if (checkForUser) {
+            if(!dao.checkForUniquePseudo(utilisateur.getPseudo())) {
+                bllException.addError(ErrorCodesBLL.ERROR_PSEUDO_OR_MAIL_ALREADY_TAKEN);
+            }
+        }
+
         if (bllException.hasErrors()) {
             throw bllException;
         } else {

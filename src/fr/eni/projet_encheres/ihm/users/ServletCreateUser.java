@@ -1,12 +1,11 @@
 package fr.eni.projet_encheres.ihm.users;
 
-import fr.eni.projet_encheres.bll.ArticleVenduManager;
 import fr.eni.projet_encheres.bll.BLLException;
-import fr.eni.projet_encheres.bll.CategorieManager;
 import fr.eni.projet_encheres.bll.UtilisateurManager;
 import fr.eni.projet_encheres.bo.Utilisateur;
 import fr.eni.projet_encheres.dal.DALException;
 import fr.eni.projet_encheres.ihm.ManagementTools.ErrorsManagement;
+import fr.eni.projet_encheres.ihm.ManagementTools.PasswordManagement;
 import fr.eni.projet_encheres.ihm.ManagementTools.RequestManagement;
 
 import javax.servlet.RequestDispatcher;
@@ -16,8 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,20 +26,7 @@ public class ServletCreateUser extends HttpServlet {
         List<String> errors = new ArrayList<>();
         // Hash password
         String password = request.getParameter("password");
-        String generatedPassword = null;
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(password.getBytes());
-            byte[] bytes = md.digest();
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0 ; i < bytes.length ; i++) {
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-            }
-            generatedPassword = sb.toString();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-
+        String generatedPassword = PasswordManagement.hashPassword(password);
         // New user
         Utilisateur utilisateur = new Utilisateur(
                 request.getParameter("pseudo"),
@@ -77,6 +61,7 @@ public class ServletCreateUser extends HttpServlet {
             request.setAttribute("page", "home");
         } else {
             request.setAttribute("page", "createLogin");
+            request.setAttribute("utilisateurError", utilisateur);
         }
         rd.forward(request, response);
     }

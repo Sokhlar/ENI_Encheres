@@ -323,4 +323,64 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
         }
         return isUnique;
     }
+
+    /**
+     * Check in the Database is a pseudo and a mail adress all already takeen
+     * @param pseudo String The mail
+     * @return boolean true if the pseudo and the mail are free and false if not
+     * @throws DALException If the SQL request is wrong
+     */
+    @Override
+    public boolean checkForUniquePseudo(String pseudo) throws DALException {
+        Connection cnx = JdbcTools.connect();
+        boolean isUnique = true;
+        try {
+            String CHECK_IF_PSEUDO_ALREADY_EXIST =
+                    "SELECT * FROM UTILISATEURS " +
+                            "WHERE pseudo LIKE ?;";
+            PreparedStatement stmt = cnx.prepareStatement(CHECK_IF_PSEUDO_ALREADY_EXIST);
+            stmt.setString(1, pseudo);
+            stmt.execute();
+            ResultSet rs = stmt.getResultSet();
+            if (rs.next()) {
+                isUnique = false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_SELECT);
+            throw dalException;
+        }
+        return isUnique;
+    }
+
+    /**
+     * Check in the Database is a pseudo and a mail adress all already takeen
+     * @param mail String The mail
+     * @return boolean true if the pseudo and the mail are free and false if not
+     * @throws DALException If the SQL request is wrong
+     */
+    @Override
+    public boolean checkForUniqueMail(String mail) throws DALException {
+        Connection cnx = JdbcTools.connect();
+        boolean isUnique = true;
+        try {
+            String CHECK_IF_MAIL_ALREADY_EXIST =
+                    "SELECT * FROM UTILISATEURS " +
+                            "WHERE email LIKE ?;";
+            PreparedStatement stmt = cnx.prepareStatement(CHECK_IF_MAIL_ALREADY_EXIST);
+            stmt.setString(1, mail);
+            stmt.execute();
+            ResultSet rs = stmt.getResultSet();
+            if (rs.next()) {
+                isUnique = false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DALException dalException = new DALException();
+            dalException.addError(ErrorCodesDAL.ERROR_SQL_SELECT);
+            throw dalException;
+        }
+        return isUnique;
+    }
 }
