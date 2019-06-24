@@ -30,8 +30,10 @@ La placer à l'intérieur de la balise suivante (protection contre les attaques 
 
 Mise en place de deux procédures stockée à exécuter tous les jours à 0h
 Elles mettent à jour les statuts des enchères :
+
 Procédure 'startAuction'
 - "Non commencée" à "En cours" lorsque la date de début d'enchère a été atteinte
+
 Procédure 'endAuction'
 - "En cours" à "Finie" lorsque la date de fin d'échère a été atteinte
 
